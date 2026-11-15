@@ -1,0 +1,2766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>考研数学（二）知识点全解 · 高数与线代</title>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231E4D43'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23FCFCFA' font-family='serif'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#FCFCFA;
+  --paper-2:#F4F3ED;
+  --ink:#191C21;
+  --ink-2:#525860;
+  --ink-3:#8B9199;
+  --rule:#D9D6CD;
+  --rule-soft:#E8E6DE;
+  --green:#1E4D43;
+  --green-soft:#EDF2F0;
+  --red:#A03A2C;
+  --red-soft:#FBF0ED;
+  --blue:#2A4A6B;
+  --blue-soft:#EFF2F6;
+  --serif:"Noto Serif SC","Songti SC",Georgia,"Times New Roman",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.95;
+  -webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(180deg,#F8F7F2 0%,#FCFCFA 340px);
+}
+@media(max-width:1024px){body{scroll-padding-top:96px}}
+p,li,h2,h3,td,th{overflow-wrap:anywhere}
+#progress{position:fixed;left:0;top:0;height:2px;width:0;background:var(--green);z-index:99;transition:width .12s linear}
+
+/* ---------- 报头 ---------- */
+.masthead{max-width:1180px;margin:0 auto;padding:64px 32px 28px}
+.kicker{font-family:var(--sans);font-size:13px;letter-spacing:.16em;color:var(--green);font-weight:500}
+h1{margin:14px 0 0;font-size:clamp(30px,4.6vw,50px);line-height:1.24;font-weight:700;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--green)}
+.lede{margin:18px 0 0;max-width:660px;color:var(--ink-2);font-size:16.5px;line-height:1.85}
+.exam-bar{display:flex;flex-wrap:wrap;gap:0;margin:38px 0 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.exam-bar>div{flex:1 1 0;min-width:0;padding:18px 20px 16px;border-right:1px solid var(--rule-soft)}
+.exam-bar>div:last-child{border-right:none}
+.exam-bar b{display:block;font-family:var(--sans);font-size:26px;font-weight:700;line-height:1.2;color:var(--ink)}
+.exam-bar span{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 范围对照 ---------- */
+.scope{max-width:1180px;margin:0 auto;padding:12px 32px 0}
+.scope-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:0;border:1px solid var(--rule);background:#fff}
+.scope-grid>div{padding:22px 24px}
+.scope-grid>div:first-child{border-right:1px solid var(--rule)}
+.scope h4{margin:0 0 12px;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.06em}
+.scope ul{margin:0;padding-left:1.1em;font-size:14.5px;line-height:1.95;color:var(--ink-2)}
+.scope ul li::marker{color:var(--rule)}
+.scope .on h4{color:var(--green)}
+.scope .off h4{color:var(--red)}
+
+/* ---------- 骨架 ---------- */
+.shell{max-width:1180px;margin:0 auto;padding:0 32px 96px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:56px;align-items:start}
+.rail{position:sticky;top:28px;max-height:calc(100vh - 56px);overflow-y:auto;padding-right:8px}
+.rail::-webkit-scrollbar{width:4px}
+.rail::-webkit-scrollbar-thumb{background:var(--rule);border-radius:2px}
+.search{width:100%;padding:9px 11px;border:1px solid var(--rule);background:#fff;font-family:var(--sans);font-size:13.5px;color:var(--ink);outline:none}
+.search:focus{border-color:var(--green)}
+.rail-title{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--ink-3);margin:20px 0 10px}
+.toc{list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:13.5px}
+.toc a{display:grid;grid-template-columns:26px 1fr;gap:6px;padding:7px 0;color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;line-height:1.5}
+.toc a:hover{color:var(--green)}
+.toc a.active{color:var(--green);font-weight:700}
+.toc .tn{font-variant-numeric:tabular-nums;color:var(--ink-3);font-size:12px}
+.toc a.active .tn{color:var(--green)}
+.rail-note{margin-top:22px;font-size:12.5px;color:var(--ink-3);line-height:1.8;font-family:var(--sans)}
+
+.main{min-width:0}
+.rail{min-width:0}
+/* ---------- 章节 ---------- */
+.chapter{padding:8px 0 56px;margin-bottom:8px;border-bottom:1px solid var(--rule-soft)}
+.chapter:last-of-type{border-bottom:none}
+.ch-head{display:flex;align-items:baseline;gap:20px;padding:26px 0 10px;border-top:2px solid var(--ink);margin-top:26px}
+.ch-no{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--green);letter-spacing:.08em;flex:none;padding-top:3px}
+.ch-head h2{margin:0;font-size:clamp(24px,3vw,32px);line-height:1.3;font-weight:700;letter-spacing:-.01em}
+.ch-sub{margin:8px 0 0;font-size:14px;color:var(--ink-3);line-height:1.7;font-family:var(--sans)}
+
+.blk{margin:34px 0 0;overflow-x:clip}
+.blk h3{font-size:19.5px;margin:0 0 12px;line-height:1.5;font-weight:600;display:flex;gap:10px;align-items:baseline}
+.blk h3 .n{font-family:var(--sans);font-size:12.5px;color:var(--green);font-weight:700;flex:none;letter-spacing:.02em}
+.blk p{margin:10px 0;color:var(--ink);font-size:16.5px}
+.blk p.sm{font-size:15px;color:var(--ink-2)}
+.lead-in{color:var(--ink-2);font-size:15.5px}
+
+/* 定义 / 定理 / 性质 / 方法 / 提醒 */
+.box{border:1px solid var(--rule);background:#fff;padding:15px 18px 15px;margin:14px 0;font-size:15.8px;line-height:1.9;position:relative}
+.box .t{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.03em;display:block;margin-bottom:6px}
+.def{border-left:3px solid var(--ink-2)}
+.def .t{color:var(--ink-2)}
+.thm{border-left:3px solid var(--green)}
+.thm .t{color:var(--green)}
+.prop{border-left:3px solid var(--green);background:var(--green-soft)}
+.prop .t{color:var(--green)}
+.how{border-left:3px solid var(--blue);background:var(--blue-soft)}
+.how .t{color:var(--blue)}
+.tip{border-left:3px solid var(--red);background:var(--red-soft)}
+.tip .t{color:var(--red)}
+.plain{background:transparent;border:none;border-top:1px solid var(--rule-soft);padding:12px 0 0}
+
+.fx{margin:16px 0;padding:4px 0 4px 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+.katex-display{overflow-x:auto;overflow-y:hidden;text-align:left}
+.katex-display>.katex{display:inline-block;min-width:100%;text-align:center}
+.fx .katex-display{margin:.4em 0}
+ul.list,ol.list{margin:10px 0;padding-left:1.35em;font-size:16.3px}
+ul.list li,ol.list li{margin:6px 0}
+ul.list li::marker{color:var(--green)}
+ol.list li::marker{color:var(--green);font-family:var(--sans);font-size:.9em}
+.tag{font-family:var(--sans);font-size:12px;color:var(--ink-3);border:1px solid var(--rule);padding:1px 6px;margin-left:8px;white-space:nowrap}
+
+/* 表格 */
+.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.8px;font-family:var(--sans);table-layout:fixed;background:#fff}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;max-width:100%}
+.tbl-wrap .tbl{margin:0}
+.tbl th,.tbl td{border:1px solid var(--rule-soft);padding:9px 11px;text-align:left;vertical-align:top;line-height:1.65;word-break:break-word}
+.tbl th{background:var(--paper-2);font-weight:700;font-size:13.5px;color:var(--ink)}
+.tbl td{color:var(--ink-2)}
+
+/* 章内题型分隔 */
+.types-head{margin:54px 0 2px;padding-top:18px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.types-head b{font-family:var(--sans);font-size:13px;color:var(--green);letter-spacing:.04em}
+.types-head i{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--ink-3)}
+
+/* 例题 */
+.ex{border:1px solid var(--rule);background:var(--paper-2);padding:14px 18px;margin:14px 0;font-size:15.6px;line-height:1.9}
+.ex .t{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.03em;display:block;margin-bottom:6px}
+.ex p{margin:4px 0}
+.ex .sol{margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule);color:var(--ink)}
+
+/* 我的批注 */
+.kicker .ver{display:inline-block;margin-left:12px;padding:1px 7px;border:1px solid var(--green);font-size:10.5px;letter-spacing:.12em;color:var(--green);vertical-align:2px;font-style:normal}
+.nbtn{margin-left:2px;flex:0 0 auto;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--ink-3);background:none;border:1px solid var(--rule-soft);padding:2px 7px;line-height:1.45;cursor:pointer;opacity:.55;transition:color .15s,border-color .15s,background .15s,opacity .15s}
+.nbtn:hover,.nbtn:focus-visible{opacity:1;color:var(--green);border-color:var(--green)}
+.nbtn.on{opacity:1;color:#fff;background:var(--green);border-color:var(--green)}
+.mynote{position:relative;margin:14px 0 0;padding:11px 16px 12px;background:#FBF7EC;border:1px solid #E6DCC4;border-left:3px solid #9A8757;font-family:var(--sans);font-size:14.5px;line-height:1.85;color:#4B4231}
+.mynote .mt{font-size:11px;font-weight:700;letter-spacing:.08em;color:#9A8757;display:block;margin-bottom:3px}
+.mynote .mc{white-space:pre-wrap;word-break:break-word}
+.mynote .del{position:absolute;top:8px;right:10px;font-family:var(--sans);font-size:11px;color:#9A8757;background:none;border:none;cursor:pointer;padding:2px}
+.mynote .del:hover{color:var(--red)}
+.ntool{position:fixed;right:16px;bottom:16px;z-index:95;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.ntool .fab{width:44px;height:44px;border:1px solid var(--green);background:var(--paper);color:var(--green);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;position:relative}
+.ntool .fab:hover{background:var(--green);color:#fff}
+.ntool .fab svg{width:18px;height:18px}
+.ntool .badge{position:absolute;top:-7px;right:-7px;min-width:17px;height:17px;padding:0 4px;background:var(--red);color:#fff;font-family:var(--sans);font-size:10.5px;line-height:17px;text-align:center}
+.ntool .badge[hidden]{display:none}
+.npanel{width:228px;background:var(--paper);border:1px solid var(--rule);padding:13px 16px 14px;font-family:var(--sans);font-size:12.6px;line-height:1.75;color:var(--ink-2);box-shadow:0 6px 18px rgba(0,0,0,.07)}
+.npanel[hidden]{display:none}
+.npanel b{display:block;font-size:13px;color:var(--ink);margin-bottom:6px}
+.npanel p{margin:0 0 9px}
+.npanel .row{display:flex;gap:8px}
+.npanel button{flex:1;font-family:var(--sans);font-size:12px;padding:6px 8px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);cursor:pointer}
+.npanel .exp{background:var(--green);border-color:var(--green);color:#fff}
+.npanel .warn{margin-top:9px;font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.nedit{position:fixed;left:0;right:0;bottom:0;z-index:120;background:var(--paper);border-top:1px solid var(--rule)}
+.nedit .inner{max-width:820px;margin:0 auto;padding:14px 20px calc(16px + env(safe-area-inset-bottom))}
+.nedit .eh{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:8px}
+.nedit .eh b{font-family:var(--sans);font-size:13px;color:var(--green);letter-spacing:.02em}
+.nedit .eh span{font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+.nedit textarea{display:block;width:100%;min-height:104px;resize:vertical;border:1px solid var(--rule);background:#fff;padding:10px 12px;font-family:var(--serif);font-size:16px;line-height:1.8;color:var(--ink);outline:none}
+.nedit textarea:focus{border-color:var(--green)}
+.nedit .er{display:flex;gap:10px;margin-top:10px}
+.nedit .er button{font-family:var(--sans);font-size:12.5px;padding:7px 18px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);cursor:pointer}
+.nedit .er .ok{background:var(--green);border-color:var(--green);color:#fff}
+.nedit .er .rm{margin-left:auto;color:var(--red);border-color:var(--red-soft)}
+@media print{.nbtn,.ntool,.nedit{display:none}}
+
+/* 附录 */
+.appendix{margin-top:40px}
+.foot{border-top:1px solid var(--rule);margin-top:56px;padding:22px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.9}
+.empty{padding:40px 0;color:var(--ink-3);font-family:var(--sans);font-size:14px;display:none}
+
+@media(max-width:1024px){
+  .masthead{padding:40px 20px 20px}
+  .scope{padding:0 20px}
+  .scope-grid{grid-template-columns:1fr}
+  .scope-grid>div:first-child{border-right:none;border-bottom:1px solid var(--rule)}
+  .exam-bar{display:grid;grid-template-columns:1fr 1fr}
+  .exam-bar>div{border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+  .exam-bar>div:nth-child(2n){border-right:none}
+  .exam-bar>div:nth-child(3),.exam-bar>div:nth-child(4){border-bottom:none}
+  .shell{grid-template-columns:minmax(0,1fr);gap:0;padding:0 20px 72px}
+  .rail{position:sticky;top:0;z-index:60;background:rgba(252,252,250,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);margin:0;padding:10px 0 8px;max-height:none;overflow:hidden;width:auto}
+  .rail-title,.rail-note{display:none}
+  .rail .search{margin-bottom:8px}
+  .toc{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;width:100%;max-width:100%}
+  .toc::-webkit-scrollbar{display:none}
+  .toc a{grid-template-columns:1fr;padding:5px 10px;border:1px solid var(--rule);white-space:nowrap;background:#fff;font-size:12.5px}
+  .toc a .tn{display:none}
+  .toc a.active{border-color:var(--green);background:var(--green);color:#fff}
+  .blk h3{font-size:18px}
+  .tbl{table-layout:auto}
+  .tbl .katex{font-size:.92em}
+  .fx .katex{font-size:1.02em}
+  body{font-size:16.5px}
+}
+@media print{
+  #progress,.rail{display:none}
+  body{background:#fff;font-size:11pt}
+  .shell{display:block;padding:0}
+  .masthead,.scope{max-width:none;padding:0 0 12pt}
+  .box,.tbl{break-inside:avoid}
+  .fx{overflow:visible}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="masthead">
+  <div class="kicker">高等数学 · 线性代数<i class="ver">批注版</i></div>
+  <h1>考研数学（二）<br><em>知识点全解</em></h1>
+  <p class="lede">按大纲章节顺序编排，逐条列出定义、定理、性质与判定条件，并在每个考点后附上解题路径与易错提醒。共十章：高等数学五章、线性代数五章，每章末尾先给题型全览，再给重点题型的详解与例题。</p>
+  <div class="exam-bar">
+    <div><b>150</b><span>满分</span></div>
+    <div><b>180</b><span>分钟</span></div>
+    <div><b>10 + 6 + 6</b><span>选择 / 填空 / 解答</span></div>
+    <div><b>117 : 33</b><span>高数 : 线代 分值</span></div>
+  </div>
+</header>
+
+<section class="scope">
+  <div class="scope-grid">
+    <div class="on">
+      <h4>数学二包含</h4>
+      <ul>
+        <li>高等数学：函数极限连续、一元微分、一元积分、多元函数微积分（偏导、全微分、极值、二重积分）、常微分方程</li>
+        <li>线性代数：行列式、矩阵、向量、线性方程组、特征值与特征向量、二次型</li>
+        <li>方法覆盖：换元与分部、中值定理构造、二重积分换序与极坐标、一阶与二阶常系数方程、相似对角化与正定判定</li>
+      </ul>
+    </div>
+    <div class="off">
+      <h4>数学二不考</h4>
+      <ul>
+        <li>无穷级数（数项级数、幂级数、傅里叶级数）</li>
+        <li>空间解析几何与向量代数</li>
+        <li>三重积分、曲线积分、曲面积分、格林与高斯公式</li>
+        <li>概率论与数理统计、复变函数</li>
+        <li>欧拉方程、伯努利方程、差分方程、一致收敛等深化内容</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+  <aside class="rail">
+    <input class="search" id="search" type="search" placeholder="搜索考点，如「罗尔」">
+    <p class="rail-title">目录</p>
+    <nav>
+      <ul class="toc" id="toc">
+        <li><a href="#c1"><span class="tn">01</span><span>函数、极限与连续</span></a></li>
+        <li><a href="#c2"><span class="tn">02</span><span>一元函数微分学</span></a></li>
+        <li><a href="#c3"><span class="tn">03</span><span>一元函数积分学</span></a></li>
+        <li><a href="#c4"><span class="tn">04</span><span>多元函数微积分</span></a></li>
+        <li><a href="#c5"><span class="tn">05</span><span>常微分方程</span></a></li>
+        <li><a href="#c6"><span class="tn">06</span><span>行列式</span></a></li>
+        <li><a href="#c7"><span class="tn">07</span><span>矩阵</span></a></li>
+        <li><a href="#c8"><span class="tn">08</span><span>向量与秩</span></a></li>
+        <li><a href="#c9"><span class="tn">09</span><span>线性方程组</span></a></li>
+        <li><a href="#c10"><span class="tn">10</span><span>特征值与二次型</span></a></li>
+        <li><a href="#c11"><span class="tn">附</span><span>公式与易错速查</span></a></li>
+      </ul>
+    </nav>
+    <p class="rail-note">点击章节跳转；搜索结果会隐藏不匹配的知识块，清空输入即恢复。</p>
+  </aside>
+
+  <main class="main" id="main">
+    <!-- ============ 第一章 函数、极限与连续 ============ -->
+    <section class="chapter" id="c1">
+      <div class="ch-head">
+        <span class="ch-no">01</span>
+        <div>
+          <h2>函数、极限与连续</h2>
+          <p class="ch-sub">全卷的地基。极限计算必考，选择填空常以等价无穷小、间断点类型、无穷小阶的比较出现。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c1-1"><span class="n">1.1</span>函数的概念与四条基本特性<button class="nbtn" type="button" data-k="c1-1" aria-label="为「1.1函数的概念与四条基本特性」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 1.1　函数</span>
+          设 $D$ 为非空数集，若对每个 $x\in D$ 按某一对应法则 $f$ 有唯一确定的 $y$ 与之对应，则称 $f$ 为定义在 $D$ 上的函数，记作 $y=f(x)$，$D$ 称为定义域。
+        </div>
+        <p>函数的四个基本特性是一切讨论的出发点，判断时务必先看定义域是否关于原点对称。</p>
+        <div class="box prop"><span class="t">性质 1.1　有界性</span>
+          若存在 $M\gt 0$，使对任意 $x\in X$ 都有 $|f(x)|\le M$，则称 $f$ 在 $X$ 上有界。等价说法：$f$ 在 $X$ 上既有上界又有下界。<br>
+          注意：有界性是相对于区间而言的。$\dfrac{1}{x}$ 在 $(0,1)$ 内无界，在 $(1,+\infty)$ 内有界。
+        </div>
+        <div class="box prop"><span class="t">性质 1.2　单调性</span>
+          设 $x_1\lt x_2$ 时恒有 $f(x_1)\lt f(x_2)$，称 $f$ 单调递增；恒有 $f(x_1)\gt f(x_2)$，称单调递减。<br>
+          判定工具：$f'(x)\gt 0$ 则严格增；$f'(x)\ge 0$ 且不在任何子区间上恒为零则严格增。
+        </div>
+        <div class="box prop"><span class="t">性质 1.3　奇偶性</span>
+          定义域关于原点对称的前提下：$f(-x)=f(x)$ 为偶函数，图像关于 $y$ 轴对称；$f(-x)=-f(x)$ 为奇函数，图像关于原点对称。<br>
+          运算规律：奇 × 奇 = 偶，偶 × 偶 = 偶，奇 × 偶 = 奇；奇函数的导数为偶函数，偶函数的导数为奇函数；奇函数在对称区间上的定积分为零。
+        </div>
+        <div class="box prop"><span class="t">性质 1.4　周期性</span>
+          若存在 $T\ne 0$ 使 $f(x+T)=f(x)$ 对一切 $x$ 成立，称 $f$ 为周期函数。<br>
+          并非每个周期函数都有最小正周期，如 Dirichlet 函数 $D(x)$（有理点取 1、无理点取 0），任何非零有理数都是它的周期。
+        </div>
+        <div class="box prop"><span class="t">性质 1.5　反函数与复合</span>
+          严格单调函数必有反函数，且反函数与原函数单调性相同、图像关于直线 $y=x$ 对称。<br>
+          复合函数 $y=f[\varphi(x)]$ 成立的条件是 $\varphi$ 的值域落在 $f$ 的定义域内。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-2"><span class="n">1.2</span>基本初等函数与初等函数<button class="nbtn" type="button" data-k="c1-2" aria-label="为「1.2基本初等函数与初等函数」写批注">记</button></h3>
+        <p class="lead-in">六类基本初等函数：幂函数 $x^\mu$、指数函数 $a^x\ (a\gt0,a\ne1)$、对数函数 $\log_a x$、三角函数、反三角函数、常函数。由它们经有限次四则运算与复合、且能用一个解析式表示的函数，称为初等函数。</p>
+        <div class="box how"><span class="t">必须记住的图形特征</span>
+          $y=e^x$ 恒过 $(0,1)$，$x\to-\infty$ 时为水平渐近线 $y=0$；$y=\ln x$ 定义域 $(0,+\infty)$，$x\to0^+$ 时趋向 $-\infty$；<br>
+          $y=\arctan x$ 值域 $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$，两条水平渐近线 $y=\pm\frac{\pi}{2}$；<br>
+          $y=\arcsin x,\ \arccos x$ 定义域 $[-1,1]$，值域分别为 $\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$、$[0,\pi]$；<br>
+          $y=\cot x$ 在 $x=k\pi$ 处无定义，$y=\sec x$ 在 $x=\frac{\pi}{2}+k\pi$ 处无定义。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-3"><span class="n">1.3</span>极限的定义<button class="nbtn" type="button" data-k="c1-3" aria-label="为「1.3极限的定义」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 1.2　数列极限（$\varepsilon$–$N$）</span>
+          对任意 $\varepsilon\gt0$，总存在正整数 $N$，当 $n\gt N$ 时恒有 $|a_n-A|\lt\varepsilon$，则称 $\lim\limits_{n\to\infty}a_n=A$。
+        </div>
+        <div class="box def"><span class="t">定义 1.3　函数极限（$\varepsilon$–$\delta$）</span>
+          对任意 $\varepsilon\gt0$，总存在 $\delta\gt0$，当 $0\lt|x-x_0|\lt\delta$ 时恒有 $|f(x)-A|\lt\varepsilon$，则 $\lim\limits_{x\to x_0}f(x)=A$。<br>
+          当 $|x|\gt X$ 时成立，则记 $\lim\limits_{x\to\infty}f(x)=A$。
+        </div>
+        <div class="box thm"><span class="t">定理 1.1　极限存在的充要条件</span>
+          $\lim\limits_{x\to x_0}f(x)$ 存在 $\iff$ 左极限 $f(x_0^-)$ 与右极限 $f(x_0^+)$ 都存在且相等。<br>
+          分段函数在分界点、含绝对值与取整函数的极限问题，一律先算左右极限。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-4"><span class="n">1.4</span>极限的性质<button class="nbtn" type="button" data-k="c1-4" aria-label="为「1.4极限的性质」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 1.2　唯一性</span>
+          若极限存在，则极限值唯一。
+        </div>
+        <div class="box thm"><span class="t">定理 1.3　局部有界性</span>
+          若 $\lim\limits_{x\to x_0}f(x)=A$，则存在 $x_0$ 的去心邻域，$f$ 在该邻域内有界。
+        </div>
+        <div class="box thm"><span class="t">定理 1.4　局部保号性</span>
+          若 $\lim\limits_{x\to x_0}f(x)=A\gt0$（或 $\lt0$），则存在去心邻域，使该邻域内 $f(x)\gt0$（或 $\lt0$）。<br>
+          逆用（常考）：若在 $x_0$ 的某去心邻域内 $f(x)\ge0$ 且极限存在，则 $A\ge0$。注意结论只能取到「$\ge$」，推不出 $A\gt0$。
+        </div>
+        <div class="box thm"><span class="t">定理 1.5　极限与无穷小的关系</span>
+          $\lim f(x)=A\iff f(x)=A+\alpha$，其中 $\alpha$ 为同一过程下的无穷小。
+        </div>
+        <div class="box thm"><span class="t">定理 1.6　四则运算</span>
+          若 $\lim f=A$，$\lim g=B$ 均存在，则 $\lim(f\pm g)=A\pm B$，$\lim(fg)=AB$，且当 $B\ne0$ 时 $\lim\frac{f}{g}=\frac{A}{B}$。<br>
+          拆项的前提是拆开后每一项的极限都存在，否则不能拆。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-5"><span class="n">1.5</span>无穷小与无穷大<button class="nbtn" type="button" data-k="c1-5" aria-label="为「1.5无穷小与无穷大」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 1.4</span>
+          极限为零的变量称为无穷小；绝对值无限增大的变量称为无穷大。在同一过程中，$f$ 为无穷大 $\iff \frac{1}{f}$ 为无穷小（$f\ne0$）。
+        </div>
+        <div class="box prop"><span class="t">性质 1.6　无穷小的运算</span>
+          <ul class="list">
+            <li>有限个无穷小的代数和仍是无穷小；</li>
+            <li><b>有界函数与无穷小的乘积是无穷小</b>（如 $x\sin\frac{1}{x}\to0$，$x\to0$）；</li>
+            <li>常数与无穷小的乘积仍是无穷小；</li>
+            <li>无穷小除以极限非零的变量仍是无穷小。</li>
+          </ul>
+        </div>
+        <div class="box def"><span class="t">定义 1.5　无穷小的阶</span>
+          设 $\alpha,\beta$ 为同一过程的无穷小，且 $\lim\frac{\beta}{\alpha}=c$：<br>
+          $c=0$ 时 $\beta$ 是 $\alpha$ 的<b>高阶</b>无穷小，记 $\beta=o(\alpha)$；$c=\infty$ 时为<b>低阶</b>；$c\ne0$ 且有限时为<b>同阶</b>；$c=1$ 时称<b>等价</b>无穷小，记 $\alpha\sim\beta$；<br>
+          若 $\lim\frac{\beta}{\alpha^k}=c\ne0$，称 $\beta$ 是 $\alpha$ 的 <b>$k$ 阶</b>无穷小。
+        </div>
+        <div class="box thm"><span class="t">定理 1.7　等价无穷小替换</span>
+          设 $\alpha\sim\alpha'$，$\beta\sim\beta'$，且 $\lim\frac{\beta'}{\alpha'}$ 存在，则 $\lim\frac{\beta}{\alpha}=\lim\frac{\beta'}{\alpha'}$。<br>
+          <b>使用边界</b>：只能在<b>乘除</b>因子位置整体替换；在加减中替换，必须保证替换后不产生「主部相消」，即误差项的阶不能与被替换量同阶。
+        </div>
+        <div class="box how"><span class="t">常用等价无穷小（$x\to0$）</span>
+          $$\sin x\sim x,\quad \tan x\sim x,\quad \arcsin x\sim x,\quad \arctan x\sim x$$
+          $$1-\cos x\sim \tfrac{x^2}{2},\quad e^x-1\sim x,\quad \ln(1+x)\sim x,\quad (1+x)^\alpha-1\sim \alpha x$$
+          $$a^x-1\sim x\ln a,\quad \log_a(1+x)\sim \tfrac{x}{\ln a}$$
+          <b>二阶精度（加减中必须用到）</b>：
+          $$x-\sin x\sim \tfrac{x^3}{6},\quad \tan x-x\sim \tfrac{x^3}{3},\quad x-\ln(1+x)\sim \tfrac{x^2}{2}$$
+          $$\arcsin x-x\sim \tfrac{x^3}{6},\quad x-\arctan x\sim \tfrac{x^3}{3},\quad \tan x-\sin x\sim \tfrac{x^3}{2}$$
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          $\sin x-x$ 若写成 $x-x=0$，就把三阶主部丢了，结论会变成「高阶无穷小」甚至错误阶数。凡「同号函数相减」型，先泰勒展开到首个非零项再比较。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-6"><span class="n">1.6</span>极限存在的两个准则与两个重要极限<button class="nbtn" type="button" data-k="c1-6" aria-label="为「1.6极限存在的两个准则与两个重要极限」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 1.8　夹逼准则</span>
+          若在 $x_0$ 的某去心邻域内 $g(x)\le f(x)\le h(x)$，且 $\lim g=\lim h=A$，则 $\lim f=A$。数列情形完全同理：存在 $N$，当 $n\gt N$ 时 $y_n\le x_n\le z_n$，且 $\lim y_n=\lim z_n=a$，则 $\lim x_n=a$。
+        </div>
+        <div class="box thm"><span class="t">定理 1.9　单调有界准则</span>
+          单调递增且有上界的数列必收敛；单调递减且有下界的数列必收敛。<br>
+          这是证明递推数列 $x_{n+1}=f(x_n)$ 收敛的标准工具：先用归纳法证有界，再用 $x_{n+1}-x_n$ 的符号定单调。
+        </div>
+        <div class="box thm"><span class="t">定理 1.10　两个重要极限</span>
+          $$\lim_{x\to0}\frac{\sin x}{x}=1\qquad \lim_{x\to\infty}\left(1+\frac1x\right)^x=e$$
+          一般形式：$\lim\limits_{u\to0}(1+u)^{\frac1u}=e$，即 $1^\infty$ 型可化归为 $\lim e^{u\cdot\frac{1}{u}}$。
+        </div>
+        <div class="box how"><span class="t">$1^\infty$ 型的标准处理</span>
+          若 $\lim u(x)=1$，$\lim v(x)=\infty$，则
+          $$\lim u^{v}=\exp\!\left\{\lim v\,(u-1)\right\}$$
+          因为 $u^v=\left[1+(u-1)\right]^{v}=\left[1+(u-1)\right]^{\frac{1}{u-1}\cdot v(u-1)}$，括号部分趋于 $e$。也可以直接取对数后用等价无穷小 $\ln u\sim u-1$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-7"><span class="n">1.7</span>极限计算的六条路径<button class="nbtn" type="button" data-k="c1-7" aria-label="为「1.7极限计算的六条路径」写批注">记</button></h3>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:22%"><col style="width:34%"><col style="width:44%"></colgroup>
+          <tr><th>类型</th><th>识别</th><th>处理</th></tr>
+          <tr><td>$\frac00$</td><td>代入后分子分母同为 0</td><td>因式分解约去零因子 / 等价无穷小 / 洛必达 / 泰勒展开</td></tr>
+          <tr><td>$\frac{\infty}{\infty}$</td><td>有理式或含指数、对数</td><td>同除最高次幂；比较增长速度：$\ln x\ll x^\alpha\ll a^x\ll x!$</td></tr>
+          <tr><td>$0\cdot\infty$</td><td>乘积型</td><td>化为 $\frac{0}{0}$ 或 $\frac{\infty}{\infty}$，常用倒代换 $t=\frac1x$</td></tr>
+          <tr><td>$\infty-\infty$</td><td>差式</td><td>通分、有理化（乘共轭）、提出主导项</td></tr>
+          <tr><td>$1^\infty,\ 0^0,\ \infty^0$</td><td>幂指型</td><td>统一写成 $e^{v\ln u}$，转为 $0\cdot\infty$</td></tr>
+          <tr><td>数列和式</td><td>$n$ 项求和、含 $\frac{i}{n}$</td><td>夹逼，或凑定积分定义 $\lim\frac1n\sum f\!\left(\frac{i}{n}\right)=\int_0^1f(x)\,dx$</td></tr>
+        </table></div>
+        <div class="box tip"><span class="t">易错</span>
+          ① 洛必达只对 $\frac00$、$\frac{\infty}{\infty}$ 型有效，且要求求导后极限存在（或为 $\infty$）；求导后振荡不存在时，原极限仍可能存在，须换方法。<br>
+          ② 加减法中先通分再判断型，切勿对每一项分别取极限。<br>
+          ③ 含 $x\to\infty$ 的根式，先提最高次幂，注意 $\sqrt{x^2}=|x|$ 在 $x\to-\infty$ 时为 $-x$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c1-8"><span class="n">1.8</span>函数的连续性与间断点<button class="nbtn" type="button" data-k="c1-8" aria-label="为「1.8函数的连续性与间断点」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 1.6　连续</span>
+          $f$ 在 $x_0$ 连续 $\iff \lim\limits_{x\to x_0}f(x)=f(x_0)$，等价于 $\lim\limits_{\Delta x\to0}\Delta y=0$，即「极限值等于函数值」。<br>
+          左连续：$f(x_0^-)=f(x_0)$；右连续：$f(x_0^+)=f(x_0)$。在区间端点处只要求单侧连续。
+        </div>
+        <div class="box thm"><span class="t">定理 1.11　连续与极限运算</span>
+          连续函数对四则运算、复合运算封闭：$f,g$ 在 $x_0$ 连续，则 $f\pm g$、$fg$、$\frac fg\ (g(x_0)\ne0)$、$f[g(x)]$（内层值域在 $f$ 定义域内）均在 $x_0$ 连续。<br>
+          初等函数在其<b>定义区间</b>内连续，因此求初等函数的极限可直接代入。
+        </div>
+        <div class="box def"><span class="t">定义 1.7　间断点分类</span>
+          若 $f$ 在 $x_0$ 的某去心邻域内有定义而在 $x_0$ 不连续，则 $x_0$ 为间断点：
+          <ul class="list">
+            <li><b>第一类</b>（左右极限都存在）：左右极限相等但 $\ne f(x_0)$ 或 $f(x_0)$ 无定义——<b>可去间断点</b>；左右极限不等——<b>跳跃间断点</b>。</li>
+            <li><b>第二类</b>（左右极限至少一个不存在）：趋于无穷——<b>无穷间断点</b>；振荡无极限（如 $\sin\frac1x$ 在 $0$ 处）——<b>振荡间断点</b>。</li>
+          </ul>
+        </div>
+        <div class="box thm"><span class="t">定理 1.12　闭区间上连续函数的性质</span>
+          设 $f\in C[a,b]$，则：
+          <ul class="list">
+            <li><b>有界性定理</b>：$f$ 在 $[a,b]$ 上有界；</li>
+            <li><b>最值定理</b>：$f$ 在 $[a,b]$ 上必取得最大值 $M$ 与最小值 $m$；</li>
+            <li><b>介值定理</b>：对任意 $\mu\in[m,M]$，存在 $\xi\in[a,b]$ 使 $f(\xi)=\mu$；</li>
+            <li><b>零点定理</b>：若 $f(a)f(b)\lt0$，则存在 $\xi\in(a,b)$ 使 $f(\xi)=0$。</li>
+          </ul>
+          三条前提缺一不可：闭区间、连续、有界性由前两条自动保证。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          零点定理只保证「存在」，不保证唯一；要证唯一，需再加严格单调（或导数不变号）。<br>
+          开区间连续时上述结论不成立，例如 $f(x)=\frac1x$ 在 $(0,1)$ 连续但无界。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c1-9"><span class="n">1.9</span>本章题型全览<button class="nbtn" type="button" data-k="c1-9" aria-label="为「1.9本章题型全览」写批注">记</button></h3>
+        <p class="sm">下列题型按知识点排列，覆盖本章在选择题、填空题与解答题中的出场方式；只列典型做法，不代替具体计算。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>函数四性</td><td>判断有界、单调、奇偶、周期；写复合函数定义域</td><td>先定定义域；有界依赖具体区间；奇偶须定义域关于原点对称；周期函数未必有最小正周期</td></tr>
+          <tr><td>反函数与复合</td><td>求反函数、判断是否构成复合函数、由 $f[g(x)]$ 反求 $f$</td><td>反函数由 $y=f(x)$ 解出 $x$；复合要求内层值域落在外层定义域内；反求用换元 $t=g(x)$</td></tr>
+          <tr><td>极限定义</td><td>用 $\varepsilon$–$N$ / $\varepsilon$–$\delta$ 证明极限；判断极限是否存在</td><td>把 $|a_n-A|$ 放大成只含 $n$（或 $x$）的式子解出 $N$（$\delta$）；判不存在用两条路径或左右极限</td></tr>
+          <tr><td>极限性质</td><td>由保号性确定参数范围；用唯一性反证；局部有界</td><td>极限正只能推出邻域内为正，不能推处处为正；反过来 $f\ge0$ 只能得极限 $\ge0$</td></tr>
+          <tr><td>无穷小比较</td><td>判断是几阶无穷小；求 $k$ 使同阶；等价替换；确定参数 $a,b$</td><td>泰勒展到首个非零项；加减型先看是否主部相消；参数题令低次项系数为零</td></tr>
+          <tr><td>未定式计算</td><td>$\frac00$、$\frac{\infty}{\infty}$、$0\cdot\infty$、$\infty-\infty$、$1^\infty$、$0^0$、$\infty^0$</td><td>定阶 → 化型 → 等价/泰勒/洛必达；幂指型写 $e^{v\ln u}$；根式先提最高次幂（$\sqrt{x^2}=|x|$）</td></tr>
+          <tr><td>数列极限</td><td>和式极限、递推数列、夹逼、定积分定义</td><td>和式凑 $\frac1n\sum f(\frac{i}{n})$；递推先用归纳证有界、再由 $x_{n+1}-x_n$ 定单调，最后对递推式取极限解出 $A$</td></tr>
+          <tr><td>含参极限</td><td>已知极限值求参数；已知是无穷小求次数</td><td>展开比较系数；分类讨论参数使主部相消的情形</td></tr>
+          <tr><td>连续性</td><td>求分段函数中的参数使其连续；讨论连续区间；含绝对值的连续性</td><td>分界点算左右极限并令其相等且等于函数值；初等函数在定义区间内连续</td></tr>
+          <tr><td>间断点</td><td>找出间断点并分类；判断可去间断点并补充定义</td><td>先算左右极限：都存在且相等（或可补）为可去，不等为跳跃，趋向无穷为无穷，振荡为振荡</td></tr>
+          <tr><td>闭区间性质</td><td>证明方程有根、证明存在 $\xi$ 使 $f(\xi)=c$、求最值</td><td>零点定理（端点异号）+ 单调性证唯一；介值定理取 $c\in[m,M]$</td></tr>
+          <tr><td>导数定义（衔接）</td><td>求 $\lim\limits_{h\to0}\frac{f(x_0+ah)-f(x_0+bh)}{h}$；由极限存在反推可导</td><td>凑成 $\frac{f(x_0+ah)-f(x_0)}{ah}\cdot a$ 的形式，结果为 $(a-b)f'(x_0)$；缺项时补项再拆</td></tr>
+        </table></div>
+
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c1-10"><span class="n">1.10</span>求极限：七种未定式的统一流程<button class="nbtn" type="button" data-k="c1-10" aria-label="为「1.10求极限：七种未定式的统一流程」写批注">记</button></h3>
+    <div class="box def"><span class="t">识别信号</span>
+      代入后出现 $\frac00$、$\frac{\infty}{\infty}$、$0\cdot\infty$、$\infty-\infty$、$1^\infty$、$0^0$、$\infty^0$ 之一，或含 $\sin\frac1x$、$\sqrt{x^2}$、$|\cdot|$ 等需要分侧处理的因子。
+    </div>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li><b>定阶</b>：先用等价无穷小或泰勒把分子分母各展开到首个非零项，确定「谁是主部」；</li>
+        <li><b>化型</b>：幂指型统一写成 $e^{v\ln u}$；差式通分或有理化；乘积型化成分式；</li>
+        <li><b>求解</b>：能等价替换的先换，剩下用洛必达或泰勒；含参数时按参数是否使主部相消分类讨论；</li>
+        <li><b>验算</b>：代回特殊值（如 $x=0.01$）估数量级，防止阶数算错。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 1.1</span>
+      <p>求下列极限：</p>
+      $$\lim_{x\to0}\left(\frac{1}{x^2}-\frac{1}{x\tan x}\right)$$
+      <div class="sol"><p><b>解</b>　这是 $\infty-\infty$ 型，先通分：</p>
+      $$\lim_{x\to0}\frac{x\tan x-x^2}{x^2\cdot x\tan x}$$
+      <p>由 $\tan x=x+\frac{x^3}{3}+o(x^3)$ 得 $x\tan x=x^2+\frac{x^4}{3}+o(x^4)$，故分子为 $\frac{x^4}{3}+o(x^4)$，分母为 $x^2\left(x^2+\frac{x^4}{3}+o(x^4)\right)=x^4+o(x^4)$，因此</p>
+      $$\lim_{x\to0}\frac{x\tan x-x^2}{x^2\cdot x\tan x}=\frac{1/3}{1}=\frac13$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      分子分母要展开到<b>同阶</b>；若分子展开到 $x^4$ 而分母只到 $x^3$，比值会趋于零，得出错误结论。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c1-11"><span class="n">1.11</span>无穷小的阶与参数确定<button class="nbtn" type="button" data-k="c1-11" aria-label="为「1.11无穷小的阶与参数确定」写批注">记</button></h3>
+    <div class="box def"><span class="t">识别信号</span>
+      题干出现「是 $x$ 的几阶无穷小」「与 $x^k$ 同阶」「求 $a,b$ 使 $\lim\frac{f(x)}{x^n}=c\ne0$」。
+    </div>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li>把 $f(x)$ 按泰勒公式展开到出现第一个非零项为止，该项的次数即为阶数；</li>
+        <li>含参数时，令低次项系数为零建立方程组，解出参数后代回确认余项确实非零；</li>
+        <li>注意 $f(x)$ 可能由两项同号相减构成（如 $x-\sin x$、$\tan x-\sin x$），必须展到三阶以上。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 1.2</span>
+      <p>若 $\lim\limits_{x\to0}\dfrac{\sin x-ax}{x^3}=c\ne0$，求 $a$ 与 $c$。</p>
+      <div class="sol"><p><b>解</b>　由 $\sin x=x-\dfrac{x^3}{6}+o(x^3)$，分子为</p>
+      $$(\sin x-ax)=(1-a)x-\frac{x^3}{6}+o(x^3)$$
+      <p>要使极限为非零常数，一次项系数必须为零，即 $a=1$；此时分子为 $-\frac{x^3}{6}+o(x^3)$，故 $c=-\dfrac16$。</p></div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      若直接对 $(\sin x-ax)$ 求导再用洛必达，容易在多次求导中丢掉 $a$ 的约束，最后得不到 $a$ 的取值。泰勒是最稳的路径。
+    </div>
+  </article>
+</section>
+    <!-- ============ 第二章 一元函数微分学 ============ -->
+    <section class="chapter" id="c2">
+      <div class="ch-head">
+        <span class="ch-no">02</span>
+        <div>
+          <h2>一元函数微分学</h2>
+          <p class="ch-sub">全卷比重最大的板块之一。中值定理证明题、极值与最值应用题、渐近线与曲率是每年必碰的内容。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c2-1"><span class="n">2.1</span>导数的定义与可导性<button class="nbtn" type="button" data-k="c2-1" aria-label="为「2.1导数的定义与可导性」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 2.1　导数</span>
+          $$f'(x_0)=\lim_{\Delta x\to0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$$
+          若该极限存在，称 $f$ 在 $x_0$ 可导。左导数 $f'_-(x_0)$ 与右导数 $f'_+(x_0)$ 分别取 $\Delta x\to0^-$、$\Delta x\to0^+$。
+        </div>
+        <div class="box thm"><span class="t">定理 2.1　可导的充要条件</span>
+          $f$ 在 $x_0$ 可导 $\iff f'_-(x_0)$ 与 $f'_+(x_0)$ 都存在且相等。<br>
+          分段函数在分界点的可导性、含绝对值函数的可导性，必须用左右导数分别计算。
+        </div>
+        <div class="box thm"><span class="t">定理 2.2　可导与连续的关系</span>
+          可导 $\Rightarrow$ 连续；连续 $\not\Rightarrow$ 可导。<br>
+          反例：$f(x)=|x|$ 在 $x=0$ 连续但左右导数分别为 $-1$、$1$；$f(x)=x\sin\frac1x$（$x\ne0$），$f(0)=0$ 在 $0$ 连续但不可导。
+        </div>
+        <div class="box how"><span class="t">必须用定义求导的五种情形</span>
+          <ul class="list">
+            <li>分段函数的分界点；</li>
+            <li>含绝对值或取整函数的尖点；</li>
+            <li>已知 $f$ 在某点可导，求 $\lim\limits_{h\to0}\dfrac{f(x_0+ah)-f(x_0+bh)}{h}$ 型——凑定义，结果为 $(a-b)f'(x_0)$；</li>
+            <li>只给出抽象条件（如 $f(0)=0$、$\lim\frac{f(x)}{x}=A$），要证 $f'(0)$ 存在；</li>
+            <li>$f'(x_0)$ 存在但 $f'(x)$ 在 $x_0$ 不连续的情形。</li>
+          </ul>
+        </div>
+        <div class="box prop"><span class="t">几何与物理意义</span>
+          $f'(x_0)$ 是曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处切线的斜率。切线方程
+          $$y-f(x_0)=f'(x_0)(x-x_0)$$
+          法线方程（$f'(x_0)\ne0$ 时）：$y-f(x_0)=-\dfrac{1}{f'(x_0)}(x-x_0)$；若 $f'(x_0)=0$，法线为 $x=x_0$。<br>
+          物理上 $s'(t)$ 为瞬时速度，$v'(t)$ 为加速度。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-2"><span class="n">2.2</span>求导法则与基本导数表<button class="nbtn" type="button" data-k="c2-2" aria-label="为「2.2求导法则与基本导数表」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 2.3　四则运算</span>
+          $$(u\pm v)'=u'\pm v',\qquad (uv)'=u'v+uv',\qquad \left(\frac uv\right)'=\frac{u'v-uv'}{v^2}\ (v\ne0)$$
+        </div>
+        <div class="box thm"><span class="t">定理 2.4　复合函数（链式法则）</span>
+          若 $y=f(u)$，$u=\varphi(x)$ 均可导，则 $\dfrac{dy}{dx}=f'(u)\cdot\varphi'(x)$。多层复合逐层乘，不漏内层导数。
+        </div>
+        <div class="box thm"><span class="t">定理 2.5　反函数求导</span>
+          若 $y=f(x)$ 严格单调可导且 $f'(x)\ne0$，其反函数 $x=\varphi(y)$ 可导，且
+          $$\frac{dx}{dy}=\frac{1}{\dfrac{dy}{dx}}$$
+        </div>
+        <div class="box thm"><span class="t">定理 2.6　隐函数求导</span>
+          设 $F(x,y)=0$ 确定 $y=y(x)$，两端对 $x$ 求导并把 $y$ 视为 $x$ 的函数，解出 $y'$：
+          $$\frac{dy}{dx}=-\frac{F_x}{F_y}\quad(F_y\ne0)$$
+          求二阶导时，把一阶结果中的 $y'$ 再次用该式代换，避免残留 $y'$。
+        </div>
+        <div class="box thm"><span class="t">定理 2.7　参数方程求导</span>
+          设 $x=\varphi(t)$，$y=\psi(t)$，$\varphi'(t)\ne0$，则
+          $$\frac{dy}{dx}=\frac{\psi'(t)}{\varphi'(t)},\qquad \frac{d^2y}{dx^2}=\frac{\varphi'\psi''-\psi'\varphi''}{\left[\varphi'(t)\right]^3}$$
+          二阶导是「对 $t$ 求导后再除以 $\varphi'(t)$」，不是把一阶导再对 $t$ 求一次就结束。
+        </div>
+        <div class="box prop"><span class="t">基本导数表</span>
+          $$(x^\mu)'=\mu x^{\mu-1},\quad (a^x)'=a^x\ln a,\quad (e^x)'=e^x,\quad (\log_a x)'=\frac{1}{x\ln a}$$
+          $$(\sin x)'=\cos x,\quad (\cos x)'=-\sin x,\quad (\tan x)'=\sec^2x,\quad (\cot x)'=-\csc^2x$$
+          $$(\sec x)'=\sec x\tan x,\quad (\csc x)'=-\csc x\cot x$$
+          $$(\arcsin x)'=\frac{1}{\sqrt{1-x^2}},\quad (\arccos x)'=-\frac{1}{\sqrt{1-x^2}},\quad (\arctan x)'=\frac{1}{1+x^2}$$
+        </div>
+        <div class="box thm"><span class="t">定理 2.8　高阶导数与莱布尼茨公式</span>
+          $$(uv)^{(n)}=\sum_{k=0}^{n}\mathrm{C}_n^{\,k}\,u^{(n-k)}v^{(k)}$$
+          求 $n$ 阶导数的常用手段：先裂项化成 $\dfrac{1}{x-a}$ 型再归纳；对 $\sin,\cos$ 用 $\left(\sin x\right)^{(n)}=\sin\!\left(x+\frac{n\pi}{2}\right)$；有理分式先部分分式分解。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-3"><span class="n">2.3</span>微分与一阶微分形式不变性<button class="nbtn" type="button" data-k="c2-3" aria-label="为「2.3微分与一阶微分形式不变性」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 2.2　微分</span>
+          若 $\Delta y=A\Delta x+o(\Delta x)$，称 $f$ 在 $x$ 可微，$A\Delta x$ 为微分，记 $dy=A\,dx$。一元函数可微 $\iff$ 可导，且 $dy=f'(x)dx$。
+        </div>
+        <div class="box thm"><span class="t">定理 2.9　一阶微分形式不变性</span>
+          无论 $x$ 是自变量还是中间变量，$dy=f'(u)\,du$ 形式不变。这是隐函数求导、参数方程求导与凑微分的理论依据。
+        </div>
+        <div class="box prop"><span class="t">近似计算</span>
+          $f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\Delta x$，即 $\Delta y\approx dy$。当 $|x|$ 很小时，$\sqrt{1+x}\approx1+\frac x2$，$\ln(1+x)\approx x$，$e^x\approx1+x$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-4"><span class="n">2.4</span>微分中值定理<button class="nbtn" type="button" data-k="c2-4" aria-label="为「2.4微分中值定理」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 2.10　费马引理</span>
+          若 $f$ 在 $x_0$ 的某邻域内有定义，在 $x_0$ 可导且取极值，则 $f'(x_0)=0$。它是三大中值定理的共同基础。
+        </div>
+        <div class="box thm"><span class="t">定理 2.11　罗尔定理</span>
+          若 $f$ 满足：① 在 $[a,b]$ 上连续；② 在 $(a,b)$ 内可导；③ $f(a)=f(b)$，则存在 $\xi\in(a,b)$ 使 $f'(\xi)=0$。<br>
+          <b>三个条件缺一不可</b>。用法：见到「导数为零」「存在一点使某式成立」就要联想罗尔。
+        </div>
+        <div class="box thm"><span class="t">定理 2.12　拉格朗日中值定理</span>
+          条件 ①② 同上，则存在 $\xi\in(a,b)$ 使
+          $$f(b)-f(a)=f'(\xi)(b-a)$$
+          三种等价写法：$f'(\xi)=\dfrac{f(b)-f(a)}{b-a}$；$f(b)-f(a)=f'\!\left(a+\theta(b-a)\right)(b-a)$，$0\lt\theta\lt1$；微分形式 $f(x+\Delta x)-f(x)=f'(\xi)\Delta x$。
+        </div>
+        <div class="box thm"><span class="t">定理 2.13　柯西中值定理</span>
+          若 $f,g$ 在 $[a,b]$ 连续、在 $(a,b)$ 可导且 $g'(x)\ne0$，则存在 $\xi\in(a,b)$ 使
+          $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$$
+          拉格朗日是其 $g(x)=x$ 的特例；洛必达法则是其极限形式。
+        </div>
+        <div class="box thm"><span class="t">定理 2.14　泰勒中值定理</span>
+          <b>拉格朗日余项</b>：若 $f$ 在含 $x_0$ 的开区间内有 $n+1$ 阶导数，则
+          $$f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$$
+          <b>佩亚诺余项</b>：$f(x)=\sum\limits_{k=0}^{n}\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k+o\!\left((x-x_0)^n\right)$，仅需 $n$ 阶导数存在。<br>
+          求极限用佩亚诺，证不等式与估值用拉格朗日。
+        </div>
+        <div class="box prop"><span class="t">常用麦克劳林展开（$x\to0$）</span>
+          $$e^x=1+x+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!}+o(x^n)$$
+          $$\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots+(-1)^{n}\frac{x^{2n+1}}{(2n+1)!}+o(x^{2n+1})$$
+          $$\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots+(-1)^n\frac{x^{2n}}{(2n)!}+o(x^{2n})$$
+          $$\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots+(-1)^{n-1}\frac{x^n}{n}+o(x^n)$$
+          $$(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots+o(x^n)$$
+          $$\frac{1}{1-x}=1+x+x^2+\cdots+x^n+o(x^n),\qquad \tan x=x+\frac{x^3}{3}+\frac{2x^5}{15}+o(x^5)$$
+        </div>
+        <div class="box how"><span class="t">辅助函数构造套路（证明题的命门）</span>
+          <ul class="list">
+            <li>证 $f'(\xi)+g(\xi)f(\xi)=0$：取 $F(x)=f(x)e^{\int g(x)dx}$；</li>
+            <li>证 $f'(\xi)=\lambda$：令 $F(x)=f(x)-\lambda x$，再用罗尔；</li>
+            <li>证含两个函数之比的等式：用柯西中值定理，分母构造成 $g(b)-g(a)$；</li>
+            <li>证 $f''(\xi)$ 型结论：先对 $f'$ 用罗尔（需造两点使 $f'$ 相等），或两次拉格朗日；</li>
+            <li>结论中出现 $\xi$ 与 $\xi^2$、$\frac{1}{\xi}$ 等：把等式整理成 $\dfrac{f'(\xi)}{g'(\xi)}$ 形式再套柯西；</li>
+            <li>结论形如「存在 $\xi$ 使 $f(\xi)=0$」且无法直接求：用零点定理（先证区间端点异号）。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-5"><span class="n">2.5</span>洛必达法则<button class="nbtn" type="button" data-k="c2-5" aria-label="为「2.5洛必达法则」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 2.15　洛必达法则</span>
+          设 $x\to a$（或 $\infty$）时 $f,g$ 均趋于 $0$ 或均趋于 $\infty$，在 $a$ 的去心邻域内 $g'(x)\ne0$ 且 $\lim\frac{f'(x)}{g'(x)}$ 存在（或为 $\infty$），则
+          $$\lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}$$
+          <b>使用前提</b>：分子分母在去心邻域内均可导、$g'(x)\ne0$、求导后的极限存在或为无穷大。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          ① 只有 $\frac00$、$\frac{\infty}{\infty}$ 可直接用；其余五种未定式必须先化型。<br>
+          ② 求导后若极限不存在（如振荡），不能断定原极限不存在，应改用夹逼或等价无穷小。<br>
+          ③ 分子分母必须<b>各自整体求导</b>，不是商的求导公式。<br>
+          ④ 与等价无穷小、泰勒混用时要保证精度，多次洛必达后不要丢掉低阶项。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-6"><span class="n">2.6</span>单调性、极值与最值<button class="nbtn" type="button" data-k="c2-6" aria-label="为「2.6单调性、极值与最值」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 2.16　单调性判定</span>
+          设 $f$ 在 $[a,b]$ 连续、$(a,b)$ 内可导：$f'(x)\gt0$ 则严格增；$f'(x)\lt0$ 则严格减；$f'(x)\equiv0$ 则 $f$ 为常数。
+        </div>
+        <div class="box thm"><span class="t">定理 2.17　极值的必要条件</span>
+          若 $f$ 在 $x_0$ 取极值且可导，则 $f'(x_0)=0$。<b>驻点不一定是极值点</b>（$y=x^3$ 在 $0$ 处），<b>极值点也不一定是驻点</b>（$y=|x|$ 在 $0$ 处）。
+        </div>
+        <div class="box thm"><span class="t">定理 2.18　第一充分条件</span>
+          设 $f$ 在 $x_0$ 连续，在去心邻域内可导：$f'$ 由正变负 $\Rightarrow$ 极大值；由负变正 $\Rightarrow$ 极小值；不变号 $\Rightarrow$ 非极值。
+        </div>
+        <div class="box thm"><span class="t">定理 2.19　第二充分条件</span>
+          设 $f'(x_0)=0$，$f''(x_0)\ne0$：$f''(x_0)\lt0$ 取极大值；$f''(x_0)\gt0$ 取极小值；$f''(x_0)=0$ 时失效，须退回第一充分条件或泰勒判别。
+        </div>
+        <div class="box how"><span class="t">最值的求法（闭区间）</span>
+          求出 $(a,b)$ 内全部驻点与不可导点，计算它们的函数值，再与端点 $f(a)$、$f(b)$ 比较，最大者为最大值、最小者为最小值。<br>
+          应用题：先建立目标函数并写出定义域，再按上述步骤；若区间内只有一个驻点且实际问题必有最值，该驻点即最值点。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-7"><span class="n">2.7</span>凹凸性与拐点<button class="nbtn" type="button" data-k="c2-7" aria-label="为「2.7凹凸性与拐点」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 2.3</span>
+          设 $f$ 在区间 $I$ 上连续。若曲线上任一点处的切线都在曲线下方（弧段位于弦的下方），称曲线在 $I$ 上是<b>凹的</b>（凹向上、下凸）；反之称为<b>凸的</b>。
+        </div>
+        <div class="box thm"><span class="t">定理 2.20　凹凸性判定</span>
+          设 $f$ 二阶可导：$f''(x)\gt0$ 时曲线凹（开口向上）；$f''(x)\lt0$ 时曲线凸（开口向下）。
+        </div>
+        <div class="box thm"><span class="t">定理 2.21　拐点</span>
+          连续曲线凹凸性改变的点称为拐点。必要条件：$f''(x_0)=0$ 或 $f''(x_0)$ 不存在。充分条件：$f''$ 在 $x_0$ 两侧变号。<br>
+          拐点是曲线上的点，须写成坐标 $(x_0,f(x_0))$，不能只写 $x_0$。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          $f''(x_0)=0$ 不一定是拐点（$y=x^4$ 在 $0$ 处）；$f''$ 不存在的点也可能是拐点（$y=\sqrt[3]{x}$ 在 $0$ 处）。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c2-8"><span class="n">2.8</span>渐近线、弧微分与曲率<button class="nbtn" type="button" data-k="c2-8" aria-label="为「2.8渐近线、弧微分与曲率」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 2.22　三类渐近线</span>
+          <ul class="list">
+            <li><b>水平</b>：$\lim\limits_{x\to\infty}f(x)=b$，则 $y=b$。（$x\to+\infty$ 与 $x\to-\infty$ 可各有一条）</li>
+            <li><b>铅直</b>：$\lim\limits_{x\to x_0}f(x)=\infty$，则 $x=x_0$，$x_0$ 通常是无定义点或间断点。</li>
+            <li><b>斜</b>：先求 $k=\lim\limits_{x\to\infty}\dfrac{f(x)}{x}$（$k\ne0$ 且有限），再求 $b=\lim\limits_{x\to\infty}\left[f(x)-kx\right]$，则 $y=kx+b$。</li>
+          </ul>
+          斜渐近线与水平渐近线不会同时存在；求斜渐近线时 $x\to+\infty$ 与 $x\to-\infty$ 要分开算，可能得到两条不同的直线。
+        </div>
+        <div class="box prop"><span class="t">弧微分</span>
+          $$ds=\sqrt{1+\left(y'\right)^2}\,dx\quad\text{（直角坐标）}$$
+          参数式：$ds=\sqrt{\left[x'(t)\right]^2+\left[y'(t)\right]^2}\,dt$；极坐标 $r=r(\theta)$：$ds=\sqrt{r^2+\left(r'\right)^2}\,d\theta$。
+        </div>
+        <div class="box thm"><span class="t">定理 2.23　曲率与曲率半径</span>
+          $$K=\frac{|y''|}{\left[1+\left(y'\right)^2\right]^{3/2}},\qquad R=\frac1K$$
+          参数方程形式：
+          $$K=\frac{\left|x'y''-y'x''\right|}{\left[\left(x'\right)^2+\left(y'\right)^2\right]^{3/2}}$$
+          直线曲率为 $0$，半径为 $R$ 的圆曲率为 $\frac1R$。曲率圆与该点曲线有相同切线与相同曲率，圆心在法线上。
+        </div>
+        <div class="box how"><span class="t">函数作图五步</span>
+          ① 确定定义域，讨论奇偶性、周期性；② 求 $f'$、$f''$，找出零点和不存在点；③ 用它们划分区间，定单调性、极值、凹凸、拐点；④ 求各类渐近线；⑤ 描出关键点后连线。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c2-9"><span class="n">2.9</span>本章题型全览<button class="nbtn" type="button" data-k="c2-9" aria-label="为「2.9本章题型全览」写批注">记</button></h3>
+        <p class="sm">本章题目几乎都可归入「求导 — 用导数研究函数 — 用中值定理证明」三条主线，下表按知识点细分。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>导数定义</td><td>用定义求导；判断分段点、绝对值点是否可导；凑定义求极限</td><td>写出增量比的极限；左右导数分别算；含 $|x-a|$ 的尖点必用定义</td></tr>
+          <tr><td>可导与连续</td><td>判断可导性；求参数使函数可导；讨论 $f'$ 的连续性</td><td>可导必连续；连续性用左右极限，可导性用左右导数；$f'$ 连续要单独验证</td></tr>
+          <tr><td>求导法则</td><td>复合、反函数、隐函数、参数方程、对数求导法、幂指函数</td><td>链式逐层不漏内层；隐函数解出 $y'$；参数方程二阶导 $\frac{x'y''-y'x''}{x'^3}$；幂指函数先取对数</td></tr>
+          <tr><td>高阶导数</td><td>求 $f^{(n)}(x)$、$f^{(n)}(0)$；莱布尼茨公式</td><td>有理分式先裂项；三角用 $\sin^{(n)}(x)=\sin(x+\frac{n\pi}{2})$；乘积型用 $\sum\mathrm{C}_n^ku^{(n-k)}v^{(k)}$</td></tr>
+          <tr><td>微分</td><td>判断可微；求 $dy$；近似计算；由 $dy$ 反求 $f'$</td><td>一元可微 $\iff$ 可导，$dy=f'(x)dx$；近似用 $f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\Delta x$</td></tr>
+          <tr><td>中值定理</td><td>证 $f'(\xi)=k$、$f'(\xi)+g(\xi)f(\xi)=0$、双中值、含二阶导、泰勒估值</td><td>把 $\xi$ 换成 $x$ 后积分构造 $F$，使 $F'(\xi)=0$；双中值先分区间再用两次定理；二阶结论对 $f'$ 用罗尔</td></tr>
+          <tr><td>洛必达</td><td>求极限、确定参数、比较无穷小</td><td>先化型再求导；求导后不存在则改用泰勒或夹逼；与等价替换混用注意精度</td></tr>
+          <tr><td>单调与极值</td><td>求单调区间、极值；判断极值点个数；含参讨论</td><td>驻点 + 不可导点划分区间；第一充分条件看 $f'$ 变号，第二看 $f''$ 符号；含参按判别式或端点讨论</td></tr>
+          <tr><td>最值应用</td><td>几何最值（距离、面积、体积）；经济最值；证明不等式</td><td>建目标函数并写定义域 → 求驻点 → 比较端点；实际问题的唯一驻点即最值点</td></tr>
+          <tr><td>凹凸与拐点</td><td>求凹凸区间、拐点；由拐点反求参数；用凹凸证不等式</td><td>$f''$ 定号；拐点须两侧变号且写成坐标点；凹凸性可给不等式的二阶判据</td></tr>
+          <tr><td>渐近线</td><td>求水平、铅直、斜渐近线；作函数图形</td><td>先找无定义点定铅直；$x\to\pm\infty$ 分别算 $k,b$；三类渐近线不并存</td></tr>
+          <tr><td>曲率</td><td>求曲率、曲率半径、曲率圆方程</td><td>$K=\frac{|y''|}{(1+y'^2)^{3/2}}$；参数式用 $|x'y''-y'x''|/(x'^2+y'^2)^{3/2}$</td></tr>
+          <tr><td>方程与不等式</td><td>讨论根的个数、证明唯一根；证明不等式、比较大小</td><td>零点定理 + 单调性；不等式用作差、拉格朗日、泰勒或最值</td></tr>
+        </table></div>
+
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c2-10"><span class="n">2.10</span>分段函数与绝对值函数的可导性<button class="nbtn" type="button" data-k="c2-10" aria-label="为「2.10分段函数与绝对值函数的可导性」写批注">记</button></h3>
+    <div class="box def"><span class="t">识别信号</span>
+      函数在分界点两侧表达式不同，或含 $|x-x_0|$、$\max\{f,g\}$、$\sqrt{(x-a)^2}$ 等。
+    </div>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li>在分界点 $x_0$ 处分别算 $f'_-(x_0)$ 与 $f'_+(x_0)$：<b>必须用定义</b>，不能对两侧表达式求导后代入；</li>
+        <li>两者存在且相等则 $f'(x_0)$ 存在，否则不可导（常见为角点）；</li>
+        <li>再单独讨论 $f'(x)$ 在 $x_0$ 处是否连续：比较 $\lim_{x\to x_0}f'(x)$ 与 $f'(x_0)$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 2.1</span>
+      <p>设 $f(x)=\begin{cases}x^2\sin\dfrac1x,&x\ne0\\0,&x=0\end{cases}$，求 $f'(0)$，并判断 $f'$ 在 $x=0$ 处是否连续。</p>
+      <div class="sol"><p><b>解</b>　按定义求 $f'(0)$：</p>
+      $$f'(0)=\lim_{x\to0}\frac{x^2\sin\frac1x-0}{x}=\lim_{x\to0}x\sin\frac1x=0$$
+      <p>当 $x\ne0$ 时 $f'(x)=2x\sin\dfrac1x-\cos\dfrac1x$。$x\to0$ 时 $\cos\dfrac1x$ 振荡，$\lim f'(x)$ 不存在，故 $f'$ 在 $x=0$ 处<b>不连续</b>。</p></div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      「$f'(x_0)$ 存在」与「$f'(x)$ 在 $x_0$ 连续」是两件事，本题正是标准反例。答连续性问题必须先求 $\lim f'(x)$，不能默认导函数连续。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c2-11"><span class="n">2.11</span>中值定理证明：辅助函数构造<button class="nbtn" type="button" data-k="c2-11" aria-label="为「2.11中值定理证明：辅助函数构造」写批注">记</button></h3>
+    <div class="box def"><span class="t">识别信号</span>
+      结论形如「存在 $\xi$ 使 $f'(\xi)=\cdots$」「存在 $\xi$ 使 $\dfrac{f'(\xi)}{g'(\xi)}=\cdots$」，且题设给出区间端点函数值或积分值。
+    </div>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li>把结论中的 $\xi$ 换成 $x$，整理成「某个函数在 $\xi$ 处导数为零」的形式；</li>
+        <li>对该式积分（或乘积分因子 $e^{\int g}$）得到辅助函数 $F(x)$；</li>
+        <li>验证 $F$ 在两端点取值相等，套罗尔定理；</li>
+        <li>结论含两个函数之比时改用柯西中值定理，分母取为 $g(b)-g(a)$ 的来源函数。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 2.2</span>
+      <p>设 $f$ 在 $[0,2]$ 上连续、在 $(0,2)$ 内可导，且 $f(0)=0$，$f(2)=1$。证明存在 $\xi\in(0,2)$ 使 $f'(\xi)=\dfrac12$。</p>
+      <div class="sol"><p><b>解</b>　令 $F(x)=f(x)-\dfrac{x}{2}$，则 $F$ 在 $[0,2]$ 上连续、在 $(0,2)$ 内可导，且 $F(0)=0$，$F(2)=1-1=0$，即 $F(0)=F(2)$。</p>
+      <p>由罗尔定理，存在 $\xi\in(0,2)$ 使 $F'(\xi)=0$，即 $f'(\xi)-\dfrac12=0$，故 $f'(\xi)=\dfrac12$。</p></div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      看到「$f'(\xi)=\text{常数 }k$」就直接想「$f(x)-kx$」；看到「$f'(\xi)+g(\xi)f(\xi)=0$」就想 $f(x)e^{\int g}$。辅助函数选错，后面再严谨也证不出来。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c2-12"><span class="n">2.12</span>不等式证明<button class="nbtn" type="button" data-k="c2-12" aria-label="为「2.12不等式证明」写批注">记</button></h3>
+    <div class="box how"><span class="t">四条主路径</span>
+      <ul class="list">
+        <li><b>作差构造函数</b>：令 $\varphi(x)=$ 左 $-$ 右，证 $\varphi(x)\ge0$，用单调性与最小值；</li>
+        <li><b>拉格朗日中值定理</b>：把 $f(b)-f(a)$ 写成 $f'(\xi)(b-a)$，再估计 $f'(\xi)$ 的范围；</li>
+        <li><b>泰勒展开</b>：涉及二阶及以上导数符号时，在合适点展开并估计余项；</li>
+        <li><b>利用已知不等式</b>：$\sin x\lt x\lt\tan x\ (0\lt x\lt\frac\pi2)$，$e^x\ge1+x$，$\ln(1+x)\lt x\ (x\gt0)$，$\dfrac{x}{1+x}\lt\ln(1+x)\lt x$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 2.3</span>
+      <p>证明当 $x\gt0$ 时，$\ln(1+x)\gt\dfrac{x}{1+x}$。</p>
+      <div class="sol"><b>解</b>　令 $\varphi(x)=\ln(1+x)-\dfrac{x}{1+x}$，则 $\varphi(0)=0$，且<br>
+      $$\varphi'(x)=\frac{1}{1+x}-\frac{1}{(1+x)^2}=\frac{x}{(1+x)^2}\gt0\quad(x\gt0)$$
+      故 $\varphi$ 在 $[0,+\infty)$ 上单调增，$x\gt0$ 时 $\varphi(x)\gt\varphi(0)=0$，即原不等式成立。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      用单调性证不等式，起点必须落在「等号成立的点」；若 $\varphi(0)\ne0$，单调性只能说明大小关系，不能直接得 $\ge0$。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c2-13"><span class="n">2.13</span>方程根的个数与范围<button class="nbtn" type="button" data-k="c2-13" aria-label="为「2.13方程根的个数与范围」写批注">记</button></h3>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li><b>存在性</b>：找两点使函数值异号，用零点定理；</li>
+        <li><b>唯一性</b>：证明该区间上严格单调（$f'$ 恒正或恒负），或用罗尔定理反证（若有两个根，则中间必有一点导数为零，与题设矛盾）；</li>
+        <li><b>个数统计</b>：求出所有驻点与不可导点，把定义域分成若干单调区间，逐段判断端点符号，每一段至多一个根。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 2.4</span>
+      <p>证明方程 $x^3-3x+1=0$ 在 $(0,1)$ 内有且仅有一个实根。</p>
+      <div class="sol"><b>解</b>　令 $f(x)=x^3-3x+1$，则 $f(0)=1\gt0$，$f(1)=-1\lt0$，由零点定理，$(0,1)$ 内至少有一个根。<br>
+      又 $f'(x)=3x^2-3\lt0$ 在 $(0,1)$ 上恒成立，故 $f$ 在 $[0,1]$ 严格单调减，根唯一。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      「有且仅有一个」必须两段都写：只证存在拿不到满分；只证单调而没有端点异号，也不能保证根在该区间内。
+    </div>
+  </article>
+</section>
+    <!-- ============ 第三章 一元函数积分学 ============ -->
+    <section class="chapter" id="c3">
+      <div class="ch-head">
+        <span class="ch-no">03</span>
+        <div>
+          <h2>一元函数积分学</h2>
+          <p class="ch-sub">不定积分是基本功，定积分的性质与几何应用是解答题常客；反常积分收敛性判断多以选择填空出现。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c3-1"><span class="n">3.1</span>原函数与不定积分<button class="nbtn" type="button" data-k="c3-1" aria-label="为「3.1原函数与不定积分」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 3.1</span>
+          若在区间 $I$ 上 $F'(x)=f(x)$，称 $F$ 为 $f$ 的一个原函数。$f$ 的全体原函数称为不定积分，记 $\int f(x)\,dx=F(x)+C$。
+        </div>
+        <div class="box thm"><span class="t">定理 3.1　原函数的存在性</span>
+          区间上的连续函数必有原函数。<b>含第一类间断点的函数在含该点的区间上不存在原函数</b>；含振荡间断点时可能有原函数（如 $x^2\sin\frac1x$ 的导数类）。
+        </div>
+        <div class="box prop"><span class="t">性质 3.1</span>
+          $$\left(\int f(x)\,dx\right)'=f(x),\qquad \int f'(x)\,dx=f(x)+C$$
+          $$\int\left[\alpha f(x)+\beta g(x)\right]dx=\alpha\int f(x)\,dx+\beta\int g(x)\,dx$$
+          原函数之间只相差常数，故积分结果必须带 $C$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-2"><span class="n">3.2</span>基本积分公式<button class="nbtn" type="button" data-k="c3-2" aria-label="为「3.2基本积分公式」写批注">记</button></h3>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+          <tr><th>被积函数</th><th>原函数</th></tr>
+          <tr><td>$\int x^\mu\,dx$</td><td>$\dfrac{x^{\mu+1}}{\mu+1}+C\ (\mu\ne-1)$</td></tr>
+          <tr><td>$\int \dfrac{dx}{x}$</td><td>$\ln|x|+C$</td></tr>
+          <tr><td>$\int a^x dx,\ \int e^x dx$</td><td>$\dfrac{a^x}{\ln a}+C,\ e^x+C$</td></tr>
+          <tr><td>$\int\sin x\,dx,\ \int\cos x\,dx$</td><td>$-\cos x+C,\ \sin x+C$</td></tr>
+          <tr><td>$\int\sec^2x\,dx,\ \int\csc^2x\,dx$</td><td>$\tan x+C,\ -\cot x+C$</td></tr>
+          <tr><td>$\int\sec x\tan x\,dx,\ \int\csc x\cot x\,dx$</td><td>$\sec x+C,\ -\csc x+C$</td></tr>
+          <tr><td>$\int\tan x\,dx,\ \int\cot x\,dx$</td><td>$-\ln|\cos x|+C,\ \ln|\sin x|+C$</td></tr>
+          <tr><td>$\int\sec x\,dx,\ \int\csc x\,dx$</td><td>$\ln|\sec x+\tan x|+C,\ \ln|\csc x-\cot x|+C$</td></tr>
+          <tr><td>$\int\dfrac{dx}{1+x^2},\ \int\dfrac{dx}{\sqrt{1-x^2}}$</td><td>$\arctan x+C,\ \arcsin x+C$</td></tr>
+          <tr><td>$\int\dfrac{dx}{a^2+x^2},\ \int\dfrac{dx}{\sqrt{a^2-x^2}}$</td><td>$\dfrac1a\arctan\dfrac xa+C,\ \arcsin\dfrac xa+C$</td></tr>
+          <tr><td>$\int\dfrac{dx}{x^2-a^2},\ \int\dfrac{dx}{\sqrt{x^2\pm a^2}}$</td><td>$\dfrac{1}{2a}\ln\left|\dfrac{x-a}{x+a}\right|+C,\ \ln\left|x+\sqrt{x^2\pm a^2}\right|+C$</td></tr>
+        </table></div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-3"><span class="n">3.3</span>换元积分法<button class="nbtn" type="button" data-k="c3-3" aria-label="为「3.3换元积分法」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 3.2　第一类换元（凑微分）</span>
+          $$\int f[\varphi(x)]\varphi'(x)\,dx=\int f(u)\,du=F(u)+C=F[\varphi(x)]+C$$
+          识别信号：被积式中含「内层函数的导数因子」。常见凑法：$x\,dx=\frac12d(x^2)$，$\frac{dx}{x}=d\ln x$，$e^x dx=de^x$，$\cos x\,dx=d\sin x$，$\frac{dx}{\sqrt x}=2d\sqrt x$，$\frac{dx}{1+x^2}=d\arctan x$。
+        </div>
+        <div class="box thm"><span class="t">定理 3.3　第二类换元（变量代换）</span>
+          $$\int f(x)\,dx=\int f[\psi(t)]\psi'(t)\,dt\Big|_{t=\psi^{-1}(x)}$$
+          三类三角代换：$\sqrt{a^2-x^2}$ 令 $x=a\sin t$；$\sqrt{a^2+x^2}$ 令 $x=a\tan t$；$\sqrt{x^2-a^2}$ 令 $x=a\sec t$。<br>
+          简单无理式：$\sqrt[n]{ax+b}$ 令 $t=\sqrt[n]{ax+b}$；$\sqrt{\frac{ax+b}{cx+d}}$ 令 $t=\sqrt{\frac{ax+b}{cx+d}}$。<br>
+          倒代换 $x=\frac1t$ 专治分母次数高于分子的分式。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          第二类换元后必须<b>回代</b>为原变量；定积分换元时<b>上下限要同步换</b>，且换元后不必回代。<br>
+          三角代换回代时用直角三角形标出三边，比反推更快。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-4"><span class="n">3.4</span>分部积分法<button class="nbtn" type="button" data-k="c3-4" aria-label="为「3.4分部积分法」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 3.4</span>
+          $$\int u\,dv=uv-\int v\,du$$
+          定积分形式：$\displaystyle\int_a^b u\,dv=\left.uv\right|_a^b-\int_a^b v\,du$。
+        </div>
+        <div class="box how"><span class="t">选 $u$ 的优先级（「反对幂指三」）</span>
+          反三角、对数、幂函数、指数、三角函数，排在前面的取作 $u$，后面的凑进 $dv$。<br>
+          典型：$\int x e^x dx$、$\int x\sin x\,dx$、$\int \ln x\,dx$、$\int \arctan x\,dx$、$\int x\arctan x\,dx$。$\int\ln x\,dx$ 与 $\int\arctan x\,dx$ 是把 $dx$ 直接当 $dv$ 的经典情形。<br>
+          <b>循环型</b>：$\int e^x\sin x\,dx$ 两次分部后回到原积分，移项解出，结果带 $C$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-5"><span class="n">3.5</span>有理函数、三角有理式与简单无理函数<button class="nbtn" type="button" data-k="c3-5" aria-label="为「3.5有理函数、三角有理式与简单无理函数」写批注">记</button></h3>
+        <div class="box how"><span class="t">有理函数 $\frac{P(x)}{Q(x)}$</span>
+          ① 若为假分式（分子次数 $\ge$ 分母次数），先做多项式除法；<br>
+          ② 分母因式分解，写成部分分式：$\dfrac{A}{x-a}$、$\dfrac{A}{(x-a)^k}$、$\dfrac{Bx+C}{x^2+px+q}$（$p^2-4q\lt0$）；<br>
+          ③ 逐项积分：$\dfrac{1}{(x-a)^k}$ 用幂函数公式，$\dfrac{Bx+C}{x^2+px+q}$ 先配方，拆成「分子含分母导数」+「反正切」两部分。
+        </div>
+        <div class="box how"><span class="t">三角有理式 $R(\sin x,\cos x)$</span>
+          万能代换 $t=\tan\frac x2$：$\sin x=\dfrac{2t}{1+t^2}$，$\cos x=\dfrac{1-t^2}{1+t^2}$，$dx=\dfrac{2\,dt}{1+t^2}$。<br>
+          更快的情形：$R(-\sin x,\cos x)=-R(\sin x,\cos x)$ 时令 $t=\cos x$；$R(\sin x,-\cos x)=-R(\sin x,\cos x)$ 时令 $t=\sin x$；$R(-\sin x,-\cos x)=R(\sin x,\cos x)$ 时令 $t=\tan x$。
+        </div>
+        <div class="box how"><span class="t">常用技巧</span>
+          $\int\sin^2x\,dx$、$\int\cos^2x\,dx$ 用倍角降幂；$\int\sin mx\cos nx\,dx$ 用积化和差；$\int\frac{dx}{a\sin x+b\cos x}$ 先合并成 $\sqrt{a^2+b^2}\sin(x+\varphi)$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-6"><span class="n">3.6</span>定积分的概念与性质<button class="nbtn" type="button" data-k="c3-6" aria-label="为「3.6定积分的概念与性质」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 3.2　定积分</span>
+          $$\int_a^b f(x)\,dx=\lim_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i$$
+          $\lambda$ 为最大子区间长度。可积的充分条件：$f$ 在 $[a,b]$ 上连续，或 $f$ 有界且只有有限个间断点。<br>
+          几何意义：曲边梯形的<b>代数和</b>——$x$ 轴上方面积取正，下方取负。
+        </div>
+        <div class="box prop"><span class="t">性质 3.2</span>
+          <ul class="list">
+            <li>$\displaystyle\int_a^b f=-\int_b^a f$，$\displaystyle\int_a^a f=0$；</li>
+            <li>线性性：$\int_a^b(\alpha f+\beta g)=\alpha\int_a^b f+\beta\int_a^b g$；</li>
+            <li>区间可加：$\int_a^b f=\int_a^c f+\int_c^b f$，<b>$c$ 可在区间外</b>；</li>
+            <li>保号性：$f(x)\ge0$ 时 $\int_a^b f\ge0$（$a\lt b$）；由此若 $f\le g$ 则 $\int f\le\int g$；</li>
+            <li>估值定理：$m(b-a)\le\int_a^b f\le M(b-a)$；</li>
+            <li>绝对值不等式：$\left|\int_a^b f\right|\le\int_a^b|f|$；</li>
+            <li>若 $f$ 连续、$f\ge0$ 且不恒为零，则 $\int_a^b f\gt0$。</li>
+          </ul>
+        </div>
+        <div class="box thm"><span class="t">定理 3.5　定积分中值定理</span>
+          若 $f$ 在 $[a,b]$ 上连续，则存在 $\xi\in[a,b]$ 使
+          $$\int_a^b f(x)\,dx=f(\xi)(b-a)$$
+          即 $\dfrac{1}{b-a}\int_a^b f$ 是 $f$ 在 $[a,b]$ 上的平均值。广义中值定理：$f$ 连续、$g$ 不变号且可积，则存在 $\xi$ 使 $\int_a^b fg=f(\xi)\int_a^b g$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-7"><span class="n">3.7</span>变上限积分与牛顿–莱布尼茨公式<button class="nbtn" type="button" data-k="c3-7" aria-label="为「3.7变上限积分与牛顿–莱布尼茨公式」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 3.6　微积分基本定理</span>
+          若 $f$ 在 $[a,b]$ 连续，$F(x)=\displaystyle\int_a^x f(t)\,dt$，则 $F'(x)=f(x)$，即 $F$ 是 $f$ 的一个原函数。<br>
+          复合情形（高频考点）：
+          $$\frac{d}{dx}\int_{a}^{\varphi(x)}f(t)\,dt=f[\varphi(x)]\,\varphi'(x)$$
+          $$\frac{d}{dx}\int_{\psi(x)}^{\varphi(x)}f(t)\,dt=f[\varphi(x)]\varphi'(x)-f[\psi(x)]\psi'(x)$$
+          被积函数含 $x$ 时（如 $\int_0^x(x-t)f(t)dt$），先<b>把 $x$ 提到积分号外</b>再求导。
+        </div>
+        <div class="box thm"><span class="t">定理 3.7　牛顿–莱布尼茨公式</span>
+          $$\int_a^b f(x)\,dx=F(b)-F(a)$$
+          使用前提：$f$ 在 $[a,b]$ 上连续、$F$ 是其原函数。若区间内有第一类间断点或原函数不连续（如 $\int_{-1}^{1}\frac{dx}{x^2}$），<b>不能直接用</b>，须分段或按反常积分处理。
+        </div>
+        <div class="box how"><span class="t">定积分的换元与分部</span>
+          换元：$x=\varphi(t)$ 单调可导，$\varphi(\alpha)=a$，$\varphi(\beta)=b$，则
+          $$\int_a^b f(x)\,dx=\int_\alpha^\beta f[\varphi(t)]\varphi'(t)\,dt$$
+          分部同不定积分，只是多了上下限。<br>
+          <b>对称性</b>：$\int_{-a}^{a}f=\begin{cases}0,&f\text{ 为奇函数}\\2\int_0^af,&f\text{ 为偶函数}\end{cases}$；<br>
+          <b>周期平移</b>：$\int_a^{a+T}f=\int_0^Tf$；<br>
+          <b>区间再现</b>：$\int_0^{\pi}xf(\sin x)dx=\frac{\pi}{2}\int_0^{\pi}f(\sin x)dx$；$\int_0^{\pi/2}f(\sin x)dx=\int_0^{\pi/2}f(\cos x)dx$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-8"><span class="n">3.8</span>反常积分<button class="nbtn" type="button" data-k="c3-8" aria-label="为「3.8反常积分」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 3.3　两类反常积分</span>
+          <b>无穷限</b>：$\displaystyle\int_a^{+\infty}f(x)dx=\lim_{b\to+\infty}\int_a^bf(x)dx$，极限存在称收敛。<br>
+          <b>无界函数（瑕积分）</b>：$x=a$ 为瑕点时 $\displaystyle\int_a^bf(x)dx=\lim_{\varepsilon\to0^+}\int_{a+\varepsilon}^bf(x)dx$。
+        </div>
+        <div class="box thm"><span class="t">定理 3.8　常用判敛结论（$p$ 积分）</span>
+          $$\int_a^{+\infty}\frac{dx}{x^p}\ \text{收敛}\iff p\gt1\qquad(a\gt0)$$
+          $$\int_a^{b}\frac{dx}{(x-a)^p}\ \text{收敛}\iff p\lt1$$
+          一般比较判别法：$0\le f\le g$ 时，$\int g$ 收敛则 $\int f$ 收敛；$\int f$ 发散则 $\int g$ 发散。极限形式：若 $\lim\frac{f}{g}=c\ (0\lt c\lt\infty)$，则两者同敛散。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          ① 计算 $\int_{-1}^{1}\frac{dx}{x^2}$ 若直接得 $-\frac1x\big|_{-1}^{1}=-2$，是错的：$x=0$ 为瑕点，应拆成 $\int_{-1}^0+\int_0^1$，两者均发散，原积分发散。<br>
+          ② $\int_0^{+\infty}\frac{dx}{x^p}$ 在 $p\gt1$ 收敛，在 $p\le1$ 发散；瑕积分方向相反。<br>
+          ③ 判敛只看被积函数在无穷远处（或瑕点附近）的阶，不要被有界因子干扰。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c3-9"><span class="n">3.9</span>定积分的几何与物理应用<button class="nbtn" type="button" data-k="c3-9" aria-label="为「3.9定积分的几何与物理应用」写批注">记</button></h3>
+        <div class="box prop"><span class="t">平面图形面积</span>
+          直角坐标：$A=\displaystyle\int_a^b\left|f(x)-g(x)\right|dx$，先求交点定上下限。<br>
+          极坐标：$A=\dfrac12\displaystyle\int_{\alpha}^{\beta}r^2(\theta)\,d\theta$；参数方程：$A=\displaystyle\int_{t_1}^{t_2}y(t)x'(t)\,dt$（注意方向取绝对值）。
+        </div>
+        <div class="box prop"><span class="t">体积</span>
+          <b>旋转体（绕 $x$ 轴）</b>：$V=\pi\displaystyle\int_a^b y^2\,dx$。<br>
+          <b>绕 $y$ 轴（柱壳法）</b>：$V=2\pi\displaystyle\int_a^b x\,|y|\,dx$。<br>
+          <b>参数式绕 $x$ 轴</b>：$V=\pi\displaystyle\int_{t_1}^{t_2}y^2(t)\,x'(t)\,dt$。<br>
+          <b>已知平行截面面积</b>：$V=\displaystyle\int_a^b A(x)\,dx$。
+        </div>
+        <div class="box prop"><span class="t">弧长与旋转体侧面积</span>
+          $$s=\int_a^b\sqrt{1+\left(y'\right)^2}\,dx=\int_{t_1}^{t_2}\sqrt{\left(x'\right)^2+\left(y'\right)^2}\,dt=\int_\alpha^\beta\sqrt{r^2+\left(r'\right)^2}\,d\theta$$
+          $$S=2\pi\int_a^b|y|\sqrt{1+\left(y'\right)^2}\,dx\quad\text{（绕 }x\text{ 轴）}$$
+        </div>
+        <div class="box prop"><span class="t">物理应用</span>
+          <b>变力做功</b>：$W=\displaystyle\int_a^b F(x)\,dx$。<br>
+          <b>抽水做功</b>：设水深方向为 $y$，$W=\rho g\displaystyle\int A(y)\,y\,dy$，$A(y)$ 为该深度处水平截面面积。<br>
+          <b>水压力</b>：$P=\rho g\displaystyle\int_a^b y\,b(y)\,dy$，$b(y)$ 为该深度处受压面宽度，$y$ 为深度。<br>
+          <b>质心（均匀薄片）</b>：$\bar x=\dfrac{1}{A}\displaystyle\int_a^b x\left[f(x)-g(x)\right]dx$，$\bar y=\dfrac{1}{2A}\displaystyle\int_a^b\left[f^2(x)-g^2(x)\right]dx$。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          凡是「绕 $y$ 轴」「绕 $x=a$」旋转，柱壳法里出现的是<b>旋转半径</b>而不是坐标本身；抽水问题中 $y$ 的原点取在何处，直接决定被积式写成 $y$ 还是 $(H-y)$，先画图定坐标再列式。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c3-10"><span class="n">3.10</span>本章题型全览<button class="nbtn" type="button" data-k="c3-10" aria-label="为「3.10本章题型全览」写批注">记</button></h3>
+        <p class="sm">不定积分考「会不会算」，定积分考「会不会用性质与对称性」，反常积分考「会不会判敛」。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>原函数</td><td>判断原函数是否存在；求分段函数的原函数；由原函数反求 $f$</td><td>连续才有原函数；含第一类间断点则无；分段函数分段积分后调常数使之连续</td></tr>
+          <tr><td>凑微分</td><td>识别内层导数；$\int f(ax+b)dx$ 型</td><td>常见凑法：$x\,dx=\frac12d(x^2)$、$\frac{dx}{x}=d\ln x$、$e^xdx=de^x$、$\frac{dx}{1+x^2}=d\arctan x$</td></tr>
+          <tr><td>第二类换元</td><td>三角代换、根式代换、倒代换、双曲代换</td><td>$\sqrt{a^2-x^2}$ 用 $a\sin t$；$\sqrt{x^2-a^2}$ 用 $a\sec t$；分母次数高用 $x=\frac1t$；最后必须回代</td></tr>
+          <tr><td>分部积分</td><td>幂 × 指/三/对/反；$\int\ln x\,dx$、$\int\arctan x\,dx$；循环型</td><td>「反对幂指三」定 $u$；循环型移项解出；$\int e^{ax}\sin bx\,dx$ 两次分部后返回</td></tr>
+          <tr><td>有理函数</td><td>部分分式积分；含 $(x-a)^k$、$x^2+px+q$ 的分式</td><td>假分式先做除法；分母因式分解定系数；二次因子配方拆成「$\frac{u'}{u}$ + 反正切」</td></tr>
+          <tr><td>三角有理式</td><td>$R(\sin x,\cos x)$ 积分；$\int\sin^m x\cos^n x\,dx$</td><td>先看奇偶性选 $t=\sin x$、$\cos x$、$\tan x$，都不行用万能代换 $t=\tan\frac x2$；偶次用降幂</td></tr>
+          <tr><td>定积分性质</td><td>比较大小、估值、证明不等式、中值定理求极限</td><td>被积函数作差定号；估值用 $m(b-a)\le\int\le M(b-a)$；中值定理把 $\int$ 化为 $f(\xi)(b-a)$</td></tr>
+          <tr><td>变上限积分</td><td>求导、求极限、判单调、求最值、证积分等式</td><td>被积函数含 $x$ 先拆出去；复合上下限用 $f(\varphi)\varphi'-f(\psi)\psi'$；求导后定号判单调</td></tr>
+          <tr><td>定积分计算</td><td>换元、分部、对称性、周期性、区间再现、点火公式</td><td>先看区间与奇偶；$[0,\pi]$ 上的 $x\cdot f(\sin x)$ 用区间再现；$\int_0^{\pi/2}\sin^n x$ 用点火公式</td></tr>
+          <tr><td>分段积分</td><td>含绝对值、$\max/\min$、分段函数的定积分</td><td>先解 $f(x)=0$ 或比较点，按零点分片；每片分别积分再相加</td></tr>
+          <tr><td>反常积分</td><td>计算、判敛、含参讨论、证明收敛</td><td>找瑕点必须拆区间；用 $p$ 积分与比较判别；计算时先求不定积分再取极限</td></tr>
+          <tr><td>几何应用</td><td>面积、旋转体体积、弧长、侧面积、已知截面求体积</td><td>画图定限；圆盘法 $\pi\int y^2dx$，柱壳法 $2\pi\int x|y|dx$；侧面积 $2\pi\int|y|\sqrt{1+y'^2}dx$</td></tr>
+          <tr><td>物理应用</td><td>变力做功、抽水做功、水压力、质心与形心、平均值</td><td>取微元：功 $dW=F\,dx$、抽水 $dW=\rho g\,A(y)\,y\,dy$、压力 $dP=\rho g\,y\,b(y)\,dy$</td></tr>
+        </table></div>
+
+
+
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c3-11"><span class="n">3.11</span>不定积分的四类打法<button class="nbtn" type="button" data-k="c3-11" aria-label="为「3.11不定积分的四类打法」写批注">记</button></h3>
+    <div class="box how"><span class="t">先分类再动手</span>
+      <ul class="list">
+        <li><b>凑微分型</b>：被积式中含内层函数的导数因子，如 $x\,dx$ 配 $x^2$、$\frac{dx}{x}$ 配 $\ln x$；</li>
+        <li><b>换元型</b>：含 $\sqrt{a^2-x^2}$ 用三角代换；含 $\sqrt[n]{ax+b}$ 令 $t=\sqrt[n]{ax+b}$；分母次数高于分子用倒代换 $x=\frac1t$；</li>
+        <li><b>分部型</b>：两类不同函数相乘（幂 × 指数、幂 × 三角、幂 × 对数、幂 × 反三角），按「反对幂指三」定 $u$；</li>
+        <li><b>有理分式型</b>：假分式先除，真分式拆部分分式；$\dfrac{Bx+C}{x^2+px+q}$ 先配方，拆成「分子含分母导数」与「反正切」两部分。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 3.1</span>
+      <p>求 $\displaystyle\int x^2\ln x\,dx$。</p>
+      <div class="sol"><b>解</b>　对数优先取作 $u$，令 $u=\ln x$，$dv=x^2dx$，则 $du=\dfrac{dx}{x}$，$v=\dfrac{x^3}{3}$。<br>
+      $$\int x^2\ln x\,dx=\frac{x^3}{3}\ln x-\int\frac{x^3}{3}\cdot\frac{dx}{x}=\frac{x^3}{3}\ln x-\frac{x^3}{9}+C$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      分部后若新积分比原积分更复杂，说明 $u$ 选反了，应立即调换；不定积分结果别漏 $C$。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c3-12"><span class="n">3.12</span>定积分计算：对称、周期与区间再现<button class="nbtn" type="button" data-k="c3-12" aria-label="为「3.12定积分计算：对称、周期与区间再现」写批注">记</button></h3>
+    <div class="box how"><span class="t">三个加速开关</span>
+      <ul class="list">
+        <li><b>对称性</b>：$\int_{-a}^{a}f\,dx$，$f$ 为奇函数得 $0$，偶函数得 $2\int_0^af\,dx$。使用前必须同时检查区间对称与函数奇偶；</li>
+        <li><b>周期性</b>：$\int_a^{a+T}f=\int_0^Tf$，可把任意长度为 $T$ 的区间平移；</li>
+        <li><b>区间再现</b>：$\int_0^{\pi}xf(\sin x)\,dx=\dfrac{\pi}{2}\int_0^{\pi}f(\sin x)\,dx$，$\int_0^{\pi/2}f(\sin x)\,dx=\int_0^{\pi/2}f(\cos x)\,dx$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 3.2</span>
+      <p>计算 $\displaystyle\int_0^{\pi}\frac{x\sin x}{1+\cos^2x}\,dx$。</p>
+      <div class="sol"><b>解</b>　令 $x=\pi-t$，则 $dx=-dt$，积分化为
+      $$\int_0^{\pi}\frac{(\pi-t)\sin t}{1+\cos^2t}\,dt$$
+      与原式相加得 $2I=\pi\displaystyle\int_0^{\pi}\frac{\sin t}{1+\cos^2t}\,dt$。<br>
+      再令 $u=\cos t$，得 $\displaystyle\int_0^{\pi}\frac{\sin t\,dt}{1+\cos^2t}=\int_{-1}^{1}\frac{du}{1+u^2}=\frac{\pi}{2}$，故 $I=\dfrac{\pi^2}{4}$。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      凡「$x$ 乘三角函数」且区间为 $[0,\pi]$，先想区间再现把 $x$ 消掉；直接分部积分会陷入循环。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c3-13"><span class="n">3.13</span>变上限积分函数<button class="nbtn" type="button" data-k="c3-13" aria-label="为「3.13变上限积分函数」写批注">记</button></h3>
+    <div class="box how"><span class="t">三类考法</span>
+      <ul class="list">
+        <li><b>求导</b>：$\dfrac{d}{dx}\int_{\psi(x)}^{\varphi(x)}f(t)dt=f(\varphi)\varphi'-f(\psi)\psi'$；</li>
+        <li><b>被积函数含 $x$</b>：先拆成 $\int_0^x(x-t)f(t)dt=x\int_0^xf(t)dt-\int_0^xtf(t)dt$，再求导；</li>
+        <li><b>求极限 / 判单调</b>：把变上限积分当作函数，用洛必达（分子分母同时求导）或直接对 $F'$ 定号。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 3.3</span>
+      <p>设 $F(x)=\displaystyle\int_0^x(x-t)f(t)\,dt$，其中 $f$ 连续，求 $F'(x)$ 与 $F''(x)$。</p>
+      <div class="sol"><p><b>解</b>　先把 $x$ 提到积分号外：</p>
+      $$F(x)=x\int_0^xf(t)\,dt-\int_0^x tf(t)\,dt$$
+      <p>求导得 $F'(x)=\displaystyle\int_0^xf(t)\,dt+xf(x)-xf(x)=\int_0^xf(t)\,dt$，再求导得 $F''(x)=f(x)$。</p></div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      被积函数含 $x$ 时<b>不能直接套公式</b>把 $x$ 当常数，必须先拆分；否则会漏掉 $xf(x)$ 这一项。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c3-14"><span class="n">3.14</span>反常积分的计算与判敛<button class="nbtn" type="button" data-k="c3-14" aria-label="为「3.14反常积分的计算与判敛」写批注">记</button></h3>
+    <div class="box how"><span class="t">判敛三步</span>
+      <ul class="list">
+        <li><b>找瑕点</b>：无定义点、分母零点、$\ln$ 的零点都可能是瑕点，有瑕点必须拆区间；</li>
+        <li><b>看阶数</b>：$x\to+\infty$ 时若 $f\sim\frac{C}{x^p}$，则 $p\gt1$ 收敛；$x\to a^+$ 时若 $f\sim\frac{C}{(x-a)^p}$，则 $p\lt1$ 收敛；</li>
+        <li><b>用比较</b>：$0\le f\le g$ 时「大收敛则小收敛，小发散则大发散」；极限形式比值非零有限则同敛散。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 3.4</span>
+      <p>判断 $\displaystyle\int_1^{+\infty}\frac{dx}{x\sqrt{x^2+1}}$ 的敛散性。</p>
+      <div class="sol"><b>解</b>　当 $x\to+\infty$ 时，
+      $$\frac{1}{x\sqrt{x^2+1}}\sim\frac{1}{x\cdot x}=\frac{1}{x^2}$$
+      而 $\displaystyle\int_1^{+\infty}\frac{dx}{x^2}$ 收敛（$p=2\gt1$），由比较判别法，原积分收敛。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      $\int_{-1}^{1}\frac{dx}{x^2}$ 这类「两端都像正常区间」的积分，必须以 $x=0$ 拆分，否则用牛顿–莱布尼茨会算出负值这种荒谬结果。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c3-15"><span class="n">3.15</span>定积分的几何应用<button class="nbtn" type="button" data-k="c3-15" aria-label="为「3.15定积分的几何应用」写批注">记</button></h3>
+    <div class="box def"><span class="t">识别信号</span>
+      题干出现「围成的面积」「绕 $x$ 轴 / $y$ 轴旋转所得体积」「弧长」「侧面积」，或给出截面面积求体积。
+    </div>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li>先求交点定积分限，并画草图确认谁在上、谁在下；</li>
+        <li>面积用 $A=\int_a^b|f-g|dx$，有交点交叉时要分段；</li>
+        <li>绕 $x$ 轴用圆盘法 $V=\pi\int y^2dx$，绕 $y$ 轴用柱壳法 $V=2\pi\int x|y|dx$；</li>
+        <li>旋转体侧面积用 $S=2\pi\int|y|\sqrt{1+y'^2}\,dx$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 3.5</span>
+      <p>求由 $y=x^2$ 与 $y=2-x^2$ 围成的图形面积，及该图形绕 $x$ 轴旋转所得旋转体的体积。</p>
+      <div class="sol"><b>解</b>　令 $x^2=2-x^2$ 得 $x=\pm1$，在 $(-1,1)$ 内 $2-x^2\gt x^2$。<br>
+      面积 $$A=\int_{-1}^{1}\left[(2-x^2)-x^2\right]dx=\int_{-1}^{1}(2-2x^2)\,dx=\left[2x-\frac{2x^3}{3}\right]_{-1}^{1}=\frac83$$
+      体积（两曲面间区域，用外减内）：
+      $$V=\pi\int_{-1}^{1}\left[(2-x^2)^2-x^4\right]dx=\pi\int_{-1}^{1}(4-4x^2)\,dx=\frac{16\pi}{3}$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      绕 $y$ 轴旋转时柱壳法出现的是<b>旋转半径</b>；若旋转轴是 $x=a$，半径要写成 $|x-a|$，直接代 $x$ 必错。
+    </div>
+  </article>
+</section>
+    <!-- ============ 第四章 多元函数微积分 ============ -->
+    <section class="chapter" id="c4">
+      <div class="ch-head">
+        <span class="ch-no">04</span>
+        <div>
+          <h2>多元函数微积分</h2>
+          <p class="ch-sub">数二只考二元情形。偏导与全微分的概念辨析、条件极值、二重积分的换序与极坐标是四大考点。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c4-1"><span class="n">4.1</span>二元函数的概念、极限与连续<button class="nbtn" type="button" data-k="c4-1" aria-label="为「4.1二元函数的概念、极限与连续」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 4.1　二重极限</span>
+          若对任意 $\varepsilon\gt0$，存在 $\delta\gt0$，当 $0\lt\sqrt{(x-x_0)^2+(y-y_0)^2}\lt\delta$ 时恒有 $|f(x,y)-A|\lt\varepsilon$，则 $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=A$。<br>
+          <b>关键差异</b>：二重极限要求点以<b>任意方式</b>趋于 $(x_0,y_0)$ 时都趋于 $A$。若沿两条不同路径得到不同结果，即可判定极限不存在。
+        </div>
+        <div class="box how"><span class="t">判别极限不存在的常用路径</span>
+          $y=kx$（沿直线）、$y=kx^2$（沿抛物线）、$x=0$ 或 $y=0$（沿坐标轴）、极坐标 $x=r\cos\theta,\ y=r\sin\theta$ 中 $\theta$ 取不同值。<br>
+          经典反例：$f(x,y)=\dfrac{xy}{x^2+y^2}$ 在 $(0,0)$ 处沿 $y=kx$ 极限为 $\frac{k}{1+k^2}$，随 $k$ 变化，故极限不存在。
+        </div>
+        <div class="box thm"><span class="t">定理 4.1　有界闭区域上连续函数的性质</span>
+          若 $f$ 在有界闭区域 $D$ 上连续，则 $f$ 在 $D$ 上有界，必取得最大值与最小值，并能取到介于两者之间的一切值。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c4-2"><span class="n">4.2</span>偏导数<button class="nbtn" type="button" data-k="c4-2" aria-label="为「4.2偏导数」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 4.2</span>
+          $$\frac{\partial z}{\partial x}\bigg|_{\substack{x=x_0\\y=y_0}}=\lim_{\Delta x\to0}\frac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}$$
+          $\frac{\partial z}{\partial y}$ 同理：对 $x$ 求偏导时把 $y$ 视为常数，反之亦然。
+        </div>
+        <div class="box prop"><span class="t">几何意义</span>
+          $f_x(x_0,y_0)$ 是曲面 $z=f(x,y)$ 与平面 $y=y_0$ 的交线在点 $(x_0,y_0,f(x_0,y_0))$ 处的切线关于 $x$ 轴的斜率；$f_y$ 类似。<br>
+          分段函数在分界点、原点处的偏导，必须回到定义用增量比计算。
+        </div>
+        <div class="box thm"><span class="t">定理 4.2　混合偏导相等</span>
+          若 $f_{xy}$ 与 $f_{yx}$ 在点 $(x_0,y_0)$ 的某邻域内存在且在 $(x_0,y_0)$ 连续，则 $f_{xy}(x_0,y_0)=f_{yx}(x_0,y_0)$。<br>
+          考研中绝大多数初等函数满足该条件，可交换求导次序；但分段函数在分界点需分别按定义算两个混合偏导再比较。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c4-3"><span class="n">4.3</span>全微分<button class="nbtn" type="button" data-k="c4-3" aria-label="为「4.3全微分」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 4.3</span>
+          若 $\Delta z=A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{(\Delta x)^2+(\Delta y)^2}$，则 $f$ 在 $(x_0,y_0)$ 可微，且
+          $$dz=A\,dx+B\,dy=f_x\,dx+f_y\,dy$$
+        </div>
+        <div class="box thm"><span class="t">定理 4.3　可微的判别</span>
+          <b>必要条件</b>：可微 $\Rightarrow$ 偏导数存在，且 $A=f_x$、$B=f_y$。<br>
+          <b>充分条件</b>：偏导数 $f_x$、$f_y$ 在 $(x_0,y_0)$ 的某邻域内存在且在 $(x_0,y_0)$ <b>连续</b> $\Rightarrow$ 可微。<br>
+          <b>关系链</b>：偏导连续 $\Rightarrow$ 可微 $\Rightarrow$ 连续 $\Rightarrow$ 极限存在；偏导存在 $\not\Rightarrow$ 连续，连续 $\not\Rightarrow$ 偏导存在。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          「偏导数存在」不能推出「连续」，也不能推出「可微」。典型反例 $f(x,y)=\dfrac{xy}{\sqrt{x^2+y^2}}$（$(0,0)$ 处补 0）：在原点偏导存在且为 0，但不可微（$\Delta z-dz=o(\rho)$ 不成立）。<br>
+          判断可微必须回到定义式验证 $\lim\limits_{\rho\to0}\dfrac{\Delta z-f_x\Delta x-f_y\Delta y}{\rho}=0$，不能只看偏导存在。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c4-4"><span class="n">4.4</span>复合函数与隐函数求导<button class="nbtn" type="button" data-k="c4-4" aria-label="为「4.4复合函数与隐函数求导」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 4.4　链式法则</span>
+          设 $z=f(u,v)$，$u=u(x,y)$，$v=v(x,y)$，则
+          $$\frac{\partial z}{\partial x}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial x},\qquad \frac{\partial z}{\partial y}=\frac{\partial f}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial y}$$
+          口诀：<b>画出变量树，逐条路径相乘、同一层各路径相加</b>。<br>
+          全导数：若 $z=f(u,v)$，$u=u(t)$、$v=v(t)$，则 $\dfrac{dz}{dt}=f_u\dfrac{du}{dt}+f_v\dfrac{dv}{dt}$。
+        </div>
+        <div class="box thm"><span class="t">定理 4.5　隐函数定理</span>
+          设 $F(x,y,z)=0$ 在点 $P$ 的邻域内连续可微，$F_z(P)\ne0$，则方程在 $P$ 附近唯一确定连续可微的 $z=z(x,y)$，且
+          $$\frac{\partial z}{\partial x}=-\frac{F_x}{F_z},\qquad \frac{\partial z}{\partial y}=-\frac{F_y}{F_z}$$
+          由 $F(x,y)=0$ 确定 $y=y(x)$ 时，$\dfrac{dy}{dx}=-\dfrac{F_x}{F_y}$。
+        </div>
+        <div class="box how"><span class="t">二阶偏导的写法</span>
+          求 $\frac{\partial^2 z}{\partial x^2}$：先对 $x$ 求得 $\frac{\partial z}{\partial x}$（结果中通常仍含 $u,v$ 及其偏导），再对该式整体关于 $x$ 求一次，注意内层 $u_x$、$v_x$ 也要继续用链式法则。<br>
+          隐函数求二阶偏导时，把一阶结果中的 $z_x$ 反复用 $-\frac{F_x}{F_z}$ 代换，直到式中只含 $x,y,z$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c4-5"><span class="n">4.5</span>多元函数的极值与条件极值<button class="nbtn" type="button" data-k="c4-5" aria-label="为「4.5多元函数的极值与条件极值」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 4.6　极值的必要条件</span>
+          若 $f$ 在 $(x_0,y_0)$ 取极值且偏导存在，则 $f_x(x_0,y_0)=f_y(x_0,y_0)=0$，该点为驻点。极值也可能出现在偏导不存在的点。
+        </div>
+        <div class="box thm"><span class="t">定理 4.7　充分条件（$AC-B^2$ 判别）</span>
+          设 $f_x=f_y=0$，记 $A=f_{xx}$，$B=f_{xy}$，$C=f_{yy}$：
+          <ul class="list">
+            <li>$AC-B^2\gt0$ 且 $A\gt0$：极小值；$A\lt0$：极大值；</li>
+            <li>$AC-B^2\lt0$：不是极值（鞍点）；</li>
+            <li>$AC-B^2=0$：失效，需用定义或泰勒展开另行判断。</li>
+          </ul>
+        </div>
+        <div class="box thm"><span class="t">定理 4.8　条件极值与拉格朗日乘数法</span>
+          求 $z=f(x,y)$ 在约束 $\varphi(x,y)=0$ 下的极值，构造
+          $$L(x,y,\lambda)=f(x,y)+\lambda\,\varphi(x,y)$$
+          解方程组 $L_x=0$，$L_y=0$，$\varphi=0$，得到可能的极值点，再比较函数值。<br>
+          两个约束 $\varphi=0,\ \psi=0$ 时引入两个乘数：$L=f+\lambda\varphi+\mu\psi$。<br>
+          若约束可解出 $y=y(x)$ 且计算量更小，也可直接代入化为一元函数求极值。
+        </div>
+        <div class="box how"><span class="t">有界闭区域上的最值</span>
+          ① 求区域内部驻点及偏导不存在的点的函数值；② 求边界上的最值（化为条件极值，或参数化边界后化为一元函数）；③ 比较所有候选值。实际问题若由题意保证最值存在且内部只有一个候选点，则该点即最值点。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c4-6"><span class="n">4.6</span>二重积分的概念与性质<button class="nbtn" type="button" data-k="c4-6" aria-label="为「4.6二重积分的概念与性质」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 4.4</span>
+          $$\iint_D f(x,y)\,d\sigma=\lim_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i$$
+          几何意义：$f\ge0$ 时为曲顶柱体的体积；$f\equiv1$ 时等于区域 $D$ 的面积。可积的充分条件：$f$ 在有界闭区域上连续。
+        </div>
+        <div class="box prop"><span class="t">性质 4.1</span>
+          <ul class="list">
+            <li>线性性；区域可加性（$D=D_1+D_2$ 且无公共内点）；</li>
+            <li>保号性：$f\ge0$ 则 $\iint_Df\,d\sigma\ge0$；由此 $f\le g\Rightarrow\iint f\le\iint g$；</li>
+            <li>估值：$mS\le\iint_Df\,d\sigma\le MS$，$S$ 为面积；</li>
+            <li>绝对值不等式：$\left|\iint_Df\right|\le\iint_D|f|$；</li>
+            <li><b>中值定理</b>：$f$ 在 $D$ 上连续，则存在 $(\xi,\eta)\in D$ 使 $\iint_Df=f(\xi,\eta)\cdot S$。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c4-7"><span class="n">4.7</span>二重积分的计算<button class="nbtn" type="button" data-k="c4-7" aria-label="为「4.7二重积分的计算」写批注">记</button></h3>
+        <div class="box how"><span class="t">直角坐标：X 型与 Y 型</span>
+          <b>X 型</b>（上下边界为函数）：$D=\{(x,y)\mid a\le x\le b,\ \varphi_1(x)\le y\le\varphi_2(x)\}$，先对 $y$ 后对 $x$：
+          $$\iint_Df\,d\sigma=\int_a^b dx\int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)\,dy$$
+          <b>Y 型</b>（左右边界为函数）：$D=\{(x,y)\mid c\le y\le d,\ \psi_1(y)\le x\le\psi_2(y)\}$，先对 $x$ 后对 $y$。<br>
+          一般区域用<b>竖线或横线切分</b>，判断哪种切法只需一条曲线作为边界。
+        </div>
+        <div class="box thm"><span class="t">定理 4.9　交换积分次序</span>
+          当内层积分无法用初等函数表示（如 $\int e^{-y^2}dy$、$\int\frac{\sin x}{x}dx$），或积分限复杂时，画区域图后交换次序：
+          $$\int_a^b dx\int_{\varphi_1(x)}^{\varphi_2(x)}f\,dy=\int_c^d dy\int_{\psi_1(y)}^{\psi_2(y)}f\,dx$$
+          步骤：由原积分限写出区域不等式 → 画出区域 → 按新次序重新定限。
+        </div>
+        <div class="box how"><span class="t">极坐标</span>
+          令 $x=r\cos\theta$，$y=r\sin\theta$，$d\sigma=r\,dr\,d\theta$：
+          $$\iint_Df(x,y)\,d\sigma=\int_{\alpha}^{\beta}d\theta\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos\theta,r\sin\theta)\,r\,dr$$
+          适用信号：区域是圆、圆环、扇形；被积函数含 $x^2+y^2$、$\frac{y}{x}$、$\sqrt{x^2+y^2}$。<br>
+          常见区域：圆 $x^2+y^2\le a^2$ 对应 $0\le\theta\le2\pi$，$0\le r\le a$；上半圆对应 $0\le\theta\le\pi$；$x^2+y^2\le2x$ 化为 $r\le2\cos\theta$，$-\frac{\pi}{2}\le\theta\le\frac{\pi}{2}$。
+        </div>
+        <div class="box thm"><span class="t">定理 4.10　对称性简化</span>
+          <b>关于 $x$ 轴对称</b>：若 $f(x,-y)=-f(x,y)$，则 $\iint_Df=0$；若 $f(x,-y)=f(x,y)$，则 $\iint_Df=2\iint_{D_{\text{上}}}f$。关于 $y$ 轴同理。<br>
+          <b>轮换对称</b>：若 $D$ 关于直线 $y=x$ 对称，则 $\iint_Df(x,y)\,d\sigma=\iint_Df(y,x)\,d\sigma$，常用于把 $\iint x^2$ 与 $\iint y^2$ 合并成 $\frac12\iint(x^2+y^2)$。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          ① 极坐标下 $d\sigma$ 中的 $r$ 不能漏，这是最常见的失分点。<br>
+          ② 被积函数含绝对值或 $\max,\min$ 时，须先用曲线把区域分片，再逐片积分。<br>
+          ③ 交换次序后上下限必须仍由「先积变量的上下界是后积变量的函数」构成，不要写反。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c4-8"><span class="n">4.8</span>本章题型全览<button class="nbtn" type="button" data-k="c4-8" aria-label="为「4.8本章题型全览」写批注">记</button></h3>
+        <p class="sm">多元部分有两条独立的考核线：一条是偏导与全微分的概念辨析，一条是二重积分的计算。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>二重极限</td><td>求 $\lim f(x,y)$；判断极限不存在；求参数使极限存在</td><td>沿 $y=kx$、$y=kx^2$、坐标轴取路径；极坐标下让 $\theta$ 独立变化；夹逼估值</td></tr>
+          <tr><td>连续性</td><td>讨论分段二元函数在分界点、原点的连续性</td><td>按定义验证 $\lim f=f(x_0,y_0)$；路径法可证不连续</td></tr>
+          <tr><td>偏导数</td><td>按定义求偏导；求分段点偏导；求某点偏导是否存在</td><td>固定一个变量写增量比；分段点必须用定义而非求导后代值</td></tr>
+          <tr><td>全微分</td><td>判断可微；求 $dz$；用可微求极限；近似计算</td><td>验证 $\Delta z-f_x\Delta x-f_y\Delta y=o(\rho)$；偏导连续是可微的充分条件</td></tr>
+          <tr><td>复合求导</td><td>一阶、二阶偏导；全导数；抽象函数 $f(u,v)$ 求偏导</td><td>画变量树逐路径相乘相加；二阶时对内层 $u_x,v_x$ 继续用链式</td></tr>
+          <tr><td>隐函数</td><td>由 $F(x,y,z)=0$ 求 $z_x,z_y$、二阶偏导</td><td>$z_x=-\frac{F_x}{F_z}$；二阶把 $z_x$ 反复代换干净</td></tr>
+          <tr><td>无条件极值</td><td>求极值点与极值；判断极值是否存在；含参讨论</td><td>解 $f_x=f_y=0$ 得驻点，用 $AC-B^2$：$\gt0$ 有极值（$A\gt0$ 极小）、$\lt0$ 非极值、$=0$ 失效</td></tr>
+          <tr><td>条件极值</td><td>拉格朗日乘数法；两个约束；实际最值（距离、面积、造价）</td><td>构造 $L=f+\lambda\varphi$，解方程组后比较函数值；能直接消元时代入更省</td></tr>
+          <tr><td>闭区域最值</td><td>求有界闭区域上的最大值与最小值</td><td>内部驻点 + 边界（条件极值或参数化）→ 逐个比较</td></tr>
+          <tr><td>二重积分（直角）</td><td>定限计算；X 型与 Y 型互化；分片积分</td><td>先画区域，选「只需一条曲线作边界」的方向；上下限由交点确定</td></tr>
+          <tr><td>交换次序</td><td>内层积不出时换序；证明积分等式与不等式</td><td>由原限写区域不等式 → 画图 → 按新次序重定限；换序常用来去掉 $\frac{\sin y}{y}$、$e^{-y^2}$</td></tr>
+          <tr><td>极坐标</td><td>圆域、圆环、扇形上的积分；被积含 $x^2+y^2$</td><td>$d\sigma=r\,dr\,d\theta$ 中的 $r$ 不能漏；$r$ 上限由边界给出，如 $r=2\cos\theta$</td></tr>
+          <tr><td>对称性</td><td>利用奇偶性、轮换对称性简化；含 $|x|+|y|$ 的区域</td><td>同时检查区域对称与函数奇偶；关于 $y=x$ 对称时可把 $x^2$ 与 $y^2$ 合并</td></tr>
+        </table></div>
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c4-9"><span class="n">4.9</span>二重积分：换序与极坐标<button class="nbtn" type="button" data-k="c4-9" aria-label="为「4.9二重积分：换序与极坐标」写批注">记</button></h3>
+    <div class="box def"><span class="t">识别信号</span>
+      内层积分无法用初等函数表示（$e^{-y^2}$、$\frac{\sin y}{y}$）、积分限含变量、区域为圆或圆环、被积函数含 $x^2+y^2$。
+    </div>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li><b>换序</b>：由原积分限写出区域不等式 → 画图 → 按新次序重新定限；</li>
+        <li><b>极坐标</b>：$x=r\cos\theta$，$y=r\sin\theta$，$d\sigma=r\,dr\,d\theta$，先定 $\theta$ 的范围，再定 $r$ 的上下界；</li>
+        <li><b>对称性</b>：区域关于坐标轴对称时配奇偶性，关于 $y=x$ 对称时用轮换对称合并 $x^2$ 与 $y^2$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 4.1</span>
+      <p>(1) 计算 $\displaystyle\int_0^1dx\int_x^1e^{-y^2}dy$；(2) 计算 $\displaystyle\iint_D(x^2+y^2)\,d\sigma$，其中 $D:x^2+y^2\le2x$。</p>
+      <div class="sol"><b>解</b>　(1) 区域为 $0\le x\le y\le1$，交换次序：
+      $$\int_0^1e^{-y^2}dy\int_0^y dx=\int_0^1ye^{-y^2}dy=\left[-\frac12e^{-y^2}\right]_0^1=\frac12\left(1-\frac1e\right)$$
+      (2) 圆 $x^2+y^2=2x$ 即 $r=2\cos\theta$，$\theta\in\left[-\frac\pi2,\frac\pi2\right]$：
+      $$\iint_D(x^2+y^2)d\sigma=\int_{-\pi/2}^{\pi/2}d\theta\int_0^{2\cos\theta}r^3dr=\int_{-\pi/2}^{\pi/2}4\cos^4\theta\,d\theta$$
+      由点火公式 $\int_0^{\pi/2}\cos^4\theta\,d\theta=\frac{3\pi}{16}$，故结果为 $4\times2\times\frac{3\pi}{16}=\frac{3\pi}{2}$。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      极坐标下 $r$ 的上限由边界曲线决定，$\theta$ 的范围由区域在哪个象限张开决定；$r=2\cos\theta$ 对应的是以 $(1,0)$ 为心、半径 1 的圆。
+    </div>
+  </article>
+</section>
+
+    <!-- ============ 第五章 常微分方程 ============ -->
+    <section class="chapter" id="c5">
+      <div class="ch-head">
+        <span class="ch-no">05</span>
+        <div>
+          <h2>常微分方程</h2>
+          <p class="ch-sub">求解流程固定、得分率高。重点在一阶线性方程、可降阶方程与二阶常系数非齐次方程的特解形式。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c5-1"><span class="n">5.1</span>基本概念<button class="nbtn" type="button" data-k="c5-1" aria-label="为「5.1基本概念」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 5.1</span>
+          含有未知函数及其导数的方程称为微分方程，未知函数导数的最高阶数称为<b>阶</b>。使方程成为恒等式的函数称为<b>解</b>；含 $n$ 个独立任意常数的解称为 $n$ 阶方程的<b>通解</b>；由初始条件确定常数后得到的解称为<b>特解</b>。一阶方程的初始条件形如 $y(x_0)=y_0$，二阶方程还需 $y'(x_0)=y_0'$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c5-2"><span class="n">5.2</span>一阶微分方程<button class="nbtn" type="button" data-k="c5-2" aria-label="为「5.2一阶微分方程」写批注">记</button></h3>
+        <div class="box thm"><span class="t">类型 1　可分离变量方程</span>
+          形如 $\dfrac{dy}{dx}=f(x)g(y)$。当 $g(y)\ne0$ 时分离变量：
+          $$\int\frac{dy}{g(y)}=\int f(x)\,dx+C$$
+          此外要单独检查 $g(y)=0$ 的常函数解是否被通解遗漏。
+        </div>
+        <div class="box thm"><span class="t">类型 2　齐次方程</span>
+          形如 $\dfrac{dy}{dx}=\varphi\!\left(\dfrac{y}{x}\right)$。令 $u=\dfrac{y}{x}$，则 $y=ux$，$\dfrac{dy}{dx}=u+x\dfrac{du}{dx}$，代入得
+          $$x\frac{du}{dx}=\varphi(u)-u$$
+          化为可分离变量方程。也可写成 $\dfrac{dx}{dy}=\varphi\!\left(\dfrac{x}{y}\right)$ 的对称形式。
+        </div>
+        <div class="box thm"><span class="t">类型 3　一阶线性方程</span>
+          标准形 $y'+P(x)y=Q(x)$，通解公式
+          $$y=e^{-\int P(x)dx}\left[\int Q(x)e^{\int P(x)dx}dx+C\right]$$
+          记忆法：把 $e^{\int Pdx}$ 写成 $\mu(x)$（积分因子），则 $y=\dfrac{1}{\mu}\left[\int Q\mu\,dx+C\right]$，来源于 $(y\mu)'=Q\mu$。
+        </div>
+        <div class="box how"><span class="t">求解顺序（拿到一阶方程先做这三步）</span>
+          ① 能分离变量就直接分离；② 写成 $\frac{y}{x}$ 的函数则用 $u=\frac yx$；③ 整理成 $y'+P(x)y=Q(x)$ 后用通解公式。<br>
+          若以 $x$ 为未知函数更简单（如 $\frac{dx}{dy}+P(y)x=Q(y)$），把 $x$ 看作 $y$ 的函数重写方程。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          一阶线性公式中两个积分号是「先积 $P$，再积 $Qe^{\int P}$」，负号的位置容易写错；$\int Pdx$ 只取一个原函数，常数已并入 $C$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c5-3"><span class="n">5.3</span>可降阶的高阶方程<button class="nbtn" type="button" data-k="c5-3" aria-label="为「5.3可降阶的高阶方程」写批注">记</button></h3>
+        <div class="box thm"><span class="t">类型 4　$y^{(n)}=f(x)$</span>
+          逐次积分 $n$ 次，每次产生一个任意常数。
+        </div>
+        <div class="box thm"><span class="t">类型 5　$y''=f(x,y')$（不显含 $y$）</span>
+          令 $p=y'$，则 $y''=\dfrac{dp}{dx}$，方程化为一阶方程 $\dfrac{dp}{dx}=f(x,p)$，解出 $p$ 后再积分得 $y$。
+        </div>
+        <div class="box thm"><span class="t">类型 6　$y''=f(y,y')$（不显含 $x$）</span>
+          令 $p=y'$，把 $y$ 视为自变量：
+          $$y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}=p\frac{dp}{dy}$$
+          方程化为 $p\dfrac{dp}{dy}=f(y,p)$。<br>
+          注意两个类型对调：不显含 $y$ 时以 $x$ 为自变量，不显含 $x$ 时以 $y$ 为自变量。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c5-4"><span class="n">5.4</span>二阶常系数齐次线性方程<button class="nbtn" type="button" data-k="c5-4" aria-label="为「5.4二阶常系数齐次线性方程」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 5.1　特征方程法</span>
+          对 $y''+py'+qy=0$，特征方程 $r^2+pr+q=0$：
+          <div class="tbl-wrap"><table class="tbl">
+            <colgroup><col style="width:30%"><col style="width:70%"></colgroup>
+            <tr><th>特征根</th><th>通解</th></tr>
+            <tr><td>两个相异实根 $r_1,r_2$</td><td>$y=C_1e^{r_1x}+C_2e^{r_2x}$</td></tr>
+            <tr><td>二重实根 $r$</td><td>$y=(C_1+C_2x)e^{rx}$</td></tr>
+            <tr><td>共轭复根 $\alpha\pm\beta i$</td><td>$y=e^{\alpha x}\left(C_1\cos\beta x+C_2\sin\beta x\right)$</td></tr>
+          </table></div>
+        </div>
+        <div class="box prop"><span class="t">解的结构</span>
+          若 $y_1,y_2$ 是齐次方程的两个<b>线性无关</b>解（即 $\frac{y_1}{y_2}\ne$ 常数），则 $C_1y_1+C_2y_2$ 是通解。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c5-5"><span class="n">5.5</span>二阶常系数非齐次线性方程<button class="nbtn" type="button" data-k="c5-5" aria-label="为「5.5二阶常系数非齐次线性方程」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 5.2　解的结构</span>
+          非齐次方程 $y''+py'+qy=f(x)$ 的通解 = 对应齐次方程的通解 + 非齐次方程的一个特解：
+          $$y=Y(x)+y^*(x)$$
+        </div>
+        <div class="box thm"><span class="t">定理 5.3　待定特解形式（$f(x)=P_m(x)e^{\lambda x}$）</span>
+          设 $P_m$ 为 $m$ 次多项式，特解设为
+          $$y^*=x^{k}Q_m(x)e^{\lambda x}$$
+          其中 $Q_m$ 为待定的 $m$ 次多项式，$k$ 的取法：$\lambda$ 不是特征根时 $k=0$；是单根时 $k=1$；是二重根时 $k=2$。<br>
+          常见对应：$f=e^{2x}$ 时 $P_m=1$（$m=0$），$Q_m$ 为常数 $A$；$f=xe^{x}$ 时 $Q_m=ax+b$。
+        </div>
+        <div class="box thm"><span class="t">定理 5.4　三角型自由项</span>
+          若 $f(x)=e^{\alpha x}\left[P_l(x)\cos\beta x+P_n(x)\sin\beta x\right]$，设
+          $$y^*=x^{k}e^{\alpha x}\left[R_m(x)\cos\beta x+S_m(x)\sin\beta x\right],\quad m=\max(l,n)$$
+          $\alpha\pm\beta i$ 不是特征根时 $k=0$，是特征根时 $k=1$（此时必为单根，$k$ 不取 2）。<br>
+          典型：$f=\sin x$、$f=\cos2x$、$f=e^x\cos x$。
+        </div>
+        <div class="box thm"><span class="t">定理 5.5　叠加原理</span>
+          若 $y_1^*$、$y_2^*$ 分别是 $f_1$、$f_2$ 的特解，则 $y_1^*+y_2^*$ 是 $f_1+f_2$ 的特解。自由项为几项之和时可拆开分别求特解再相加。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          ① $k$ 只看 $\lambda$（或 $\alpha\pm\beta i$）与特征根是否相同，与自由项的多项式次数无关。<br>
+          ② 待定系数代入后只比较同次幂系数（或 $\cos,\sin$ 的系数），漏项会算错。<br>
+          ③ 求通解时不要忘记加上齐次通解 $Y(x)$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c5-6"><span class="n">5.6</span>微分方程的应用<button class="nbtn" type="button" data-k="c5-6" aria-label="为「5.6微分方程的应用」写批注">记</button></h3>
+        <div class="box how"><span class="t">建模步骤</span>
+          设未知函数（如 $y(t)$ 表示某时刻的量）→ 由变化率（导数）与当前量之间的关系列出方程 → 代入初始条件确定常数。<br>
+          常见模型：<br>
+          · <b>指数增长/衰减</b>：$\frac{dy}{dt}=ky$，解 $y=y_0e^{kt}$（$k\lt0$ 为衰减，如放射性衰变、冷却定律）；<br>
+          · <b>混合问题</b>：流入浓度 $c_1$、流出浓度等于当前浓度，$\frac{dy}{dt}=r c_1-rc$ 型一阶线性方程；<br>
+          · <b>几何问题</b>：切线斜率、法线与坐标轴围成的面积，把「面积 = 定积分」与「斜率 = $y'$」代入条件得到方程。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c5-7"><span class="n">5.7</span>本章题型全览<button class="nbtn" type="button" data-k="c5-7" aria-label="为「5.7本章题型全览」写批注">记</button></h3>
+        <p class="sm">微分方程的题几乎都能靠「先判类型」解决，难的是应用题建模与反问题。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>基本概念</td><td>判断阶、通解、特解；验证某函数是否为解；由通解求初始条件</td><td>数独立任意常数的个数；代回方程验证恒等</td></tr>
+          <tr><td>可分离变量</td><td>求通解、满足初值的特解；含参讨论</td><td>分离后两边积分，别忘 $g(y)=0$ 的常函数解</td></tr>
+          <tr><td>齐次方程</td><td>$y'=\varphi(\frac yx)$ 型；可化为齐次的 $\frac{ax+by+c}{a'x+b'y+c'}$ 型</td><td>令 $u=\frac yx$，得 $xu'=\varphi(u)-u$；后者先平移消常数项</td></tr>
+          <tr><td>一阶线性</td><td>求通解、初值问题；以 $x$ 为未知函数；含参</td><td>套 $y=e^{-\int P}\left[\int Qe^{\int P}+C\right]$，或乘积分因子</td></tr>
+          <tr><td>可降阶</td><td>$y^{(n)}=f(x)$、$y''=f(x,y')$、$y''=f(y,y')$</td><td>逐次积分；不显含 $y$ 令 $p=y'(x)$；不显含 $x$ 令 $p(y)$，$y''=p\frac{dp}{dy}$</td></tr>
+          <tr><td>二阶齐次</td><td>求通解；由解反求方程；判断线性相关</td><td>特征方程三种情形；由已知解反推特征根再写方程</td></tr>
+          <tr><td>二阶非齐次</td><td>$P_m(x)e^{\lambda x}$ 型；三角型；叠加原理</td><td>先写齐次通解，再按 $\lambda$（或 $\alpha\pm\beta i$）是否为特征根定 $k$，设 $x^kQ_m e^{\lambda x}$ 比较系数</td></tr>
+          <tr><td>反问题</td><td>已知通解求原方程；已知特解或解曲线求参数</td><td>由通解形式读出特征根与自由项；代点定常数</td></tr>
+          <tr><td>几何应用</td><td>切线、法线与坐标轴围成面积；曲线过定点且斜率满足条件</td><td>把「斜率 = $y'$」「面积 = 定积分」写成方程，注意绝对值与符号</td></tr>
+          <tr><td>物理与经济</td><td>指数增长/衰减、冷却定律、混合问题、连续复利</td><td>设状态量，写「变化率 = 流入 − 流出」，代初值定常数</td></tr>
+        </table></div>
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c5-8"><span class="n">5.8</span>一阶微分方程<button class="nbtn" type="button" data-k="c5-8" aria-label="为「5.8一阶微分方程」写批注">记</button></h3>
+    <div class="box how"><span class="t">三步定型</span>
+      <ul class="list">
+        <li>能写成 $g(y)dy=f(x)dx$ → <b>可分离变量</b>，两边积分并检查 $g(y)=0$ 的常解；</li>
+        <li>能写成 $y'=\varphi\left(\frac yx\right)$ → <b>齐次方程</b>，令 $u=\frac yx$；</li>
+        <li>能整理成 $y'+P(x)y=Q(x)$ → <b>一阶线性</b>，套通解公式或积分因子。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 5.1</span>
+      <p>求 $y'+\dfrac{y}{x}=x^2$ 的通解。</p>
+      <div class="sol"><b>解</b>　这是标准一阶线性方程，$P=\frac1x$，$Q=x^2$，$\int Pdx=\ln x$，积分因子为 $x$。<br>
+      $$y=\frac{1}{x}\left[\int x^2\cdot x\,dx+C\right]=\frac{1}{x}\left[\frac{x^4}{4}+C\right]=\frac{x^3}{4}+\frac{C}{x}$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      通解公式里的负号与两个积分的位置最容易写反；求出结果后求一次导代回原方程验证，三十秒就能避免整题失分。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c5-9"><span class="n">5.9</span>二阶常系数非齐次方程<button class="nbtn" type="button" data-k="c5-9" aria-label="为「5.9二阶常系数非齐次方程」写批注">记</button></h3>
+    <div class="box how"><span class="t">固定四步</span>
+      <ul class="list">
+        <li>写特征方程 $r^2+pr+q=0$，得齐次通解 $Y(x)$；</li>
+        <li>看自由项 $f(x)$ 的类型：$P_m(x)e^{\lambda x}$ 或 $e^{\alpha x}(P_l\cos\beta x+P_n\sin\beta x)$；</li>
+        <li>定 $k$：$\lambda$（或 $\alpha\pm\beta i$）不是特征根取 $0$，单根取 $1$，二重根取 $2$（三角型最多取 1）；</li>
+        <li>设出特解代入比较系数，通解 $=Y+y^*$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 5.2</span>
+      <p>求 $y''-y=e^x$ 的通解。</p>
+      <div class="sol"><b>解</b>　特征方程 $r^2-1=0$，$r=\pm1$，齐次通解 $Y=C_1e^x+C_2e^{-x}$。<br>
+      自由项中 $\lambda=1$ 是单根，故设 $y^*=Axe^x$。代入：$(y^*)''-y^*=A(x+2)e^x-Axe^x=2Ae^x$，令 $2A=1$ 得 $A=\frac12$。<br>
+      通解 $$y=C_1e^x+C_2e^{-x}+\frac{x}{2}e^x$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      设特解时容易漏乘 $x^k$，一旦 $\lambda$ 是特征根而没乘 $x$，代入后会出现「$0=$ 非零」的矛盾，这是判断自己是否设错的信号。
+    </div>
+  </article>
+</section>
+    <!-- ============ 第六章 行列式 ============ -->
+    <section class="chapter" id="c6">
+      <div class="ch-head">
+        <span class="ch-no">06</span>
+        <div>
+          <h2>行列式</h2>
+          <p class="ch-sub">线代的计算基础。性质与按行展开是两条主线，n 阶数值行列式与含参行列式是固定考型。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c6-1"><span class="n">6.1</span>定义与基本性质<button class="nbtn" type="button" data-k="c6-1" aria-label="为「6.1定义与基本性质」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 6.1</span>
+          $n$ 阶行列式是 $n!$ 项的代数和，每项取自不同行、不同列的 $n$ 个元素之积，符号由列标排列的逆序数决定：
+          $$D=\begin{vmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\ a_{21}&a_{22}&\cdots&a_{2n}\\ \vdots&\vdots&&\vdots\\ a_{n1}&a_{n2}&\cdots&a_{nn}\end{vmatrix}=\sum_{p_1p_2\cdots p_n}(-1)^{\tau(p_1p_2\cdots p_n)}a_{1p_1}a_{2p_2}\cdots a_{np_n}$$
+        </div>
+        <div class="box thm"><span class="t">性质 6.1　行列式的基本性质</span>
+          <ul class="list">
+            <li><b>转置不变</b>：$|A^T|=|A|$，故对行成立的性质对列同样成立；</li>
+            <li><b>互换两行（列）</b>，行列式变号；</li>
+            <li>某行（列）有公因子 $k$，可提出：$|kA|=k^n|A|$（注意是 $n$ 次）；</li>
+            <li>两行（列）相同或成比例，行列式为 $0$；</li>
+            <li>某行（列）为两组数之和，可按该行拆成两个行列式之和；</li>
+            <li>某行（列）加上另一行（列）的 $k$ 倍，行列式不变——这是化三角的核心操作；</li>
+            <li>若有一行（列）全为零，行列式为 $0$。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c6-2"><span class="n">6.2</span>按行（列）展开定理<button class="nbtn" type="button" data-k="c6-2" aria-label="为「6.2按行（列）展开定理」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 6.2　余子式与代数余子式</span>
+          划去 $a_{ij}$ 所在的行与列，剩下的 $n-1$ 阶行列式称为余子式 $M_{ij}$；代数余子式 $A_{ij}=(-1)^{i+j}M_{ij}$。
+        </div>
+        <div class="box thm"><span class="t">定理 6.1　展开定理</span>
+          $$D=\sum_{j=1}^{n}a_{ij}A_{ij}\quad(\text{按第 }i\text{ 行展开})=\sum_{i=1}^{n}a_{ij}A_{ij}\quad(\text{按第 }j\text{ 列展开})$$
+        </div>
+        <div class="box thm"><span class="t">定理 6.2　异乘变零定理</span>
+          $$\sum_{k=1}^{n}a_{ik}A_{jk}=0\quad(i\ne j)$$
+          即某行元素与另一行元素的代数余子式乘积之和为零。这条定理是「求代数余子式之和」类题目的关键。
+        </div>
+        <div class="box how"><span class="t">常用结论</span>
+          <b>上（下）三角行列式、对角行列式</b>等于主对角线元素之积。<br>
+          <b>副对角线</b>行列式：$\begin{vmatrix}&&a_1\\&\ddots&\\a_n&&\end{vmatrix}=(-1)^{\frac{n(n-1)}{2}}a_1a_2\cdots a_n$。<br>
+          <b>范德蒙德行列式</b>：
+          $$V_n=\begin{vmatrix}1&1&\cdots&1\\ x_1&x_2&\cdots&x_n\\ \vdots&\vdots&&\vdots\\ x_1^{n-1}&x_2^{n-1}&\cdots&x_n^{n-1}\end{vmatrix}=\prod_{1\le i\lt j\le n}(x_j-x_i)$$
+          <b>分块行列式</b>：$\begin{vmatrix}A&O\\C&B\end{vmatrix}=|A||B|$，$\begin{vmatrix}A&D\\O&B\end{vmatrix}=|A||B|$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c6-3"><span class="n">6.3</span>行列式的计算套路<button class="nbtn" type="button" data-k="c6-3" aria-label="为「6.3行列式的计算套路」写批注">记</button></h3>
+        <div class="box how"><span class="t">五种标准方法</span>
+          <ul class="list">
+            <li><b>化三角</b>：用「某行加另一行 $k$ 倍」把主对角线下方消成零，适用于元素规律性强的行列式（如行和相等的行列式，先把各列加到第一列）；</li>
+            <li><b>降阶（按行展开）</b>：某行（列）零元素多时，用展开定理降为 $n-1$ 阶；先用行变换制造零再展开；</li>
+            <li><b>递推法</b>：三对角、范德蒙德型行列式，按第一行展开建立 $D_n$ 与 $D_{n-1}$、$D_{n-2}$ 的递推关系，再归纳求解；</li>
+            <li><b>拆行（列）法</b>：把某行拆成两项之和，得到两个易算的行列式；</li>
+            <li><b>加边法</b>：对「爪型」行列式，加一行一列化为标准型，注意加边后要能消回去。</li>
+          </ul>
+        </div>
+        <div class="box how"><span class="t">含参数行列式</span>
+          先把 $|A-\lambda E|$ 化为关于 $\lambda$ 的多项式，再因式分解求根；若某行（列）含参数，先用行变换把参数集中到少数位置，避免展开时出现高次项。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          ① 提公因子时是「某一行」提出 $k$，$|kA|$ 要提 $n$ 次；<br>
+          ② 化简时只做「加 $k$ 倍」，一旦做了「互换」或「倍乘」，行列式的值就变了，需记录符号与倍数；<br>
+          ③ 代数余子式带符号 $(-1)^{i+j}$，余子式不带。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c6-4"><span class="n">6.4</span>行列式与矩阵运算的关系<button class="nbtn" type="button" data-k="c6-4" aria-label="为「6.4行列式与矩阵运算的关系」写批注">记</button></h3>
+        <div class="box prop"><span class="t">性质 6.2</span>
+          $$|A^T|=|A|,\qquad |kA|=k^n|A|,\qquad |AB|=|A||B|\quad(A,B\text{ 同阶})$$
+          $$|A^{-1}|=\frac{1}{|A|},\qquad |A^{*}|=|A|^{\,n-1},\qquad \left|(A^{*})^{-1}\right|=\frac{1}{|A|^{n-1}}$$
+          $|A+B|\ne|A|+|B|$，这是最常见的错误类比。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c6-5"><span class="n">6.5</span>本章题型全览<button class="nbtn" type="button" data-k="c6-5" aria-label="为「6.5本章题型全览」写批注">记</button></h3>
+        <p class="sm">行列式题目的分水岭在「结构」：看出规律就能一歩化三角，看不出规律就只能硬展开。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>行列式概念</td><td>判断某乘积项是否属于行列式、确定其符号</td><td>看是否取自不同行不同列；符号由列标排列的逆序数决定</td></tr>
+          <tr><td>基本性质</td><td>用性质化简求值；判断行列式为零；比较两个行列式</td><td>互换变号、倍乘提因子、某行加 $k$ 倍不变；两行成比例则为零</td></tr>
+          <tr><td>展开定理</td><td>按行（列）展开求值；求代数余子式之和；求 $\sum a_{ik}A_{jk}$</td><td>先用行变换制造零再展开；异乘变零定理 $\sum a_{ik}A_{jk}=0\ (i\ne j)$ 是求和利器</td></tr>
+          <tr><td>$n$ 阶计算</td><td>行和相等型、三对角型、爪型、箭头型</td><td>行和相等把各列加到第一列；三对角按第一行展开建递推；爪型用对角元消去多余项</td></tr>
+          <tr><td>特殊行列式</td><td>范德蒙德、分块、副对角线、三角、对角</td><td>范德蒙德 $\prod_{i\lt j}(x_j-x_i)$；分块 $\begin{vmatrix}A&O\\C&B\end{vmatrix}=|A||B|$；副对角补 $(-1)^{n(n-1)/2}$</td></tr>
+          <tr><td>含参行列式</td><td>由 $|A|=0$ 求参数；讨论参数使秩下降；含参 $n$ 阶行列式</td><td>先行变换把参数集中，再因式分解求根；注意参数取值使主元消失的情形</td></tr>
+          <tr><td>与矩阵运算</td><td>求 $|AB|$、$|kA|$、$|A^{-1}|$、$|A^{*}|$、$|A^T|$</td><td>$|AB|=|A||B|$，$|kA|=k^n|A|$，$|A^{*}|=|A|^{n-1}$；$|A+B|$ 无公式</td></tr>
+        </table></div>
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c6-6"><span class="n">6.6</span>$n$ 阶行列式的计算<button class="nbtn" type="button" data-k="c6-6" aria-label="为「6.6$n$ 阶行列式的计算」写批注">记</button></h3>
+    <div class="box def"><span class="t">先看结构特征</span>
+      <ul class="list">
+        <li><b>各行元素之和相同</b>：把各列加到第一列，提出公因子，再化为三角；</li>
+        <li><b>三对角 / 有递推规律</b>：按第一行（列）展开，建立 $D_n$ 与 $D_{n-1},D_{n-2}$ 的递推式；</li>
+        <li><b>爪型</b>（只有第一行、第一列与对角线非零）：用主对角元素消去第一行（列）的其余元素；</li>
+        <li><b>含参数</b>：先算出行列式的多项式，再因式分解求参数取值。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 6.1</span>
+      <p>计算 $n$ 阶行列式 $D_n=\begin{vmatrix}a&1&\cdots&1\\1&a&\cdots&1\\\vdots&\vdots&\ddots&\vdots\\1&1&\cdots&a\end{vmatrix}$。</p>
+      <div class="sol"><b>解</b>　各行元素之和均为 $a+n-1$。把第 2 至第 $n$ 列都加到第 1 列，提出公因子：
+      $$D_n=(a+n-1)\begin{vmatrix}1&1&\cdots&1\\1&a&\cdots&1\\\vdots&\vdots&\ddots&\vdots\\1&1&\cdots&a\end{vmatrix}$$
+      再把第 1 行的 $-1$ 倍加到其余各行，得上三角行列式，对角元为 $1,a-1,\cdots,a-1$，故
+      $$D_n=(a+n-1)(a-1)^{\,n-1}$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      「倍乘」与「互换」都会改变行列式的值，化三角过程中只做「加 $k$ 倍」才安全；若不得不互换，最后必须补上符号 $(-1)^m$。
+    </div>
+  </article>
+</section>
+
+    <!-- ============ 第七章 矩阵 ============ -->
+    <section class="chapter" id="c7">
+      <div class="ch-head">
+        <span class="ch-no">07</span>
+        <div>
+          <h2>矩阵</h2>
+          <p class="ch-sub">运算规则、逆矩阵、伴随矩阵、秩与初等变换五件事，构成线代其余章节的工具箱。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c7-1"><span class="n">7.1</span>矩阵的运算<button class="nbtn" type="button" data-k="c7-1" aria-label="为「7.1矩阵的运算」写批注">记</button></h3>
+        <div class="box prop"><span class="t">运算规则</span>
+          <ul class="list">
+            <li>加法与数乘按元素进行，要求同型；</li>
+            <li>乘法 $A_{m\times s}B_{s\times n}$ 结果 $m\times n$，元素 $c_{ij}=\sum_{k=1}^{s}a_{ik}b_{kj}$，<b>一般不满足交换律</b>；</li>
+            <li>$A(B+C)=AB+AC$，$(AB)C=A(BC)$，$k(AB)=(kA)B=A(kB)$；</li>
+            <li>转置：$(A^T)^T=A$，$(A+B)^T=A^T+B^T$，$(AB)^T=B^TA^T$；</li>
+            <li>方阵幂：$A^kA^l=A^{k+l}$，但 $(AB)^k\ne A^kB^k$（$A,B$ 可交换时才成立）；</li>
+          </ul>
+          对称矩阵 $A^T=A$；反对称矩阵 $A^T=-A$（主对角线元素全为 0）；正交矩阵 $A^TA=AA^T=E$，即 $A^{-1}=A^T$，且 $|A|=\pm1$。
+        </div>
+        <div class="box prop"><span class="t">矩阵多项式</span>
+          若 $f(x)=a_0+a_1x+\cdots+a_nx^n$，定义 $f(A)=a_0E+a_1A+\cdots+a_nA^n$。若 $A$ 的特征值为 $\lambda$，则 $f(A)$ 的特征值为 $f(\lambda)$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c7-2"><span class="n">7.2</span>逆矩阵<button class="nbtn" type="button" data-k="c7-2" aria-label="为「7.2逆矩阵」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 7.1</span>
+          对 $n$ 阶方阵 $A$，若存在 $B$ 使 $AB=BA=E$，称 $A$ 可逆，$B=A^{-1}$。逆矩阵若存在则唯一。
+        </div>
+        <div class="box thm"><span class="t">定理 7.1　可逆的充要条件</span>
+          $A$ 可逆 $\iff |A|\ne0\iff r(A)=n\iff A$ 的列（行）向量组线性无关 $\iff$ 齐次方程组 $Ax=0$ 只有零解。
+        </div>
+        <div class="box thm"><span class="t">定理 7.2　伴随矩阵求逆</span>
+          设 $A=(a_{ij})$，$A^*=(A_{ji})$（注意转置位置：$A^*$ 的第 $i$ 行第 $j$ 列是 $A_{ji}$），则
+          $$AA^{*}=A^{*}A=|A|E,\qquad A^{-1}=\frac{1}{|A|}A^{*}\quad(|A|\ne0)$$
+          $|A|=0$ 时 $A$ 不可逆，但仍可求 $A^*$。
+        </div>
+        <div class="box prop"><span class="t">性质 7.1　伴随矩阵的性质</span>
+          $$|A^{*}|=|A|^{\,n-1},\qquad (A^{*})^{*}=|A|^{\,n-2}A\ (n\ge2)$$
+          $$(A^{-1})^{*}=(A^{*})^{-1},\qquad (kA)^{*}=k^{\,n-1}A^{*},\qquad (A^T)^{*}=(A^{*})^T$$
+          $$r(A^{*})=\begin{cases}n,&r(A)=n\\1,&r(A)=n-1\\0,&r(A)\le n-2\end{cases}$$
+        </div>
+        <div class="box how"><span class="t">三种求逆手段</span>
+          ① <b>伴随法</b>：$A^{-1}=\frac{1}{|A|}A^*$，适合 2、3 阶；<br>
+          ② <b>初等行变换</b>：$(A\mid E)\xrightarrow{\text{行变换}}(E\mid A^{-1})$，适合阶数较高；<br>
+          ③ <b>定义法</b>：凑 $AB=E$，适合抽象矩阵（如已知 $A^2+A-2E=O$，可整理出 $A(A+E)=2E$）。<br>
+          常用恒等式：$A^{-1}+B^{-1}=A^{-1}(A+B)B^{-1}=(A+B)$ 相关变形的前提是各逆存在。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          $(A+B)^{-1}\ne A^{-1}+B^{-1}$；$(AB)^{-1}=B^{-1}A^{-1}$（顺序颠倒）；$(A^*)^{-1}=\frac{A}{|A|}$。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c7-3"><span class="n">7.3</span>初等变换与初等矩阵<button class="nbtn" type="button" data-k="c7-3" aria-label="为「7.3初等变换与初等矩阵」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 7.2　三类初等变换</span>
+          ① 交换两行（列）；② 某行（列）乘以非零常数 $k$；③ 某行（列）加上另一行（列）的 $k$ 倍。对单位矩阵做一次初等变换得到的矩阵称为初等矩阵。
+        </div>
+        <div class="box thm"><span class="t">定理 7.3　初等变换与矩阵乘法</span>
+          <b>左乘行变，右乘列变</b>：对 $A$ 做一次初等行变换，等价于左乘相应初等矩阵 $P$，即 $PA$；对 $A$ 做一次初等列变换，等价于右乘 $Q$，即 $AQ$。<br>
+          初等矩阵均可逆，且逆矩阵仍是同类型初等矩阵（如交换阵的逆是自身，倍乘 $k$ 的逆是倍乘 $\frac1k$）。
+        </div>
+        <div class="box thm"><span class="t">定理 7.4　等价与秩</span>
+          若 $A$ 经有限次初等变换化为 $B$，称 $A$ 与 $B$ 等价，记 $A\cong B$。等价矩阵同型且秩相同；任何矩阵都等价于标准形 $\begin{pmatrix}E_r&O\\O&O\end{pmatrix}$。<br>
+          初等变换不改变矩阵的秩，也不改变列向量组之间的线性关系（这一点在第 9 章解方程组时直接使用）。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          求 $A^{-1}B$ 时只能用<b>行变换</b>：$(A\mid B)\to(E\mid A^{-1}B)$；若混用列变换，结果不对应。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c7-4"><span class="n">7.4</span>矩阵的秩<button class="nbtn" type="button" data-k="c7-4" aria-label="为「7.4矩阵的秩」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 7.3</span>
+          矩阵中非零子式的最高阶数称为矩阵的秩，记 $r(A)$ 或 $\mathrm{rank}(A)$。等价定义：行向量组的秩、列向量组的秩（三者相等）。
+        </div>
+        <div class="box prop"><span class="t">性质 7.2　秩的运算</span>
+          <ul class="list">
+            <li>$0\le r(A)\le\min(m,n)$；$r(A)=0\iff A=O$；</li>
+            <li>$r(A^T)=r(A)$；$r(kA)=r(A)\ (k\ne0)$；</li>
+            <li>$r(A+B)\le r(A)+r(B)$；</li>
+            <li>$r(AB)\le\min\{r(A),r(B)\}$；若 $A$ 可逆，则 $r(AB)=r(B)$、$r(BA)=r(B)$；</li>
+            <li>$r\begin{pmatrix}A&O\\O&B\end{pmatrix}=r(A)+r(B)$；</li>
+            <li>$n$ 阶方阵 $A$：$r(A)=n\iff|A|\ne0\iff A$ 可逆（满秩）。</li>
+          </ul>
+        </div>
+        <div class="box how"><span class="t">求秩的方法</span>
+          用初等行变换化<b>行阶梯形</b>，非零行的行数即为秩。<br>
+          含参矩阵求秩：化阶梯形后，令主元为零解出参数，分情况讨论（参数取值使某行全零时秩下降）。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c7-5"><span class="n">7.5</span>分块矩阵<button class="nbtn" type="button" data-k="c7-5" aria-label="为「7.5分块矩阵」写批注">记</button></h3>
+        <div class="box prop"><span class="t">分块运算</span>
+          分块矩阵的加法、数乘、乘法与普通矩阵同规则，只是元素换成子块（乘法要求左块列数等于右块行数）。<br>
+          分块对角矩阵 $\mathrm{diag}(A_1,A_2,\cdots,A_s)$：行列式为各块行列式之积；可逆时 $M^{-1}=\mathrm{diag}(A_1^{-1},\cdots,A_s^{-1})$；秩为各块秩之和。
+        </div>
+        <div class="box prop"><span class="t">常用分块求逆</span>
+          $$\begin{pmatrix}A&O\\O&B\end{pmatrix}^{-1}=\begin{pmatrix}A^{-1}&O\\O&B^{-1}\end{pmatrix},\qquad \begin{pmatrix}O&A\\B&O\end{pmatrix}^{-1}=\begin{pmatrix}O&B^{-1}\\A^{-1}&O\end{pmatrix}$$
+          含非对角块时可用「舒尔补」或直接设未知块解方程，考场上按定义解更稳。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c7-6"><span class="n">7.6</span>本章题型全览<button class="nbtn" type="button" data-k="c7-6" aria-label="为「7.6本章题型全览」写批注">记</button></h3>
+        <p class="sm">矩阵这一章的考法集中在一个字上：算。概念题多考「与直觉相反」的结论，计算题多考初等变换与分块。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>矩阵运算</td><td>乘法、转置、方阵幂、矩阵多项式；判断 $AB=BA$ 是否成立</td><td>乘法不交换；$(AB)^T=B^TA^T$、$(AB)^{-1}=B^{-1}A^{-1}$ 顺序反；幂运算只在可交换时拆开</td></tr>
+          <tr><td>对称与正交</td><td>判断对称、反对称、正交矩阵；由 $A^TA=E$ 求参数</td><td>对称 $A^T=A$；反对称主对角全零；正交 $A^{-1}=A^T$ 且 $|A|=\pm1$</td></tr>
+          <tr><td>可逆判定</td><td>判断是否可逆；求参数使可逆；证明可逆</td><td>$|A|\ne0\iff r(A)=n\iff Ax=0$ 只有零解；抽象矩阵凑 $AB=E$</td></tr>
+          <tr><td>具体求逆</td><td>2、3 阶求逆；高阶求逆；分块矩阵求逆</td><td>低阶用 $\frac{1}{|A|}A^*$；高阶用 $(A\mid E)\to(E\mid A^{-1})$；分块对角逐块求逆</td></tr>
+          <tr><td>抽象求逆</td><td>由多项式关系求 $A^{-1}$、$A^{*}$、$(A-E)^{-1}$</td><td>把等式整理成 $A\cdot B=E$；也可整体移项提出公因子</td></tr>
+          <tr><td>伴随矩阵</td><td>求 $A^*$ 的元素；求 $|A^*|$、$(A^*)^{-1}$、$(A^*)^*$；判断 $r(A^*)$</td><td>$AA^*=|A|E$；$|A^*|=|A|^{n-1}$；$r(A^*)$ 按 $r(A)=n,n-1,\le n-2$ 分别取 $n,1,0$</td></tr>
+          <tr><td>初等变换</td><td>用初等变换求逆、求秩、化标准形；判断初等矩阵</td><td>左乘行变、右乘列变；求 $A^{-1}B$ 只能用行变换</td></tr>
+          <tr><td>矩阵的秩</td><td>求秩；含参讨论秩；用秩不等式证明</td><td>化行阶梯形数非零行；$r(AB)\le\min\{r(A),r(B)\}$、$r(A+B)\le r(A)+r(B)$；可逆因子可提出</td></tr>
+          <tr><td>分块矩阵</td><td>分块乘法、分块行列式、分块求逆、分块矩阵的秩</td><td>块乘要求维数匹配；对角分块的行列式、逆、秩都按块处理</td></tr>
+          <tr><td>矩阵方程</td><td>$AX=B$、$XA=B$、$AXB=C$ 求 $X$</td><td>$AX=B$ 用 $(A\mid B)$ 行变换；$XA=B$ 转置成 $A^TX^T=B^T$；$AXB=C$ 先解 $AY=C$ 再解 $XB=Y$</td></tr>
+        </table></div>
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c7-7"><span class="n">7.7</span>抽象矩阵求逆与矩阵方程<button class="nbtn" type="button" data-k="c7-7" aria-label="为「7.7抽象矩阵求逆与矩阵方程」写批注">记</button></h3>
+    <div class="box how"><span class="t">两类题两种打法</span>
+      <ul class="list">
+        <li><b>抽象矩阵</b>（给出 $A$ 满足的多项式关系）：把等式整理成 $A\cdot B=E$ 的形式，则 $B=A^{-1}$；</li>
+        <li><b>具体矩阵方程</b> $AX=B$：用 $(A\mid B)\xrightarrow{\text{行变换}}(E\mid A^{-1}B)$；$XA=B$ 时转置为 $A^TX^T=B^T$ 再解。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 7.1</span>
+      <p>设 $A$ 满足 $A^2-A-2E=O$，证明 $A$ 可逆并求 $A^{-1}$。</p>
+      <div class="sol"><b>解</b>　由 $A^2-A=2E$ 得 $A(A-E)=2E$，即 $A\cdot\dfrac{A-E}{2}=E$。<br>
+      由可逆的定义，$A$ 可逆且
+      $$A^{-1}=\frac{A-E}{2}$$</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      从 $A^2-A-2E=O$ 直接「移项得 $A^2-A=2E$ 所以 $|A|\cdot|A-E|=2^n$」也能证可逆，但求不出 $A^{-1}$ 的表达式；必须凑成 $AB=E$ 才能读出逆矩阵。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c7-8"><span class="n">7.8</span>矩阵的秩与参数讨论<button class="nbtn" type="button" data-k="c7-8" aria-label="为「7.8矩阵的秩与参数讨论」写批注">记</button></h3>
+    <div class="box how"><span class="t">解题步骤</span>
+      <ul class="list">
+        <li>把矩阵化为行阶梯形，主元中含参数；令主元为零解出分界值；</li>
+        <li>在每个分界值处<b>回到原矩阵</b>重新计算非零行数，不能沿用未代入的阶梯形；</li>
+        <li>用 $r(A)=n$ 判可逆、$r(A)=n-1$ 判伴随矩阵秩为 1 等结论收尾。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 7.2</span>
+      <p>设 $A=\begin{pmatrix}1&a&a\\a&1&a\\a&a&1\end{pmatrix}$，讨论 $a$ 取何值时 $r(A)$ 分别为 $3,2,1$。</p>
+      <div class="sol"><b>解</b>　$|A|=(1-a)^2(1+2a)$。<br>
+      当 $a\ne1$ 且 $a\ne-\frac12$ 时 $|A|\ne0$，$r(A)=3$；<br>
+      当 $a=1$ 时 $A$ 的三行全为 $(1,1,1)$，$r(A)=1$；<br>
+      当 $a=-\frac12$ 时 $|A|=0$ 但存在二阶非零子式（如左上角 $\begin{vmatrix}1&-\frac12\\-\frac12&1\end{vmatrix}=\frac34\ne0$），故 $r(A)=2$。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      $|A|=0$ 只能说明秩小于 3，不能直接断定秩为 2；必须再找一个非零子式确认下界。
+    </div>
+  </article>
+</section>
+    <!-- ============ 第八章 向量与秩 ============ -->
+    <section class="chapter" id="c8">
+      <div class="ch-head">
+        <span class="ch-no">08</span>
+        <div>
+          <h2>向量与向量组的秩</h2>
+          <p class="ch-sub">线性相关性的判定是选择题高频点，它与矩阵的秩、方程组的解数三位一体，必须串起来理解。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c8-1"><span class="n">8.1</span>线性组合与线性表示<button class="nbtn" type="button" data-k="c8-1" aria-label="为「8.1线性组合与线性表示」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 8.1</span>
+          设 $\alpha_1,\cdots,\alpha_s$ 与 $\beta$ 是同维向量，若存在数 $k_1,\cdots,k_s$ 使
+          $$\beta=k_1\alpha_1+k_2\alpha_2+\cdots+k_s\alpha_s$$
+          则称 $\beta$ 可由 $\alpha_1,\cdots,\alpha_s$ <b>线性表示</b>，$k_i$ 为组合系数。<br>
+          若向量组 $(I)$ 中每个向量都可由 $(II)$ 线性表示，称 $(I)$ 可由 $(II)$ 表示；互相可表示则称两组<b>等价</b>。
+        </div>
+        <div class="box thm"><span class="t">定理 8.1　线性表示的矩阵刻画</span>
+          $\beta$ 可由 $\alpha_1,\cdots,\alpha_s$ 线性表示 $\iff$ 方程组 $(\alpha_1,\cdots,\alpha_s)x=\beta$ 有解 $\iff r(\alpha_1,\cdots,\alpha_s)=r(\alpha_1,\cdots,\alpha_s,\beta)$。
+        </div>
+        <div class="box thm"><span class="t">定理 8.2　秩与表示的关系</span>
+          若向量组 $(I)$ 可由 $(II)$ 线性表示，则 $r(I)\le r(II)$。<br>
+          等价向量组的秩相等；反之秩相等的两个向量组不一定等价（还需能互相表示）。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c8-2"><span class="n">8.2</span>线性相关与线性无关<button class="nbtn" type="button" data-k="c8-2" aria-label="为「8.2线性相关与线性无关」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 8.2</span>
+          若存在<b>不全为零</b>的数 $k_1,\cdots,k_s$ 使 $k_1\alpha_1+\cdots+k_s\alpha_s=0$，称向量组线性<b>相关</b>；若该式成立当且仅当所有 $k_i=0$，称线性<b>无关</b>。
+        </div>
+        <div class="box thm"><span class="t">定理 8.3　相关性判定的五条等价说法</span>
+          <ul class="list">
+            <li>$\alpha_1,\cdots,\alpha_s$ 线性相关 $\iff$ 齐次方程组 $(\alpha_1,\cdots,\alpha_s)x=0$ 有非零解；</li>
+            <li>$\iff r(\alpha_1,\cdots,\alpha_s)\lt s$；</li>
+            <li>$\iff$ 至少有一个向量可由其余 $s-1$ 个线性表示（$s\ge2$）；</li>
+            <li>当 $s=n$（$n$ 个 $n$ 维向量）时，$\iff$ 以它们为列的行列式为 $0$；</li>
+            <li>线性无关 $\iff r=n$ $\iff$ 行列式非零 $\iff$ 只有零解。</li>
+          </ul>
+        </div>
+        <div class="box prop"><span class="t">性质 8.1　相关性的传递</span>
+          <ul class="list">
+            <li>含零向量的向量组必线性相关；</li>
+            <li>部分组相关 $\Rightarrow$ 整体相关；整体无关 $\Rightarrow$ 任一部分组无关；</li>
+            <li>无关组<b>添加分量</b>（每个向量同位置增加坐标）仍无关；相关组<b>减少分量</b>后可能变无关；</li>
+            <li>若 $\alpha_1,\cdots,\alpha_s$ 无关，而 $\alpha_1,\cdots,\alpha_s,\beta$ 相关，则 $\beta$ 可由前者<b>唯一</b>线性表示。</li>
+          </ul>
+        </div>
+        <div class="box how"><span class="t">判定的实操顺序</span>
+          ① 向量个数 $s$ 与维数 $n$ 比较：$s\gt n$ 必相关（「多必相关」）；<br>
+          ② $s=n$ 时算行列式，非零则无关；<br>
+          ③ 一般情形化为矩阵，用初等行变换求秩，比较秩与 $s$；<br>
+          ④ 抽象向量组：用定义设 $k_1\alpha_1+\cdots+k_s\alpha_s=0$，整理成矩阵等式后讨论；<br>
+          ⑤ 已知某组无关，判断其线性组合是否相关：把组合写成矩阵乘积 $(\beta_1,\cdots,\beta_s)=(\alpha_1,\cdots,\alpha_s)C$，$\beta$ 组无关 $\iff|C|\ne0$。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          「$s\gt n$ 必相关」的反向不成立：$s\le n$ 时可能相关也可能无关，必须实际判定。<br>
+          两个向量相关 $\iff$ 成比例；单个非零向量必无关，零向量必相关。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c8-3"><span class="n">8.3</span>极大线性无关组与向量组的秩<button class="nbtn" type="button" data-k="c8-3" aria-label="为「8.3极大线性无关组与向量组的秩」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 8.3</span>
+          向量组的一个部分组若线性无关，且再添入原组中任一向量都变成相关，则称其为<b>极大线性无关组</b>。极大无关组所含向量的个数称为向量组的<b>秩</b>。
+        </div>
+        <div class="box thm"><span class="t">定理 8.4　秩的基本结论</span>
+          ① 向量组的任意两个极大无关组所含向量个数相同（都等于秩）；<br>
+          ② 向量组与其极大无关组等价；<br>
+          ③ 矩阵的<b>行秩 = 列秩 = 秩</b>；<br>
+          ④ 初等行变换不改变矩阵列向量组之间的线性关系，因此求列向量组的极大无关组时，化为行阶梯形后取非零行首个非零元所在的列。
+        </div>
+        <div class="box how"><span class="t">求极大无关组</span>
+          把向量按列排成矩阵，做初等<b>行</b>变换化为行阶梯形：阶梯形中非零行的个数即秩；回到原矩阵中取与阶梯形主元列对应位置的列，即为一组极大无关组。<br>
+          注意：行变换后矩阵的<b>列</b>向量变了，但「哪几列构成极大无关组」这一信息保持不变。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c8-4"><span class="n">8.4</span>施密特正交化<button class="nbtn" type="button" data-k="c8-4" aria-label="为「8.4施密特正交化」写批注">记</button></h3>
+        <div class="box how"><span class="t">把无关组化为正交单位组</span>
+          设 $\alpha_1,\alpha_2,\alpha_3$ 线性无关：
+          $$\beta_1=\alpha_1$$
+          $$\beta_2=\alpha_2-\frac{[\alpha_2,\beta_1]}{[\beta_1,\beta_1]}\beta_1$$
+          $$\beta_3=\alpha_3-\frac{[\alpha_3,\beta_1]}{[\beta_1,\beta_1]}\beta_1-\frac{[\alpha_3,\beta_2]}{[\beta_2,\beta_2]}\beta_2$$
+          再单位化 $e_i=\dfrac{\beta_i}{\|\beta_i\|}$，其中 $[x,y]=x^Ty$ 为内积。<br>
+          实对称矩阵求正交矩阵时，只对<b>同一特征值</b>对应的多个特征向量做正交化，不同特征值的特征向量已自动正交。
+        </div>
+      </article>
+    
+        <article class="blk">
+        <h3 id="c8-5"><span class="n">8.5</span>本章题型全览<button class="nbtn" type="button" data-k="c8-5" aria-label="为「8.5本章题型全览」写批注">记</button></h3>
+        <p class="sm">向量组的题几乎都要落到「秩」上：判断相关性算秩，求极大无关组化阶梯形，证等价比较两个秩。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>线性表示</td><td>判断 $\beta$ 能否由 $\alpha_1,\cdots,\alpha_s$ 表示；求表示系数；两种表示是否唯一</td><td>解 $(\alpha_1,\cdots,\alpha_s)x=\beta$；$r(A)=r(A,\beta)$ 才可表示；$\alpha$ 组无关时表示唯一</td></tr>
+          <tr><td>相关性判定</td><td>具体向量组判相关；$n$ 个 $n$ 维向量用行列式；抽象向量组用定义</td><td>$s\gt n$ 必相关；$s=n$ 算行列式；一般化矩阵求秩与 $s$ 比较</td></tr>
+          <tr><td>相关性证明</td><td>证明某组线性无关；已知无关证其组合无关</td><td>设 $k_1\alpha_1+\cdots+k_s\alpha_s=0$ 推出全零；组合写成 $(\beta)=(\alpha)C$，$\beta$ 无关 $\iff|C|\ne0$</td></tr>
+          <tr><td>含参相关</td><td>求参数使向量组相关/无关；含参求秩</td><td>以向量为列化阶梯形，令主元为零解参数，再回代确认</td></tr>
+          <tr><td>极大无关组</td><td>求极大无关组；把其余向量用极大无关组表示；求秩</td><td>化行阶梯形取主元列；其余列用方程回代求系数</td></tr>
+          <tr><td>向量组等价</td><td>判断两组是否等价；求等价时的秩关系</td><td>互相可表示 $\iff$ 拼接矩阵的秩等于各自的秩；等价则秩相等，反之不成立</td></tr>
+          <tr><td>秩的关系</td><td>由 $r(\alpha)$ 推 $r(\beta)$；证明秩不等式</td><td>可表示则 $r(I)\le r(II)$；加向量秩至多增 1</td></tr>
+          <tr><td>与方程组</td><td>由解的情况判断列向量相关性；由相关性判断解</td><td>$Ax=0$ 有非零解 $\iff$ 列向量组相关；$Ax=b$ 有解 $\iff b$ 可由列向量组表示</td></tr>
+        </table></div>
+</article>
+
+<div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+    <article class="blk">
+      <h3 id="c8-7"><span class="n">8.6</span>向量组的相关性与极大无关组<button class="nbtn" type="button" data-k="c8-7" aria-label="为「8.6向量组的相关性与极大无关组」写批注">记</button></h3>
+      <div class="box def"><span class="t">识别信号</span>
+        题目给出若干个具体向量（含参数），要求判断线性相关性、求秩、求极大无关组，或把其余向量用极大无关组表示；也可能给出抽象向量组要求证明。
+      </div>
+      <div class="box how"><span class="t">解题步骤</span>
+        <ul class="list">
+          <li><b>排矩阵</b>：把向量<b>按列</b>排成矩阵（求极大无关组必须按列排）；</li>
+          <li><b>化阶梯形</b>：只做初等<b>行</b>变换，化为行阶梯形，非零行数即秩 $r$；</li>
+          <li><b>定相关性</b>：$r$ 小于向量个数则线性相关，等于则线性无关；</li>
+          <li><b>取极大无关组</b>：回到原矩阵，取与阶梯形主元所在列对应的那些原向量；</li>
+          <li><b>表示其余向量</b>：用行最简形直接读出系数，或用方程组回代求解。</li>
+        </ul>
+      </div>
+      <div class="ex"><span class="t">例 8.1</span>
+        <p>设 $\alpha_1=(1,1,1)^T$，$\alpha_2=(1,2,3)^T$，$\alpha_3=(3,5,7)^T$，求向量组的秩与一个极大无关组，并把其余向量用极大无关组线性表示。</p>
+        <div class="sol"><p><b>解</b>　把三个向量按列排成矩阵，做初等行变换：</p>
+        $$A=\begin{pmatrix}1&1&3\\1&2&5\\1&3&7\end{pmatrix}\longrightarrow\begin{pmatrix}1&1&3\\0&1&2\\0&2&4\end{pmatrix}\longrightarrow\begin{pmatrix}1&1&3\\0&1&2\\0&0&0\end{pmatrix}$$
+        <p>非零行只有 2 行，故 $r(A)=2$，三个向量线性相关。主元位于第 1、2 列，所以 $\alpha_1,\alpha_2$ 构成一个极大无关组。</p>
+        <p>由第三列的关系得 $\alpha_3=\alpha_1+2\alpha_2$。</p></div>
+      </div>
+      <div class="box tip"><span class="t">踩坑提醒</span>
+        求极大无关组时向量必须按列排，且只能用行变换；若按行排又做列变换，得到的主元位置与原始向量不再对应。
+      </div>
+    </article>
+    </section>
+
+    <!-- ============ 第九章 线性方程组 ============ -->
+    <section class="chapter" id="c9">
+      <div class="ch-head">
+        <span class="ch-no">09</span>
+        <div>
+          <h2>线性方程组</h2>
+          <p class="ch-sub">解的存在性、解的个数、解的结构三件事，全部由系数矩阵与增广矩阵的秩决定。含参讨论是必考题型。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c9-1"><span class="n">9.1</span>克拉默法则<button class="nbtn" type="button" data-k="c9-1" aria-label="为「9.1克拉默法则」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 9.1　克拉默法则</span>
+          对 $n$ 个未知数、$n$ 个方程的线性方程组 $Ax=b$，若系数行列式 $|A|\ne0$，则方程组有唯一解：
+          $$x_j=\frac{|A_j|}{|A|}\quad(j=1,2,\cdots,n)$$
+          其中 $A_j$ 是把 $A$ 的第 $j$ 列换成 $b$ 所得的矩阵。<br>
+          推论：若 $Ax=0$（齐次）且 $|A|\ne0$，则只有零解；若齐次方程组有非零解，则 $|A|=0$。
+        </div>
+        <div class="box tip"><span class="t">适用范围</span>
+          克拉默法则只对「方程个数 = 未知数个数且系数行列式非零」的方阵系统有效，不能用于一般的 $m\times n$ 方程组；实际解方程组仍以消元法为主，克拉默多用于理论推导与含参判断。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c9-2"><span class="n">9.2</span>齐次线性方程组<button class="nbtn" type="button" data-k="c9-2" aria-label="为「9.2齐次线性方程组」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 9.2　齐次方程组有非零解的充要条件</span>
+          $Ax=0$（$A$ 为 $m\times n$ 矩阵）有非零解 $\iff r(A)\lt n$。<br>
+          当 $m\lt n$（方程少于未知数）时必有非零解；当 $m=n$ 时 $\iff|A|=0$。
+        </div>
+        <div class="box thm"><span class="t">定理 9.3　基础解系</span>
+          若 $r(A)=r\lt n$，则 $Ax=0$ 的解集构成 $n-r$ 维空间，存在 $n-r$ 个线性无关的解 $\xi_1,\cdots,\xi_{n-r}$ 使通解为
+          $$x=k_1\xi_1+k_2\xi_2+\cdots+k_{n-r}\xi_{n-r}\quad(k_i\text{ 任意})$$
+          这一组 $\xi_i$ 称为基础解系，所含向量个数恒为 $n-r(A)$。
+        </div>
+        <div class="box how"><span class="t">基础解系的求法</span>
+          把 $A$ 化为行最简形：主元列对应<b>自由未知量</b>之外的变量，非主元列对应 $n-r$ 个自由变量；<br>
+          令自由变量依次取单位向量 $(1,0,\cdots,0)$、$(0,1,\cdots,0)$ 等，回代求出主元变量，得到的一组解即为基础解系。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c9-3"><span class="n">9.3</span>非齐次线性方程组<button class="nbtn" type="button" data-k="c9-3" aria-label="为「9.3非齐次线性方程组」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 9.4　有解的充要条件</span>
+          $Ax=b$ 有解 $\iff r(A)=r(A\mid b)$（系数矩阵的秩等于增广矩阵的秩）。
+        </div>
+        <div class="box thm"><span class="t">定理 9.5　解的个数</span>
+          设 $r(A)=r(A\mid b)=r$，$n$ 为未知数个数：
+          <ul class="list">
+            <li>$r=n$：有<b>唯一解</b>；</li>
+            <li>$r\lt n$：有<b>无穷多解</b>，通解含 $n-r$ 个任意常数；</li>
+            <li>$r(A)\lt r(A\mid b)$：<b>无解</b>。</li>
+          </ul>
+        </div>
+        <div class="box thm"><span class="t">定理 9.6　解的结构</span>
+          若 $Ax=b$ 有解，$\eta^*$ 是它的一个特解，$\xi_1,\cdots,\xi_{n-r}$ 是 $Ax=0$ 的基础解系，则通解为
+          $$x=\eta^*+k_1\xi_1+\cdots+k_{n-r}\xi_{n-r}$$
+          即「非齐次通解 = 非齐次特解 + 齐次通解」。
+        </div>
+        <div class="box prop"><span class="t">性质 9.1　解的和差</span>
+          <ul class="list">
+            <li>若 $\eta_1,\eta_2$ 都是 $Ax=b$ 的解，则 $\eta_1-\eta_2$ 是 $Ax=0$ 的解；</li>
+            <li>若 $\xi$ 是 $Ax=0$ 的解，$\eta$ 是 $Ax=b$ 的解，则 $\xi+\eta$ 仍是 $Ax=b$ 的解；</li>
+            <li>若 $\eta_1,\cdots,\eta_s$ 都是 $Ax=b$ 的解，则其组合 $k_1\eta_1+\cdots+k_s\eta_s$ 在 $\sum k_i=1$ 时仍是 $Ax=b$ 的解，在 $\sum k_i=0$ 时是 $Ax=0$ 的解。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c9-4"><span class="n">9.4</span>含参方程组的讨论流程<button class="nbtn" type="button" data-k="c9-4" aria-label="为「9.4含参方程组的讨论流程」写批注">记</button></h3>
+        <div class="box how"><span class="t">标准步骤</span>
+          ① 写出增广矩阵 $(A\mid b)$；② 用初等行变换化行阶梯形，主元中若含参数，把参数解出得到分界值；③ 对每个分界值分别计算 $r(A)$ 与 $r(A\mid b)$；④ 按定理 9.5 判断无解、唯一解、无穷多解；⑤ 无穷多解时写出基础解系与通解。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          ① 含参时行变换中「除以含参主元」会丢失参数为零的情形，凡除以含参量必须先讨论其是否为零；<br>
+          ② 只比较 $r(A)$ 与 $n$ 而不比较 $r(A\mid b)$，会把无解误判为无穷多解；<br>
+          ③ 通解中任意常数的个数应等于 $n-r(A)$，不是 $n$。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c9-5"><span class="n">9.5</span>本章题型全览<button class="nbtn" type="button" data-k="c9-5" aria-label="为「9.5本章题型全览」写批注">记</button></h3>
+        <p class="sm">所有结论都归结为一句话：解的存在性与个数由 $r(A)$ 和 $r(A\mid b)$ 决定，解的结构由齐次基础解系决定。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>克拉默法则</td><td>方阵方程组求唯一解；判断何时可用；理论证明</td><td>只适用于 $n$ 个方程 $n$ 个未知数且 $|A|\ne0$；$x_j=\frac{|A_j|}{|A|}$</td></tr>
+          <tr><td>齐次方程组</td><td>判断有无非零解；求基础解系与通解；求解空间维数</td><td>$r(A)\lt n$ 才有非零解；基础解系含 $n-r$ 个向量；通解 $k_1\xi_1+\cdots+k_{n-r}\xi_{n-r}$</td></tr>
+          <tr><td>非齐次方程组</td><td>判断有解、无解；求通解；求满足某条件的特解</td><td>$r(A)=r(A\mid b)$ 有解；$r=n$ 唯一，$r\lt n$ 无穷多；通解 $=$ 特解 $+$ 齐次通解</td></tr>
+          <tr><td>含参讨论</td><td>讨论 $\lambda$ 取何值时有唯一解、无穷多解、无解</td><td>化增广矩阵为阶梯形，令主元为零得分界值，逐个代回比较两个秩</td></tr>
+          <tr><td>解的性质</td><td>由若干解的组合判断它是什么解；证明解集结构</td><td>$\sum k_i=1$ 仍是非齐次解；$\sum k_i=0$ 是齐次解；两非齐次解之差是齐次解</td></tr>
+          <tr><td>公共解与同解</td><td>求两方程组的公共解；判断两方程组同解；由同解求参数</td><td>联立成一个大方程组求解；同解 $\iff$ 两系数矩阵行向量组等价且常数项匹配</td></tr>
+          <tr><td>解与向量</td><td>由解的结构反推 $r(A)$、$n$；由基础解系写方程组</td><td>自由变量个数 $=n-r$；以 $\xi_i$ 为列构造 $A$ 时用 $\xi_i^Tx=0$</td></tr>
+          <tr><td>几何解释</td><td>三个平面的位置关系；直线与平面的交点个数</td><td>唯一解 = 交于一点；无穷多解 = 交于一条线或重合；无解 = 平行或三平面两两相交无公共点</td></tr>
+        </table></div>
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c9-6"><span class="n">9.6</span>含参线性方程组<button class="nbtn" type="button" data-k="c9-6" aria-label="为「9.6含参线性方程组」写批注">记</button></h3>
+    <div class="box how"><span class="t">判别口诀</span>
+      $r(A)=r(A\mid b)=n$ 唯一解；$r(A)=r(A\mid b)\lt n$ 无穷多解；$r(A)\lt r(A\mid b)$ 无解。<br>
+      实操：写增广矩阵 → 化阶梯形 → 参数取值使某行出现 $(0,\cdots,0\mid d)$ 且 $d\ne0$ 时即无解。
+    </div>
+    <div class="ex"><span class="t">例 9.1</span>
+      <p>讨论 $\lambda$ 取何值时方程组
+      $\begin{cases}\lambda x_1+x_2+x_3=1\\x_1+\lambda x_2+x_3=\lambda\\x_1+x_2+\lambda x_3=\lambda^2\end{cases}$ 有唯一解、无穷多解、无解。</p>
+      <div class="sol"><p><b>解</b>　系数行列式 $|A|=(\lambda-1)^2(\lambda+2)$。</p>
+      <p><b>唯一解</b>：$\lambda\ne1$ 且 $\lambda\ne-2$，此时 $|A|\ne0$。</p>
+      <p><b>$\lambda=1$</b>：三个方程都化为 $x_1+x_2+x_3=1$，$r(A)=r(A\mid b)=1\lt3$，有无穷多解，含两个自由变量。</p>
+      <p><b>$\lambda=-2$</b>：三式相加，左端为 $0$，右端为 $1-2+4=3$，出现 $0=3$ 的矛盾，故 $r(A)\lt r(A\mid b)$，无解。</p></div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      用克拉默法则只能判断「唯一解」，不能处理无解与无穷多解；只要 $|A|=0$ 就必须回到增广矩阵用秩判断。
+    </div>
+  </article>
+</section>
+    <!-- ============ 第十章 特征值与二次型 ============ -->
+    <section class="chapter" id="c10">
+      <div class="ch-head">
+        <span class="ch-no">10</span>
+        <div>
+          <h2>特征值、特征向量与二次型</h2>
+          <p class="ch-sub">线代的收口章。相似对角化与正定判定几乎每年出一道解答题，计算量大但步骤固定。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c10-1"><span class="n">10.1</span>特征值与特征向量<button class="nbtn" type="button" data-k="c10-1" aria-label="为「10.1特征值与特征向量」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 10.1</span>
+          设 $A$ 为 $n$ 阶方阵，若存在数 $\lambda$ 和非零向量 $\alpha$ 使
+          $$A\alpha=\lambda\alpha$$
+          则称 $\lambda$ 为 $A$ 的<b>特征值</b>，$\alpha$ 为属于 $\lambda$ 的<b>特征向量</b>。等价地，$\alpha$ 是 $(A-\lambda E)x=0$ 的非零解，因此
+          $$|A-\lambda E|=0$$
+          称为特征方程，其左端为特征多项式。
+        </div>
+        <div class="box how"><span class="t">求特征值与特征向量的步骤</span>
+          ① 解 $|A-\lambda E|=0$ 得全部特征值（含重数）；<br>
+          ② 对每个 $\lambda_i$，解齐次方程组 $(A-\lambda_iE)x=0$，求基础解系，其非零线性组合即为属于 $\lambda_i$ 的全部特征向量；<br>
+          ③ 若 $\lambda_i$ 是 $k$ 重根，则该方程组的基础解系最多含 $k$ 个向量，实际个数为 $n-r(A-\lambda_iE)$，称为<b>几何重数</b>。
+        </div>
+        <div class="box prop"><span class="t">性质 10.1　特征值的和与积</span>
+          $$\sum_{i=1}^{n}\lambda_i=\mathrm{tr}(A)=a_{11}+a_{22}+\cdots+a_{nn},\qquad \prod_{i=1}^{n}\lambda_i=|A|$$
+          由此：$|A|=0\iff A$ 有零特征值 $\iff A$ 不可逆；$r(A)$ 等于非零特征值的个数（当 $A$ 可对角化时）。
+        </div>
+        <div class="box prop"><span class="t">性质 10.2　特征向量的独立性</span>
+          <ul class="list">
+            <li>属于<b>不同特征值</b>的特征向量线性无关；</li>
+            <li>$k$ 重特征值最多有 $k$ 个线性无关的特征向量（几何重数 $\le$ 代数重数）；</li>
+            <li>同一特征值的特征向量的非零线性组合仍是该特征值的特征向量。</li>
+          </ul>
+        </div>
+        <div class="box prop"><span class="t">性质 10.3　派生矩阵的特征值</span>
+          若 $\lambda$ 是 $A$ 的特征值、$\alpha$ 是对应特征向量，则：<br>
+          $A^k$ 的特征值为 $\lambda^k$；$f(A)$ 的特征值为 $f(\lambda)$；$A^{-1}$ 的特征值为 $\frac{1}{\lambda}$；$A^*$ 的特征值为 $\frac{|A|}{\lambda}$（$\lambda\ne0$）；$A^T$ 的特征值与 $A$ 相同（特征向量一般不同）。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          特征向量必须非零，但特征值可以为零；求特征向量时只写一个向量不够，重根情形要写全基础解系；$A$ 与 $A^T$ 特征值相同，但不要由此断言特征向量相同。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c10-2"><span class="n">10.2</span>相似矩阵与对角化<button class="nbtn" type="button" data-k="c10-2" aria-label="为「10.2相似矩阵与对角化」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 10.2</span>
+          设 $A,B$ 为 $n$ 阶方阵，若存在可逆矩阵 $P$ 使
+          $$P^{-1}AP=B$$
+          则称 $A$ 与 $B$ <b>相似</b>，记 $A\sim B$。若 $B$ 为对角矩阵，称 $A$ 可相似对角化。
+        </div>
+        <div class="box thm"><span class="t">定理 10.1　相似的必要条件（不变量）</span>
+          相似矩阵有相同的特征多项式，从而有相同的特征值、相同的迹、相同的行列式、相同的秩；但相似矩阵不一定有相同的特征向量。<br>
+          进一步：$A\sim B\Rightarrow A^k\sim B^k$，$f(A)\sim f(B)$，$A^{-1}\sim B^{-1}$（$A$ 可逆时）。
+        </div>
+        <div class="box thm"><span class="t">定理 10.2　可对角化的充要条件</span>
+          $n$ 阶方阵 $A$ 可对角化 $\iff A$ 有 $n$ 个线性无关的特征向量 $\iff$ 对每个 $k$ 重特征值，几何重数等于代数重数，即
+          $$r(A-\lambda_iE)=n-k_i$$
+          此时取这 $n$ 个特征向量按列排成 $P$，则 $P^{-1}AP=\Lambda=\mathrm{diag}(\lambda_1,\cdots,\lambda_n)$。
+        </div>
+        <div class="box thm"><span class="t">定理 10.3　充分条件</span>
+          若 $A$ 有 $n$ 个互不相同的特征值，则 $A$ 必可对角化（此时每个特征值的几何重数都是 1）。反之不成立：有重根也可能可对角化（如单位矩阵）。
+        </div>
+        <div class="box how"><span class="t">判断与求 $P$ 的流程</span>
+          ① 求全部特征值与重数；② 对每个重根 $\lambda_i$，求 $r(A-\lambda_iE)$，若 $n-r$ 等于该根的重数则继续，否则不可对角化；③ 各特征值取基础解系拼成 $P$；④ 验证 $P$ 可逆，写出 $\Lambda$。<br>
+          注意 $P$ 的列顺序必须与 $\Lambda$ 中特征值的顺序一一对应。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          秩相同、行列式相同、迹相同都只是相似的必要条件，不能反推相似；$A$ 与 $B$ 特征值相同也不一定相似（如 $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ 与 $E$）。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c10-3"><span class="n">10.3</span>实对称矩阵<button class="nbtn" type="button" data-k="c10-3" aria-label="为「10.3实对称矩阵」写批注">记</button></h3>
+        <div class="box thm"><span class="t">定理 10.4　实对称矩阵的三条性质</span>
+          设 $A$ 为实对称矩阵（$A^T=A$）：
+          <ul class="list">
+            <li>特征值全为实数；</li>
+            <li>属于不同特征值的特征向量相互<b>正交</b>；</li>
+            <li>必存在<b>正交矩阵</b> $Q$（$Q^TQ=E$）使 $Q^{-1}AQ=Q^TAQ=\Lambda$，即必可正交对角化。</li>
+          </ul>
+        </div>
+        <div class="box how"><span class="t">正交对角化步骤（大题标准流程）</span>
+          ① 求特征值 $\lambda_1,\lambda_2,\lambda_3$；<br>
+          ② 对每个特征值解 $(A-\lambda E)x=0$ 得基础解系；<br>
+          ③ 若某特征值对应多个特征向量，用施密特正交化把它们正交化；<br>
+          ④ 把所有特征向量单位化，按列拼成 $Q$；<br>
+          ⑤ 写出 $Q^TAQ=\mathrm{diag}(\lambda_1,\lambda_2,\lambda_3)$，并检查 $Q$ 是否正交（列向量两两内积为零、模长为 1）。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c10-4"><span class="n">10.4</span>二次型及其标准形<button class="nbtn" type="button" data-k="c10-4" aria-label="为「10.4二次型及其标准形」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 10.3　二次型</span>
+          含 $n$ 个变量的二次齐次多项式
+          $$f(x_1,\cdots,x_n)=\sum_{i=1}^{n}\sum_{j=1}^{n}a_{ij}x_ix_j\quad(a_{ij}=a_{ji})$$
+          可写成矩阵形式 $f=x^TAx$，其中 $A$ 为<b>实对称矩阵</b>，称为二次型的矩阵，$r(A)$ 称为二次型的秩。<br>
+          写矩阵时注意：$x_ix_j$ 的系数 $a_{ij}$ 要平分成 $A$ 的第 $(i,j)$ 与 $(j,i)$ 两个元素，各取一半。
+        </div>
+        <div class="box def"><span class="t">定义 10.4　合同</span>
+          若存在可逆矩阵 $C$ 使 $C^TAC=B$，称 $A$ 与 $B$ <b>合同</b>，记 $A\simeq B$。作可逆线性变换 $x=Cy$ 后，$f=x^TAx=y^T(C^TAC)y$，即合同变换保持二次型的正负惯性指数。
+        </div>
+        <div class="box thm"><span class="t">定理 10.5　惯性定理</span>
+          任一实二次型经可逆线性变换化为标准形后，正项个数 $p$（正惯性指数）与负项个数 $q$（负惯性指数）由二次型本身唯一确定，不随变换改变；且 $p+q=r(A)$。<br>
+          规范形唯一：$f=z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_{p+q}^2$。
+        </div>
+        <div class="box how"><span class="t">化标准形的两种方法</span>
+          <b>正交变换法</b>：求 $A$ 的特征值 $\lambda_1,\cdots,\lambda_n$ 与正交矩阵 $Q$，令 $x=Qy$，则
+          $$f=\lambda_1y_1^2+\lambda_2y_2^2+\cdots+\lambda_ny_n^2$$
+          系数就是特征值，标准形中平方项系数即惯性指数可直接读出（正特征值个数为 $p$）。<br>
+          <b>配方法</b>：适用于不含平方项或需要快速判断正定性的情形。若某变量有平方项，把它与其余含该变量的项配成完全平方，逐步消元；若所有平方项系数为零（如 $f=2x_1x_2$），先作 $x_1=y_1+y_2,\ x_2=y_1-y_2$ 造出平方项再配方。配方过程等价于合同变换，需保证变换矩阵可逆。
+        </div>
+        <div class="box tip"><span class="t">易错</span>
+          标准形不唯一（配方法与正交变换得到的标准形可能不同），但正负惯性指数唯一；写二次型矩阵时最容易漏掉「系数取一半」这一步。
+        </div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c10-5"><span class="n">10.5</span>正定性<button class="nbtn" type="button" data-k="c10-5" aria-label="为「10.5正定性」写批注">记</button></h3>
+        <div class="box def"><span class="t">定义 10.5</span>
+          对二次型 $f=x^TAx$，若对任意 $x\ne0$ 都有 $f\gt0$，称 $f$（及矩阵 $A$）<b>正定</b>；若恒有 $f\lt0$ 称负定；若 $f\ge0$ 且存在非零 $x$ 使 $f=0$，称为半正定。
+        </div>
+        <div class="box thm"><span class="t">定理 10.6　正定的充要条件（五条等价）</span>
+          <ul class="list">
+            <li>$A$ 的全部特征值都大于零；</li>
+            <li>$A$ 的各阶<b>顺序主子式</b>全大于零（$k$ 阶顺序主子式指左上角 $k\times k$ 子式的行列式，$k=1,\cdots,n$）；</li>
+            <li>正惯性指数 $p=n$；</li>
+            <li>$A$ 与单位矩阵 $E$ 合同；</li>
+            <li>存在可逆矩阵 $P$ 使 $A=P^TP$（即 $A$ 是某可逆矩阵的 Gram 矩阵）。</li>
+          </ul>
+        </div>
+        <div class="box prop"><span class="t">性质 10.4　正定的必要条件</span>
+          ① 主对角元素 $a_{ii}\gt0$（$i=1,\cdots,n$）；② $|A|\gt0$；③ $A$ 可逆。<br>
+          这些条件只是必要，不能用于判定正定；反例：$\begin{pmatrix}1&2\\2&1\end{pmatrix}$ 的顺序主子式为 $1\gt0$、$-3\lt0$，不正定。
+        </div>
+        <div class="box how"><span class="t">判定路线（按成本从低到高）</span>
+          ① 若矩阵阶数低且含参数，优先用顺序主子式（计算量最小）；<br>
+          ② 若已求出特征值，直接看是否全正；<br>
+          ③ 若已知 $A=P^TP$ 或 $A$ 与某已知正定矩阵合同，用等价条件；<br>
+          ④ 抽象矩阵（如 $A=E+k\alpha\alpha^T$）用定义 $x^TAx\gt0$ 或特征值分析。
+        </div>
+      </article>
+        <article class="blk">
+        <h3 id="c10-6"><span class="n">10.6</span>本章题型全览<button class="nbtn" type="button" data-k="c10-6" aria-label="为「10.6本章题型全览」写批注">记</button></h3>
+        <p class="sm">特征值问题的入口永远是 $|A-\lambda E|=0$；二次型问题的入口永远是「写出对称矩阵」。</p>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
+          <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
+          <tr><td>特征值计算</td><td>求特征值与特征向量；由特征向量反求特征值；求 $A^n$</td><td>解 $|A-\lambda E|=0$，再解 $(A-\lambda E)x=0$；$A\alpha=\lambda\alpha$ 可直接定 $\lambda$；$A^n$ 先用 $A=P\Lambda P^{-1}$</td></tr>
+          <tr><td>特征值性质</td><td>求 $\sum\lambda_i$、$\prod\lambda_i$；判断 $A$ 可逆；求 $|A+kE|$</td><td>$\sum\lambda_i=\mathrm{tr}(A)$，$\prod\lambda_i=|A|$；$\lambda=0\iff A$ 不可逆；$|A+kE|=\prod(\lambda_i+k)$</td></tr>
+          <tr><td>派生矩阵</td><td>求 $A^2$、$f(A)$、$A^{-1}$、$A^*$、$A^T$ 的特征值</td><td>分别为 $\lambda^2$、$f(\lambda)$、$\frac1\lambda$、$\frac{|A|}{\lambda}$、$\lambda$</td></tr>
+          <tr><td>反求参数</td><td>已知特征值或特征向量求矩阵中的参数</td><td>用迹、行列式、或把 $A\alpha=\lambda\alpha$ 写成方程组</td></tr>
+          <tr><td>相似判定</td><td>判断两矩阵是否相似；由相似求参数</td><td>必要条件：特征值、迹、行列式、秩相同；充分还需特征向量或 $\lambda$ 的重数信息</td></tr>
+          <tr><td>相似对角化</td><td>判断能否对角化；求可逆 $P$ 与 $\Lambda$；求 $A^n$</td><td>每个 $k$ 重根的几何重数 $=n-r(A-\lambda E)$ 是否等于 $k$；$P$ 的列顺序与 $\Lambda$ 对应</td></tr>
+          <tr><td>实对称矩阵</td><td>求正交矩阵 $Q$ 使 $Q^TAQ=\Lambda$；证明特征值全实、特征向量正交</td><td>同一特征值的特征向量做施密特正交化，再单位化；不同特征值已自动正交</td></tr>
+          <tr><td>二次型表示</td><td>写出二次型的矩阵；判断是否二次型；求二次型的秩</td><td>交叉项系数取一半分给对称位置；矩阵必为实对称；秩即 $r(A)$</td></tr>
+          <tr><td>标准形</td><td>正交变换化标准形；配方法化标准形；求所用变换矩阵</td><td>正交法：$x=Qy$，标准形系数为特征值；配方：逐步消元，写出 $x=Cy$ 并验证 $|C|\ne0$</td></tr>
+          <tr><td>合同与惯性</td><td>判断两矩阵是否合同；求正负惯性指数；写规范形</td><td>合同 $\iff$ 正负惯性指数相同；惯性定理保证指数唯一；规范形系数为 $1,-1,0$</td></tr>
+          <tr><td>正定判定</td><td>判断正定；含参求范围；证明正定；判断半正定</td><td>顺序主子式全正 $\iff$ 特征值全正 $\iff p=n$ $\iff A$ 与 $E$ 合同；含参时用顺序主子式最快</td></tr>
+        </table></div>
+
+</article>
+
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c10-7"><span class="n">10.7</span>特征值、相似与参数反推<button class="nbtn" type="button" data-k="c10-7" aria-label="为「10.7特征值、相似与参数反推」写批注">记</button></h3>
+    <div class="box how"><span class="t">三条常用线索</span>
+      <ul class="list">
+        <li><b>迹与行列式</b>：$\sum\lambda_i=\mathrm{tr}(A)$，$\prod\lambda_i=|A|$，已知部分特征值可反推剩余或参数；</li>
+        <li><b>派生矩阵</b>：$A^2$、$f(A)$、$A^{-1}$、$A^*$ 的特征值分别是 $\lambda^2$、$f(\lambda)$、$\frac1\lambda$、$\frac{|A|}{\lambda}$；</li>
+        <li><b>相似条件</b>：特征值相同只是必要条件；可对角化还要看每个重根的几何重数是否等于代数重数，即 $r(A-\lambda E)=n-k$。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 10.1</span>
+      <p>设三阶矩阵 $A$ 的特征值为 $1,-1,2$，求 $|A^2-E|$。</p>
+      <div class="sol"><p><b>解</b>　$A^2$ 的特征值为 $1,1,4$，于是 $A^2-E$ 的特征值为 $0,0,3$。</p>
+      <p>矩阵的行列式等于全部特征值之积，故 $|A^2-E|=0\times0\times3=0$。</p></div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      用「$f(A)$ 的特征值是 $f(\lambda)$」时，前提是 $A$ 的特征向量仍为 $f(A)$ 的特征向量（多项式情形成立）；若是 $A^*$，需先确认 $A$ 可逆（$\lambda\ne0$）。
+    </div>
+  </article>
+<article class="blk">
+    <h3 id="c10-8"><span class="n">10.8</span>二次型与正定判定<button class="nbtn" type="button" data-k="c10-8" aria-label="为「10.8二次型与正定判定」写批注">记</button></h3>
+    <div class="box how"><span class="t">三条路线</span>
+      <ul class="list">
+        <li><b>顺序主子式</b>：写出二次型矩阵（交叉项系数取一半），逐阶计算左上角子式，全正即正定；含参数时这是最快路径；</li>
+        <li><b>特征值</b>：求出全部特征值，全正即正定；题目已给特征值信息时优先用；</li>
+        <li><b>合同 / 配方</b>：配方后正平方项个数等于 $n$ 即正定，同时可读出正负惯性指数。</li>
+      </ul>
+    </div>
+    <div class="ex"><span class="t">例 10.2</span>
+      <p>设 $f=x_1^2+x_2^2+5x_3^2+2tx_1x_2-2x_1x_3+4x_2x_3$，求 $t$ 的取值范围使 $f$ 正定。</p>
+      <div class="sol"><b>解</b>　二次型矩阵
+      $$A=\begin{pmatrix}1&t&-1\\t&1&2\\-1&2&5\end{pmatrix}$$
+      顺序主子式：$\Delta_1=1\gt0$；$\Delta_2=1-t^2\gt0$，即 $|t|\lt1$；
+      $$\Delta_3=|A|=-5t^2-4t=-t(5t+4)\gt0\ \Longrightarrow\ -\frac45\lt t\lt0$$
+      与 $|t|\lt1$ 取交集，得 $-\dfrac45\lt t\lt0$。</div>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      正定的必要条件（$a_{ii}\gt0$、$|A|\gt0$）不能拿来判定；且「顺序主子式」指左上角各阶子式，不是任意主子式——后者全正只是半正定的条件。
+    </div>
+  </article>
+</section>
+
+<!-- ============ 附录 ============ -->
+    <section class="chapter" id="c11">
+      <div class="ch-head">
+        <span class="ch-no">附</span>
+        <div>
+          <h2>公式与易错速查</h2>
+          <p class="ch-sub">考前一周只看这一页也能捞回不少分。前表是高频结论，后表是最容易踩的坑。</p>
+        </div>
+      </div>
+
+      <article class="blk">
+        <h3 id="c11-1"><span class="n">A.1</span>高频结论速查<button class="nbtn" type="button" data-k="c11-1" aria-label="为「A.1高频结论速查」写批注">记</button></h3>
+        <div class="tbl-wrap"><table class="tbl">
+          <colgroup><col style="width:26%"><col style="width:74%"></colgroup>
+          <tr><th>考点</th><th>结论</th></tr>
+          <tr><td>可导与连续</td><td>可导 $\Rightarrow$ 连续；连续 $\nRightarrow$ 可导；左、右导数相等 $\iff$ 可导</td></tr>
+          <tr><td>极值必要条件</td><td>$f'(x_0)=0$ 或 $f'(x_0)$ 不存在</td></tr>
+          <tr><td>拐点必要条件</td><td>$f''(x_0)=0$ 或 $f''(x_0)$ 不存在，且两侧变号</td></tr>
+          <tr><td>曲率</td><td>$K=\dfrac{|y''|}{(1+y'^2)^{3/2}}$，参数式 $K=\dfrac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}}$</td></tr>
+          <tr><td>变上限求导</td><td>$\dfrac{d}{dx}\displaystyle\int_{\psi(x)}^{\varphi(x)}f(t)\,dt=f(\varphi)\varphi'-f(\psi)\psi'$</td></tr>
+          <tr><td>$p$ 积分</td><td>$\int_a^{+\infty}x^{-p}\,dx$ 收敛 $\iff p\gt1$；$\int_a^b(x-a)^{-p}\,dx$ 收敛 $\iff p\lt1$</td></tr>
+          <tr><td>可微判别</td><td>偏导连续 $\Rightarrow$ 可微 $\Rightarrow$ 连续；偏导存在 $\nRightarrow$ 连续</td></tr>
+          <tr><td>二元极值</td><td>$AC-B^2\gt0$ 且 $A\gt0$ 极小、$A\lt0$ 极大；$\lt0$ 非极值；$=0$ 失效</td></tr>
+          <tr><td>一阶线性</td><td>$y=e^{-\int Pdx}\left[\int Qe^{\int Pdx}dx+C\right]$</td></tr>
+          <tr><td>齐次通解</td><td>$r(A)=r\lt n$ 时基础解系含 $n-r$ 个向量</td></tr>
+          <tr><td>非齐次有解</td><td>$r(A)=r(A\mid b)$；$r=n$ 唯一，$r\lt n$ 无穷多</td></tr>
+          <tr><td>伴随矩阵</td><td>$AA^*=|A|E$，$|A^*|=|A|^{n-1}$，$r(A^*)$ 按 $r(A)$ 分 $n/1/0$ 三档</td></tr>
+          <tr><td>可对角化</td><td>$n$ 个线性无关特征向量；实对称矩阵一定可以正交对角化</td></tr>
+          <tr><td>正定</td><td>顺序主子式全正；特征值全正；$p=n$</td></tr>
+        </table></div>
+      </article>
+
+      <article class="blk">
+        <h3 id="c11-2"><span class="n">A.2</span>二十条易错点<button class="nbtn" type="button" data-k="c11-2" aria-label="为「A.2二十条易错点」写批注">记</button></h3>
+        <ul class="list">
+          <li>等价无穷小只能在乘除中整体替换，加减中替换要先看主部是否相消。</li>
+          <li>$\sqrt{x^2}=|x|$，$x\to-\infty$ 时提最高次幂要变号。</li>
+          <li>洛必达只处理 $\frac00$、$\frac\infty\infty$，且求导后极限不存在时不能下结论。</li>
+          <li>罗尔定理三条件缺一不可，尤其别漏「闭区间连续」。</li>
+          <li>拐点要写成坐标点，只写横坐标不得分。</li>
+          <li>极值点可以在不可导点取到，驻点不一定极值。</li>
+          <li>不定积分结果必须带 $C$；定积分换元要换上下限且不必回代。</li>
+          <li>$\int_{-1}^{1}\frac{dx}{x^2}$ 有瑕点，必须分段判断，不能直接代公式。</li>
+          <li>极坐标二重积分不要漏掉 $r$。</li>
+          <li>交换积分次序前先画区域，边界函数写错是最常见失分点。</li>
+          <li>二重积分对称性使用前必须同时检查「区域对称」和「被积函数奇偶」。</li>
+          <li>隐函数二阶偏导要把一阶结果中的 $z_x$ 代换干净。</li>
+          <li>二阶常系数非齐次的特解：$k$ 只由 $\lambda$（或 $\alpha\pm\beta i$）是否为特征根决定。</li>
+          <li>$|kA|=k^n|A|$，$|A+B|\ne|A|+|B|$。</li>
+          <li>$(AB)^{-1}=B^{-1}A^{-1}$，$(AB)^T=B^TA^T$，顺序不能反。</li>
+          <li>$r(A+B)\le r(A)+r(B)$，不能写成等号。</li>
+          <li>向量个数大于维数时必线性相关，反之不成立。</li>
+          <li>含参方程组消元时，除以含参主元前必须先讨论该参数是否为零。</li>
+          <li>相似只看特征值相同不能反推，还需特征向量或秩等信息。</li>
+          <li>二次型矩阵的交叉项系数要取一半。</li>
+        </ul>
+      </article>
+
+      <article class="blk">
+        <h3 id="c11-3"><span class="n">A.3</span>三轮复习节奏<button class="nbtn" type="button" data-k="c11-3" aria-label="为「A.3三轮复习节奏」写批注">记</button></h3>
+        <div class="box how"><span class="t">建议分配（按 150 分制）</span>
+          <b>第一轮（基础）</b>：按前十章顺序过一遍定义与定理，每章配 20 至 30 道基础题，重点是把「定理的条件」背准确，尤其是中值定理、可微判别、正定判定。<br>
+          <b>第二轮（题型）</b>：按题型横向打通——极限七种未定式、积分四大类、二重积分换序、微分方程四类、线代「秩—解—特征值」链条；每类整理 3 至 5 道错题。<br>
+          <b>第三轮（套卷）</b>：限时 180 分钟整套训练，错题只记「错在哪一步」而不是抄题；考前一周回到本页 A.1、A.2 两张表。
+        </div>
+        <div class="box tip"><span class="t">时间提示</span>
+          数二没有概率论与无穷级数，但线代占比 22%，且解答题固定两道。线代的计算一旦出错就是整题归零，平时训练必须写出完整步骤而不是只对答案。
+        </div>
+      </article>
+    <div class="types-head"><b>重点题型详解</b><i>识别信号 · 固定步骤 · 例题 · 踩坑提醒</i></div>
+<article class="blk">
+    <h3 id="c11-4"><span class="n">A.4</span>考场时间与顺序建议<button class="nbtn" type="button" data-k="c11-4" aria-label="为「A.4考场时间与顺序建议」写批注">记</button></h3>
+    <div class="box how"><span class="t">180 分钟的分配参考</span>
+      <ul class="list">
+        <li><b>0–10 分钟</b>：通览全卷，标出三道最有把握的解答题，先建立得分基本盘；</li>
+        <li><b>10–70 分钟</b>：选择题与填空题（16 题 80 分）。单题超过 4 分钟仍无思路就标记跳过，不要在一道选择上耗掉解答题的时间；</li>
+        <li><b>70–160 分钟</b>：六道解答题，按「线代 → 高数计算 → 高数证明」的顺序推进，线代步骤固定、性价比最高；</li>
+        <li><b>160–180 分钟</b>：回头检查计算题（换元、积分限、符号）与答题卡填涂。</li>
+      </ul>
+    </div>
+    <div class="box tip"><span class="t">踩坑提醒</span>
+      解答题即使做不完，也要把关键步骤（设辅助函数、写出通解公式、列出秩的判断）写上去；数二按步给分，空白才是真正的零分。
+    </div>
+  </article>
+</section>
+
+    <div class="foot">
+      <p>本页按现行考研数学（二）考试大纲的章节顺序整理，覆盖高等数学五章与线性代数五章。公式渲染依赖 KaTeX，离线打开时公式可能显示为源码，联网刷新即可正常显示。</p>
+    </div>
+  </main>
+</div>
+
+<div class="empty" id="empty">没有匹配的考点，换个关键词试试。</div>
+
+<script defer src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+(function(){
+  var main = document.getElementById('main');
+  var progress = document.getElementById('progress');
+  var search = document.getElementById('search');
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var emptyEl = document.getElementById('empty');
+
+  function renderMath(){
+    if (typeof renderMathInElement !== 'function') {
+      var banner = document.createElement('div');
+      banner.className = 'box tip';
+      banner.style.maxWidth = '860px';
+      banner.style.margin = '24px 32px';
+      banner.innerHTML = '<span class="t">公式未能渲染</span>当前无法加载公式库（可能处于离线状态），页面文字内容完整可用，联网后刷新即可显示公式。';
+      main.insertBefore(banner, main.firstChild);
+      return;
+    }
+    renderMathInElement(main, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false,
+      strict: false,
+      trust: true
+    });
+  }
+
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+    progress.style.width = Math.min(100, Math.max(0, p)) + '%';
+  }
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  function markActive(){
+    var mid = window.innerHeight * 0.32;
+    var current = sections[0] && sections[0].id;
+    for (var i = 0; i < sections.length; i++){
+      var r = sections[i].getBoundingClientRect();
+      if (r.top <= mid) current = sections[i].id;
+    }
+    tocLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  var rafPending = false;
+  function onScroll(){
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(function(){
+      updateProgress();
+      markActive();
+      rafPending = false;
+    });
+  }
+
+  function runSearch(){
+    var q = search.value.trim().toLowerCase();
+    var blocks = main.querySelectorAll('.blk');
+    var shown = 0;
+    blocks.forEach(function(b){
+      var hit = q === '' || b.textContent.toLowerCase().indexOf(q) !== -1;
+      b.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    sections.forEach(function(s){
+      var visible = Array.prototype.some.call(s.querySelectorAll('.blk'), function(b){
+        return b.style.display !== 'none';
+      });
+      s.style.display = (q === '' || visible) ? '' : 'none';
+    });
+    emptyEl.style.display = (q !== '' && shown === 0) ? 'block' : 'none';
+    if (q !== ''){
+      window.scrollTo({top: 0, behavior: 'auto'});
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    renderMath();
+    updateProgress();
+    markActive();
+    if (search){
+      search.addEventListener('input', runSearch);
+      search.addEventListener('keydown', function(e){
+        if (e.key === 'Escape'){ search.value = ''; runSearch(); }
+      });
+    }
+    tocLinks.forEach(function(a){
+      a.addEventListener('click', function(){
+        tocLinks.forEach(function(x){ x.classList.remove('active'); });
+        a.classList.add('active');
+      });
+    });
+  });
+
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+})();
+</script>
+<script>
+(function(){
+  var KEY = 'math2-notes-v1';
+  var notes = {};
+  var storageOK = true;
+  var editorEl = null;
+
+  function readStore(){
+    try {
+      var raw = localStorage.getItem(KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e){ storageOK = false; return null; }
+  }
+
+  function persist(){
+    if (!storageOK) return;
+    try { localStorage.setItem(KEY, JSON.stringify(notes)); }
+    catch(e){ storageOK = false; updateWarn(); }
+  }
+
+  function updateWarn(){
+    var w = document.querySelector('.npanel .warn');
+    if (!w) return;
+    if (!storageOK){
+      w.textContent = '注意：当前是以本地文件（content:// 或 file://）方式打开的，浏览器禁止网页存储，批注关掉页面就会丢。写完请立刻点「导出 HTML」保存成新文件。';
+      w.style.color = 'var(--red)';
+    } else {
+      w.textContent = '导出的文件已把批注写进正文，下次打开照常可以继续改。';
+      w.style.color = '';
+    }
+  }
+
+  function countNotes(){
+    return Object.keys(notes).filter(function(k){
+      return notes[k] && notes[k].replace(/\s/g,'') !== '';
+    }).length;
+  }
+
+  function katexIt(el){
+    if (typeof renderMathInElement !== 'function') return;
+    try {
+      renderMathInElement(el, {
+        delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],
+        throwOnError: false, strict: false
+      });
+    } catch(e){}
+  }
+
+  function articleOf(k){
+    var h = document.getElementById(k);
+    return h ? h.closest('article') : null;
+  }
+
+  function titleOf(h){
+    var c = h.cloneNode(true);
+    var b = c.querySelector('.nbtn');
+    if (b) b.parentNode.removeChild(b);
+    return c.textContent.replace(/\s+/g,' ').trim();
+  }
+
+  function paint(k){
+    var art = articleOf(k);
+    if (!art) return;
+    var old = art.querySelector('.mynote');
+    if (old) old.parentNode.removeChild(old);
+    var txt = notes[k];
+    var btn = art.querySelector('.nbtn');
+    if (btn) btn.classList.toggle('on', !!(txt && txt.trim() !== ''));
+    if (!txt || txt.trim() === '') return;
+
+    var box = document.createElement('div');
+    box.className = 'mynote';
+    box.setAttribute('data-k', k);
+
+    var mt = document.createElement('span');
+    mt.className = 'mt';
+    mt.textContent = '我的批注';
+
+    var del = document.createElement('button');
+    del.type = 'button';
+    del.className = 'del';
+    del.textContent = '删除';
+    del.addEventListener('click', function(){ drop(k); });
+
+    var mc = document.createElement('div');
+    mc.className = 'mc';
+    mc.textContent = txt;
+
+    box.appendChild(mt);
+    box.appendChild(del);
+    box.appendChild(mc);
+    art.appendChild(box);
+    katexIt(mc);
+  }
+
+  function drop(k){
+    delete notes[k];
+    persist();
+    paint(k);
+    syncBadge();
+  }
+
+  function commit(k, val){
+    var t = (val || '').trim();
+    if (t) notes[k] = t; else delete notes[k];
+    persist();
+    paint(k);
+    syncBadge();
+  }
+
+  function closeEditor(){
+    if (editorEl && editorEl.parentNode){
+      editorEl.parentNode.removeChild(editorEl);
+    }
+    editorEl = null;
+  }
+
+  function openEditor(k){
+    closeEditor();
+    var h = document.getElementById(k);
+    if (!h) return;
+    var title = titleOf(h);
+
+    editorEl = document.createElement('div');
+    editorEl.className = 'nedit';
+
+    var inner = document.createElement('div'); inner.className = 'inner';
+    var eh = document.createElement('div'); eh.className = 'eh';
+    var b = document.createElement('b'); b.textContent = '批注 · ' + title;
+    var hint = document.createElement('span'); hint.textContent = '支持 $公式$ 写法｜Ctrl+Enter 保存｜Esc 关闭';
+    eh.appendChild(b); eh.appendChild(hint);
+
+    var ta = document.createElement('textarea');
+    ta.value = notes[k] || '';
+    ta.placeholder = '写下这条的要点、易错点，或者你自己的记法';
+
+    var er = document.createElement('div'); er.className = 'er';
+    var ok = document.createElement('button'); ok.type = 'button'; ok.className = 'ok'; ok.textContent = '保存';
+    var cx = document.createElement('button'); cx.type = 'button'; cx.className = 'cx'; cx.textContent = '取消';
+    var rm = document.createElement('button'); rm.type = 'button'; rm.className = 'rm'; rm.textContent = '清除本条';
+    er.appendChild(ok); er.appendChild(cx); er.appendChild(rm);
+
+    inner.appendChild(eh); inner.appendChild(ta); inner.appendChild(er);
+    editorEl.appendChild(inner);
+    document.body.appendChild(editorEl);
+
+    var doSave = function(){ commit(k, ta.value); closeEditor(); };
+    ok.addEventListener('click', doSave);
+    cx.addEventListener('click', closeEditor);
+    rm.addEventListener('click', function(){ drop(k); closeEditor(); });
+    ta.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)){ e.preventDefault(); doSave(); }
+      if (e.key === 'Escape'){ closeEditor(); }
+    });
+
+    ta.focus();
+    if (window.innerWidth < 720){ ta.scrollIntoView({block:'center'}); }
+  }
+
+  function syncBadge(){
+    var badge = document.getElementById('nbadge');
+    var num = document.getElementById('ncount');
+    var n = countNotes();
+    if (badge){
+      badge.textContent = n > 99 ? '99+' : String(n);
+      badge.hidden = n === 0;
+    }
+    if (num) num.textContent = String(n);
+  }
+
+  function repaintAll(){
+    Array.prototype.forEach.call(document.querySelectorAll('.mynote'), function(n){
+      n.parentNode.removeChild(n);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.nbtn'), function(b){
+      b.classList.remove('on');
+    });
+    Object.keys(notes).forEach(paint);
+    syncBadge();
+  }
+
+  function exportPage(){
+    var doc = document.documentElement.cloneNode(true);
+    Array.prototype.forEach.call(doc.querySelectorAll('.ntool,.nedit'), function(n){
+      n.parentNode.removeChild(n);
+    });
+    Array.prototype.forEach.call(doc.querySelectorAll('.nbtn'), function(n){
+      n.parentNode.removeChild(n);
+    });
+    Array.prototype.forEach.call(doc.querySelectorAll('.mynote .del'), function(n){
+      n.parentNode.removeChild(n);
+    });
+    Array.prototype.forEach.call(doc.querySelectorAll('.mynote[data-k]'), function(n){
+      n.setAttribute('data-raw', notes[n.getAttribute('data-k')] || '');
+    });
+
+    var html = '<!DOCTYPE html>\n' + doc.outerHTML;
+    var d = new Date();
+    var stamp = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+    try {
+      var blob = new Blob([html], {type:'text/html;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = '考研数学二知识点总结-批注版-' + stamp + '.html';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1500);
+    } catch(e){
+      window.alert('当前浏览器不允许直接下载文件，请改用电脑浏览器打开本页后导出。');
+    }
+  }
+
+  function buildTool(){
+    var wrap = document.createElement('div'); wrap.className = 'ntool';
+
+    var panel = document.createElement('div'); panel.className = 'npanel'; panel.hidden = true;
+    panel.innerHTML = '<b>我的批注</b><p>已写 <span id="ncount">0</span> 条。批注只存在这台设备的浏览器里，清缓存或换设备就会丢，要长期保存请用下方导出。</p>' +
+      '<div class="row"><button type="button" class="exp">导出 HTML</button><button type="button" class="clr">清空</button></div>' +
+      '<p class="warn">导出的文件已把批注写进正文，下次打开照常可以继续改。</p>';
+
+    var fab = document.createElement('button');
+    fab.type = 'button';
+    fab.className = 'fab';
+    fab.setAttribute('aria-label','我的批注');
+    fab.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.6 3.4a2.1 2.1 0 0 1 3 3L8.1 17.9 4 19l1.1-4.1Z"/></svg><span class="badge" id="nbadge" hidden>0</span>';
+
+    fab.addEventListener('click', function(){
+      panel.hidden = !panel.hidden;
+      syncBadge();
+    });
+    panel.querySelector('.exp').addEventListener('click', exportPage);
+    panel.querySelector('.clr').addEventListener('click', function(){
+      if (!countNotes()) return;
+      if (window.confirm('确定清空全部 ' + countNotes() + ' 条批注？此操作不可撤销。')){
+        notes = {};
+        persist();
+        repaintAll();
+      }
+    });
+
+    wrap.appendChild(panel);
+    wrap.appendChild(fab);
+    document.body.appendChild(wrap);
+    updateWarn();
+  }
+
+  function init(){
+    var stored = readStore();
+    if (stored && typeof stored === 'object') notes = stored;
+
+    Array.prototype.forEach.call(document.querySelectorAll('.mynote[data-k]'), function(el){
+      var k = el.getAttribute('data-k');
+      var raw = el.getAttribute('data-raw');
+      if (!notes[k] && raw) notes[k] = raw;
+      el.parentNode.removeChild(el);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('main article.blk > h3[id]'), function(h){
+      var btn = h.querySelector('.nbtn');
+      if (!btn){
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'nbtn';
+        btn.textContent = '记';
+        btn.setAttribute('aria-label', '为「' + titleOf(h) + '」写批注');
+        h.appendChild(btn);
+      }
+      if (!btn.getAttribute('data-k')) btn.setAttribute('data-k', h.id);
+      btn.addEventListener('click', function(){ openEditor(h.id); });
+    });
+
+    Object.keys(notes).forEach(paint);
+    buildTool();
+    syncBadge();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
