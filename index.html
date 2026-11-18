@@ -355,6 +355,13 @@ ol.list li::marker{color:var(--green);font-family:var(--sans);font-size:.9em}
 .yz-card{border-color:var(--green)}
 .yz-card .zt-year{color:var(--green)}
 .yz-card:hover{border-color:var(--green);background:var(--green-soft)}
+
+.ch-ex-cta{margin:32px 0 8px;padding-top:22px;border-top:1px solid var(--rule-soft);display:flex;align-items:center;flex-wrap:wrap;gap:14px}
+.ch-ex-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border:1px solid var(--green);background:var(--green);color:var(--paper);font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.02em;text-decoration:none;transition:background .18s ease,border-color .18s ease}
+.ch-ex-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:square}
+.ch-ex-btn:hover{background:var(--red);border-color:var(--red)}
+.ch-ex-note{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.5}
+@media(max-width:640px){.ch-ex-cta{gap:10px}.ch-ex-btn{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -512,10 +519,10 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
 </div>
         </div>
         <div class="box thm"><span class="t">定理 1.5　极限与无穷小的关系</span>
-          $\lim f(x)=A\iff f(x)=A+\alpha$，其中 $\alpha$ 为同一过程下的无穷小。
+          $\lim\limits_{x\to x_0}f(x)=A\iff f(x)=A+\alpha$，其中 $\alpha$ 为同一过程下的无穷小。
         </div>
         <div class="box thm"><span class="t">定理 1.6　四则运算</span>
-          若 $\lim f=A$，$\lim g=B$ 均存在，则 $\lim(f\pm g)=A\pm B$，$\lim(fg)=AB$，且当 $B\ne0$ 时 $\lim\frac{f}{g}=\frac{A}{B}$。<br>
+          若 $\lim\limits_{x\to x_0}f=A$，$\lim\limits_{x\to x_0}g=B$ 均存在，则 $\lim\limits_{x\to x_0}(f\pm g)=A\pm B$，$\lim\limits_{x\to x_0}(fg)=AB$，且当 $B\ne0$ 时 $\lim\limits_{x\to x_0}\frac{f}{g}=\frac{A}{B}$。<br>
           拆项的前提是拆开后每一项的极限都存在，否则不能拆。
         </div>
       </article>
@@ -534,12 +541,12 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
           </ul>
         </div>
         <div class="box def"><span class="t">定义 1.5　无穷小的阶</span>
-          设 $\alpha,\beta$ 为同一过程的无穷小，且 $\lim\frac{\beta}{\alpha}=c$：<br>
+          设 $\alpha,\beta$ 为同一过程的无穷小，且 $\lim\limits_{x\to x_0}\frac{\beta}{\alpha}=c$：<br>
           $c=0$ 时 $\beta$ 是 $\alpha$ 的<b>高阶</b>无穷小，记 $\beta=o(\alpha)$；$c=\infty$ 时为<b>低阶</b>；$c\ne0$ 且有限时为<b>同阶</b>；$c=1$ 时称<b>等价</b>无穷小，记 $\alpha\sim\beta$；<br>
-          若 $\lim\frac{\beta}{\alpha^k}=c\ne0$，称 $\beta$ 是 $\alpha$ 的 <b>$k$ 阶</b>无穷小。
+          若 $\lim\limits_{x\to x_0}\frac{\beta}{\alpha^k}=c\ne0$，称 $\beta$ 是 $\alpha$ 的 <b>$k$ 阶</b>无穷小。
         </div>
         <div class="box thm"><span class="t">定理 1.7　等价无穷小替换</span>
-          设 $\alpha\sim\alpha'$，$\beta\sim\beta'$，且 $\lim\frac{\beta'}{\alpha'}$ 存在，则 $\lim\frac{\beta}{\alpha}=\lim\frac{\beta'}{\alpha'}$。<br>
+          设 $\alpha\sim\alpha'$，$\beta\sim\beta'$，且 $\lim\limits_{x\to x_0}\frac{\beta'}{\alpha'}$ 存在，则 $\lim\limits_{x\to x_0}\frac{\beta}{\alpha}=\lim\limits_{x\to x_0}\frac{\beta^{\prime}}{\alpha^{\prime}}$。<br>
           <b>使用边界</b>：只能在<b>乘除</b>因子位置整体替换；在加减中替换，必须保证替换后不产生「主部相消」，即误差项的阶不能与被替换量同阶。
         </div>
         <div class="box how"><span class="t">常用等价无穷小（$x\to0$）</span>
@@ -558,7 +565,7 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
       <article class="blk">
         <h3 id="c1-6"><span class="n">1.6</span>极限存在的两个准则与两个重要极限<button class="nbtn" type="button" data-k="c1-6" aria-label="为「1.6极限存在的两个准则与两个重要极限」写批注">记</button></h3>
         <div class="box thm"><span class="t">定理 1.8　夹逼准则</span>
-          若在 $x_0$ 的某去心邻域内 $g(x)\le f(x)\le h(x)$，且 $\lim g=\lim h=A$，则 $\lim f=A$。数列情形完全同理：存在 $N$，当 $n\gt N$ 时 $y_n\le x_n\le z_n$，且 $\lim y_n=\lim z_n=a$，则 $\lim x_n=a$。
+          若在 $x_0$ 的某去心邻域内 $g(x)\le f(x)\le h(x)$，且 $\lim\limits_{x\to x_0}g=\lim\limits_{x\to x_0}h=A$，则 $\lim\limits_{x\to x_0}f=A$。数列情形完全同理：存在 $N$，当 $n\gt N$ 时 $y_n\le x_n\le z_n$，且 $\lim\limits_{n\to\infty}y_n=\lim\limits_{n\to\infty}z_n=a$，则 $\lim\limits_{n\to\infty}x_n=a$。
         </div>
         <div class="box thm"><span class="t">定理 1.9　单调有界准则</span>
           单调递增且有上界的数列必收敛；单调递减且有下界的数列必收敛。<br>
@@ -566,11 +573,11 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
         </div>
         <div class="box thm"><span class="t">定理 1.10　两个重要极限</span>
           $$\lim_{x\to0}\frac{\sin x}{x}=1\qquad \lim_{x\to\infty}\left(1+\frac1x\right)^x=e$$
-          一般形式：$\lim\limits_{u\to0}(1+u)^{\frac1u}=e$，即 $1^\infty$ 型可化归为 $\lim e^{u\cdot\frac{1}{u}}$。
+          一般形式：$\lim\limits_{u\to0}(1+u)^{\frac1u}=e$，即 $1^\infty$ 型可化归为 $\lim\limits_{u\to0}e^{u\cdot\frac{1}{u}}$。
         </div>
         <div class="box how"><span class="t">$1^\infty$ 型的标准处理</span>
-          若 $\lim u(x)=1$，$\lim v(x)=\infty$，则
-          $$\lim u^{v}=\exp\!\left\{\lim v\,(u-1)\right\}$$
+          若 $\lim\limits_{x\to x_0}u(x)=1$，$\lim\limits_{x\to x_0}v(x)=\infty$，则
+          $$\lim\limits_{x\to x_0}u^{v}=\exp\!\left\{\lim\limits_{x\to x_0}v\,(u-1)\right\}$$
           因为 $u^v=\left[1+(u-1)\right]^{v}=\left[1+(u-1)\right]^{\frac{1}{u-1}\cdot v(u-1)}$，括号部分趋于 $e$。也可以直接取对数后用等价无穷小 $\ln u\sim u-1$。
         </div>
       </article>
@@ -585,7 +592,7 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
           <tr><td>$0\cdot\infty$</td><td>乘积型</td><td>化为 $\frac{0}{0}$ 或 $\frac{\infty}{\infty}$，常用倒代换 $t=\frac1x$</td></tr>
           <tr><td>$\infty-\infty$</td><td>差式</td><td>通分、有理化（乘共轭）、提出主导项</td></tr>
           <tr><td>$1^\infty,\ 0^0,\ \infty^0$</td><td>幂指型</td><td>统一写成 $e^{v\ln u}$，转为 $0\cdot\infty$</td></tr>
-          <tr><td>数列和式</td><td>$n$ 项求和、含 $\frac{i}{n}$</td><td>夹逼，或凑定积分定义 $\lim\frac1n\sum f\!\left(\frac{i}{n}\right)=\int_0^1f(x)\,dx$</td></tr>
+          <tr><td>数列和式</td><td>$n$ 项求和、含 $\frac{i}{n}$</td><td>夹逼，或凑定积分定义 $\lim\limits_{n\to\infty}\frac1n\sum_{i=1}^{n}f\!\left(\frac{i}{n}\right)=\int_0^1f(x)\,dx$</td></tr>
         </table></div>
         <div class="box tip"><span class="t">易错</span>
           ① 洛必达只对 $\frac00$、$\frac{\infty}{\infty}$ 型有效，且要求求导后极限存在（或为 $\infty$）；求导后振荡不存在时，原极限仍可能存在，须换方法。<br>
@@ -678,7 +685,7 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
 <article class="blk">
     <h3 id="c1-11"><span class="n">1.11</span>无穷小的阶与参数确定<button class="nbtn" type="button" data-k="c1-11" aria-label="为「1.11无穷小的阶与参数确定」写批注">记</button></h3>
     <div class="box def"><span class="t">识别信号</span>
-      题干出现「是 $x$ 的几阶无穷小」「与 $x^k$ 同阶」「求 $a,b$ 使 $\lim\frac{f(x)}{x^n}=c\ne0$」。
+      题干出现「是 $x$ 的几阶无穷小」「与 $x^k$ 同阶」「求 $a,b$ 使 $\lim\limits_{x\to0}\frac{f(x)}{x^n}=c\ne0$」。
     </div>
     <div class="box how"><span class="t">解题步骤</span>
       <ul class="list">
@@ -697,6 +704,10 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
       若直接对 $(\sin x-ax)$ 求导再用洛必达，容易在多次求导中丢掉 $a$ 的约束，最后得不到 $a$ 的取值。泰勒是最稳的路径。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c1"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 1 章 · 选择／填空／解答</span>
+    </div>
 </section>
     <!-- ============ 第二章 一元函数微分学 ============ -->
     <section class="chapter" id="c2">
@@ -727,7 +738,7 @@ $$|f(x)-A|\lt\frac{A}{2}\ \Longrightarrow\ f(x)\gt A-\frac{A}{2}=\frac{A}{2}\gt0
             <li>分段函数的分界点；</li>
             <li>含绝对值或取整函数的尖点；</li>
             <li>已知 $f$ 在某点可导，求 $\lim\limits_{h\to0}\dfrac{f(x_0+ah)-f(x_0+bh)}{h}$ 型——凑定义，结果为 $(a-b)f'(x_0)$；</li>
-            <li>只给出抽象条件（如 $f(0)=0$、$\lim\frac{f(x)}{x}=A$），要证 $f'(0)$ 存在；</li>
+            <li>只给出抽象条件（如 $f(0)=0$、$\lim\limits_{x\to0}\frac{f(x)}{x}=A$），要证 $f'(0)$ 存在；</li>
             <li>$f'(x_0)$ 存在但 $f'(x)$ 在 $x_0$ 不连续的情形。</li>
           </ul>
         </div>
@@ -873,7 +884,7 @@ $$F'(\xi)=f'(\xi)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(\xi)=0$$
         </div>
         <div class="box how"><span class="t">辅助函数构造套路（证明题的命门）</span>
           <ul class="list">
-            <li>证 $f'(\xi)+g(\xi)f(\xi)=0$：取 $F(x)=f(x)e^{\int g(x)dx}$；</li>
+            <li>证 $f'(\xi)+g(\xi)f(\xi)=0$：取 $F(x)=f(x)e^{\int g(x)\,dxdx}$；</li>
             <li>证 $f'(\xi)=\lambda$：令 $F(x)=f(x)-\lambda x$，再用罗尔；</li>
             <li>证含两个函数之比的等式：用柯西中值定理，分母构造成 $g(b)-g(a)$；</li>
             <li>证 $f''(\xi)$ 型结论：先对 $f'$ 用罗尔（需造两点使 $f'$ 相等），或两次拉格朗日；</li>
@@ -909,8 +920,8 @@ $$F'(\xi)=f'(\xi)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(\xi)=0$$
       <article class="blk">
         <h3 id="c2-5"><span class="n">2.5</span>洛必达法则<button class="nbtn" type="button" data-k="c2-5" aria-label="为「2.5洛必达法则」写批注">记</button></h3>
         <div class="box thm"><span class="t">定理 2.15　洛必达法则</span>
-          设 $x\to a$（或 $\infty$）时 $f,g$ 均趋于 $0$ 或均趋于 $\infty$，在 $a$ 的去心邻域内 $g'(x)\ne0$ 且 $\lim\frac{f'(x)}{g'(x)}$ 存在（或为 $\infty$），则
-          $$\lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}$$
+          设 $x\to a$（或 $\infty$）时 $f,g$ 均趋于 $0$ 或均趋于 $\infty$，在 $a$ 的去心邻域内 $g'(x)\ne0$ 且 $\lim\limits_{x\to a}\frac{f'(x)}{g'(x)}$ 存在（或为 $\infty$），则
+          $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\lim\limits_{x\to a}\frac{f^{\prime}(x)}{g^{\prime}(x)}$$
           <b>使用前提</b>：分子分母在去心邻域内均可导、$g'(x)\ne0$、求导后的极限存在或为无穷大。
         </div>
         <div class="box tip"><span class="t">易错</span>
@@ -1035,10 +1046,10 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
       <p>设 $f(x)=\begin{cases}x^2\sin\dfrac1x,&x\ne0\\0,&x=0\end{cases}$，求 $f'(0)$，并判断 $f'$ 在 $x=0$ 处是否连续。</p>
       <div class="sol"><p><b>解</b>　按定义求 $f'(0)$：</p>
       $$f'(0)=\lim_{x\to0}\frac{x^2\sin\frac1x-0}{x}=\lim_{x\to0}x\sin\frac1x=0$$
-      <p>当 $x\ne0$ 时 $f'(x)=2x\sin\dfrac1x-\cos\dfrac1x$。$x\to0$ 时 $\cos\dfrac1x$ 振荡，$\lim f'(x)$ 不存在，故 $f'$ 在 $x=0$ 处<b>不连续</b>。</p></div>
+      <p>当 $x\ne0$ 时 $f'(x)=2x\sin\dfrac1x-\cos\dfrac1x$。$x\to0$ 时 $\cos\dfrac1x$ 振荡，$\lim\limits_{x\to0}f'(x)$ 不存在，故 $f'$ 在 $x=0$ 处<b>不连续</b>。</p></div>
     </div>
     <div class="box tip"><span class="t">踩坑提醒</span>
-      「$f'(x_0)$ 存在」与「$f'(x)$ 在 $x_0$ 连续」是两件事，本题正是标准反例。答连续性问题必须先求 $\lim f'(x)$，不能默认导函数连续。
+      「$f'(x_0)$ 存在」与「$f'(x)$ 在 $x_0$ 连续」是两件事，本题正是标准反例。答连续性问题必须先求 $\lim\limits_{x\to0}f'(x)$，不能默认导函数连续。
     </div>
   </article>
 <article class="blk">
@@ -1049,7 +1060,7 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
     <div class="box how"><span class="t">解题步骤</span>
       <ul class="list">
         <li>把结论中的 $\xi$ 换成 $x$，整理成「某个函数在 $\xi$ 处导数为零」的形式；</li>
-        <li>对该式积分（或乘积分因子 $e^{\int g}$）得到辅助函数 $F(x)$；</li>
+        <li>对该式积分（或乘积分因子 $e^{\int g(x)\,dx}$）得到辅助函数 $F(x)$；</li>
         <li>验证 $F$ 在两端点取值相等，套罗尔定理；</li>
         <li>结论含两个函数之比时改用柯西中值定理，分母取为 $g(b)-g(a)$ 的来源函数。</li>
       </ul>
@@ -1060,7 +1071,7 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
       <p>由罗尔定理，存在 $\xi\in(0,2)$ 使 $F'(\xi)=0$，即 $f'(\xi)-\dfrac12=0$，故 $f'(\xi)=\dfrac12$。</p></div>
     </div>
     <div class="box tip"><span class="t">踩坑提醒</span>
-      看到「$f'(\xi)=\text{常数 }k$」就直接想「$f(x)-kx$」；看到「$f'(\xi)+g(\xi)f(\xi)=0$」就想 $f(x)e^{\int g}$。辅助函数选错，后面再严谨也证不出来。
+      看到「$f'(\xi)=\text{常数 }k$」就直接想「$f(x)-kx$」；看到「$f'(\xi)+g(\xi)f(\xi)=0$」就想 $f(x)e^{\int g(x)\,dx}$。辅助函数选错，后面再严谨也证不出来。
     </div>
   </article>
 <article class="blk">
@@ -1101,6 +1112,10 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
       「有且仅有一个」必须两段都写：只证存在拿不到满分；只证单调而没有端点异号，也不能保证根在该区间内。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c2"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 2 章 · 选择／填空／解答</span>
+    </div>
 </section>
     <!-- ============ 第三章 一元函数积分学 ============ -->
     <section class="chapter" id="c3">
@@ -1121,7 +1136,7 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
           区间上的连续函数必有原函数。<b>含第一类间断点的函数在含该点的区间上不存在原函数</b>；含振荡间断点时可能有原函数（如 $x^2\sin\frac1x$ 的导数类）。
         </div>
         <div class="box prop"><span class="t">性质 3.1</span>
-          $$\left(\int f(x)\,dx\right)'=f(x),\qquad \int f'(x)\,dx=f(x)+C$$
+          $$\left(\int f(x)\,dx\right)'=f(x),\qquad \int f(x)\,dx'(x)\,dx=f(x)+C$$
           $$\int\left[\alpha f(x)+\beta g(x)\right]dx=\alpha\int f(x)\,dx+\beta\int g(x)\,dx$$
           原函数之间只相差常数，故积分结果必须带 $C$。
         </div>
@@ -1149,11 +1164,11 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
       <article class="blk">
         <h3 id="c3-3"><span class="n">3.3</span>换元积分法<button class="nbtn" type="button" data-k="c3-3" aria-label="为「3.3换元积分法」写批注">记</button></h3>
         <div class="box thm"><span class="t">定理 3.2　第一类换元（凑微分）</span>
-          $$\int f[\varphi(x)]\varphi'(x)\,dx=\int f(u)\,du=F(u)+C=F[\varphi(x)]+C$$
+          $$\int f(x)\,dx[\varphi(x)]\varphi'(x)\,dx=\int f(x)\,dx(u)\,du=F(u)+C=F[\varphi(x)]+C$$
           识别信号：被积式中含「内层函数的导数因子」。常见凑法：$x\,dx=\frac12d(x^2)$，$\frac{dx}{x}=d\ln x$，$e^x dx=de^x$，$\cos x\,dx=d\sin x$，$\frac{dx}{\sqrt x}=2d\sqrt x$，$\frac{dx}{1+x^2}=d\arctan x$。
         </div>
         <div class="box thm"><span class="t">定理 3.3　第二类换元（变量代换）</span>
-          $$\int f(x)\,dx=\int f[\psi(t)]\psi'(t)\,dt\Big|_{t=\psi^{-1}(x)}$$
+          $$\int f(x)\,dx=\int f(x)\,dx[\psi(t)]\psi'(t)\,dt\Big|_{t=\psi^{-1}(x)}$$
           三类三角代换：$\sqrt{a^2-x^2}$ 令 $x=a\sin t$；$\sqrt{a^2+x^2}$ 令 $x=a\tan t$；$\sqrt{x^2-a^2}$ 令 $x=a\sec t$。<br>
           简单无理式：$\sqrt[n]{ax+b}$ 令 $t=\sqrt[n]{ax+b}$；$\sqrt{\frac{ax+b}{cx+d}}$ 令 $t=\sqrt{\frac{ax+b}{cx+d}}$。<br>
           倒代换 $x=\frac1t$ 专治分母次数高于分子的分式。
@@ -1203,18 +1218,18 @@ $$x\in(x_0-\delta,x_0):\ f'(x)\lt0;\qquad x\in(x_0,x_0+\delta):\ f'(x)\gt0$$
         <div class="box prop"><span class="t">性质 3.2</span>
           <ul class="list">
             <li>$\displaystyle\int_a^b f=-\int_b^a f$，$\displaystyle\int_a^a f=0$；</li>
-            <li>线性性：$\int_a^b(\alpha f+\beta g)=\alpha\int_a^b f+\beta\int_a^b g$；</li>
-            <li>区间可加：$\int_a^b f=\int_a^c f+\int_c^b f$，<b>$c$ 可在区间外</b>；</li>
-            <li>保号性：$f(x)\ge0$ 时 $\int_a^b f\ge0$（$a\lt b$）；由此若 $f\le g$ 则 $\int f\le\int g$；</li>
-            <li>估值定理：$m(b-a)\le\int_a^b f\le M(b-a)$；</li>
-            <li>绝对值不等式：$\left|\int_a^b f\right|\le\int_a^b|f|$；</li>
-            <li>若 $f$ 连续、$f\ge0$ 且不恒为零，则 $\int_a^b f\gt0$。</li>
+            <li>线性性：$\int_a^b[\alpha f(x)+\beta g(x)]\,dx=\alpha\int_a^b f(x)\,dx+\beta\int_a^b g(x)\,dx$；</li>
+            <li>区间可加：$\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx$，<b>$c$ 可在区间外</b>；</li>
+            <li>保号性：$f(x)\ge0$ 时 $\int_a^b f(x)\,dx\ge0$（$a\lt b$）；由此若 $f\le g$ 则 $\int f(x)\,dx\le\int g(x)\,dx$；</li>
+            <li>估值定理：$m(b-a)\le\int_a^b f(x)\,dx\le M(b-a)$；</li>
+            <li>绝对值不等式：$\left|\int_a^b f(x)\,dx\right|\le\int_a^b|f(x)|\,dx$；</li>
+            <li>若 $f(x)$ 连续、$f(x)\ge0$ 且不恒为零，则 $\int_a^b f(x)\,dx\gt0$。</li>
           </ul>
         </div>
         <div class="box thm"><span class="t">定理 3.5　定积分中值定理</span>
           若 $f$ 在 $[a,b]$ 上连续，则存在 $\xi\in[a,b]$ 使
           $$\int_a^b f(x)\,dx=f(\xi)(b-a)$$
-          即 $\dfrac{1}{b-a}\int_a^b f$ 是 $f$ 在 $[a,b]$ 上的平均值。广义中值定理：$f$ 连续、$g$ 不变号且可积，则存在 $\xi$ 使 $\int_a^b fg=f(\xi)\int_a^b g$。
+          即 $\dfrac{1}{b-a}\int_a^b f$ 是 $f$ 在 $[a,b]$ 上的平均值。广义中值定理：$f$ 连续、$g$ 不变号且可积，则存在 $\xi$ 使 $\int_a^b f(x)g(x)\,dx=f(\xi)\int_a^b g(x)\,dx$。
         <div class="proof"><span class="t">证</span>
 <p>设 $m,M$ 分别为 $f$ 在 $[a,b]$ 上的最小值与最大值。由 $m\le f(x)\le M$ 及积分的保序性</p>
 $$m(b-a)\le\int_a^b f(x)\,dx\le M(b-a)\ \Longrightarrow\ m\le\frac{1}{b-a}\int_a^b f(x)\,dx\le M$$
@@ -1256,7 +1271,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
           $$\int_a^b f(x)\,dx=\int_\alpha^\beta f[\varphi(t)]\varphi'(t)\,dt$$
           分部同不定积分，只是多了上下限。<br>
           <b>对称性</b>：$\int_{-a}^{a}f=\begin{cases}0,&f\text{ 为奇函数}\\2\int_0^af,&f\text{ 为偶函数}\end{cases}$；<br>
-          <b>周期平移</b>：$\int_a^{a+T}f=\int_0^Tf$；<br>
+          <b>周期平移</b>：$\int_a^{a+T}f(x)\,dx=\int_0^Tf(x)\,dx$；<br>
           <b>区间再现</b>：$\int_0^{\pi}xf(\sin x)dx=\frac{\pi}{2}\int_0^{\pi}f(\sin x)dx$；$\int_0^{\pi/2}f(\sin x)dx=\int_0^{\pi/2}f(\cos x)dx$。
         </div>
       </article>
@@ -1270,7 +1285,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
         <div class="box thm"><span class="t">定理 3.8　常用判敛结论（$p$ 积分）</span>
           $$\int_a^{+\infty}\frac{dx}{x^p}\ \text{收敛}\iff p\gt1\qquad(a\gt0)$$
           $$\int_a^{b}\frac{dx}{(x-a)^p}\ \text{收敛}\iff p\lt1$$
-          一般比较判别法：$0\le f\le g$ 时，$\int g$ 收敛则 $\int f$ 收敛；$\int f$ 发散则 $\int g$ 发散。极限形式：若 $\lim\frac{f}{g}=c\ (0\lt c\lt\infty)$，则两者同敛散。
+          一般比较判别法：$0\le f(x)\le g(x)$ 时，$\int g(x)\,dx$ 收敛则 $\int f(x)\,dx$ 收敛；$\int f(x)\,dx$ 发散则 $\int g(x)\,dx$ 发散。极限形式：若 $\lim\limits_{x\to+\infty}\frac{f}{g}=c\ (0\lt c\lt\infty)$，则两者同敛散。
         </div>
         <div class="box tip"><span class="t">易错</span>
           ① 计算 $\int_{-1}^{1}\frac{dx}{x^2}$ 若直接得 $-\frac1x\big|_{-1}^{1}=-2$，是错的：$x=0$ 为瑕点，应拆成 $\int_{-1}^0+\int_0^1$，两者均发散，原积分发散。<br>
@@ -1347,7 +1362,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
           <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
           <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
           <tr><td>原函数</td><td>判断原函数是否存在；求分段函数的原函数；由原函数反求 $f$</td><td>连续才有原函数；含第一类间断点则无；分段函数分段积分后调常数使之连续</td></tr>
-          <tr><td>凑微分</td><td>识别内层导数；$\int f(ax+b)dx$ 型</td><td>常见凑法：$x\,dx=\frac12d(x^2)$、$\frac{dx}{x}=d\ln x$、$e^xdx=de^x$、$\frac{dx}{1+x^2}=d\arctan x$</td></tr>
+          <tr><td>凑微分</td><td>识别内层导数；$\int f(x)\,dx(ax+b)dx$ 型</td><td>常见凑法：$x\,dx=\frac12d(x^2)$、$\frac{dx}{x}=d\ln x$、$e^xdx=de^x$、$\frac{dx}{1+x^2}=d\arctan x$</td></tr>
           <tr><td>第二类换元</td><td>三角代换、根式代换、倒代换、双曲代换</td><td>$\sqrt{a^2-x^2}$ 用 $a\sin t$；$\sqrt{x^2-a^2}$ 用 $a\sec t$；分母次数高用 $x=\frac1t$；最后必须回代</td></tr>
           <tr><td>分部积分</td><td>幂 × 指/三/对/反；$\int\ln x\,dx$、$\int\arctan x\,dx$；循环型</td><td>「反对幂指三」定 $u$；循环型移项解出；$\int e^{ax}\sin bx\,dx$ 两次分部后返回</td></tr>
           <tr><td>有理函数</td><td>部分分式积分；含 $(x-a)^k$、$x^2+px+q$ 的分式</td><td>假分式先做除法；分母因式分解定系数；二次因子配方拆成「$\frac{u'}{u}$ + 反正切」</td></tr>
@@ -1391,7 +1406,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
     <div class="box how"><span class="t">三个加速开关</span>
       <ul class="list">
         <li><b>对称性</b>：$\int_{-a}^{a}f\,dx$，$f$ 为奇函数得 $0$，偶函数得 $2\int_0^af\,dx$。使用前必须同时检查区间对称与函数奇偶；</li>
-        <li><b>周期性</b>：$\int_a^{a+T}f=\int_0^Tf$，可把任意长度为 $T$ 的区间平移；</li>
+        <li><b>周期性</b>：$\int_a^{a+T}f(x)\,dx=\int_0^Tf(x)\,dx$，可把任意长度为 $T$ 的区间平移；</li>
         <li><b>区间再现</b>：$\int_0^{\pi}xf(\sin x)\,dx=\dfrac{\pi}{2}\int_0^{\pi}f(\sin x)\,dx$，$\int_0^{\pi/2}f(\sin x)\,dx=\int_0^{\pi/2}f(\cos x)\,dx$。</li>
       </ul>
     </div>
@@ -1431,7 +1446,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
       <ul class="list">
         <li><b>找瑕点</b>：无定义点、分母零点、$\ln$ 的零点都可能是瑕点，有瑕点必须拆区间；</li>
         <li><b>看阶数</b>：$x\to+\infty$ 时若 $f\sim\frac{C}{x^p}$，则 $p\gt1$ 收敛；$x\to a^+$ 时若 $f\sim\frac{C}{(x-a)^p}$，则 $p\lt1$ 收敛；</li>
-        <li><b>用比较</b>：$0\le f\le g$ 时「大收敛则小收敛，小发散则大发散」；极限形式比值非零有限则同敛散。</li>
+        <li><b>用比较</b>：$0\le f(x)\le g(x)$ 时「大收敛则小收敛，小发散则大发散」；极限形式比值非零有限则同敛散。</li>
       </ul>
     </div>
     <div class="ex"><span class="t">例 3.4</span>
@@ -1468,6 +1483,10 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
       绕 $y$ 轴旋转时柱壳法出现的是<b>旋转半径</b>；若旋转轴是 $x=a$，半径要写成 $|x-a|$，直接代 $x$ 必错。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c3"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 3 章 · 选择／填空／解答</span>
+    </div>
 </section>
     <!-- ============ 第四章 多元函数微积分 ============ -->
     <section class="chapter" id="c4">
@@ -1575,14 +1594,14 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
         <h3 id="c4-6"><span class="n">4.6</span>二重积分的概念与性质<button class="nbtn" type="button" data-k="c4-6" aria-label="为「4.6二重积分的概念与性质」写批注">记</button></h3>
         <div class="box def"><span class="t">定义 4.4</span>
           $$\iint_D f(x,y)\,d\sigma=\lim_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i$$
-          几何意义：$f\ge0$ 时为曲顶柱体的体积；$f\equiv1$ 时等于区域 $D$ 的面积。可积的充分条件：$f$ 在有界闭区域上连续。
+          几何意义：$f(x,y)\ge0$ 时为曲顶柱体的体积；$f(x,y)\equiv1$ 时等于区域 $D$ 的面积。可积的充分条件：$f$ 在有界闭区域上连续。
         </div>
         <div class="box prop"><span class="t">性质 4.1</span>
           <ul class="list">
             <li>线性性；区域可加性（$D=D_1+D_2$ 且无公共内点）；</li>
-            <li>保号性：$f\ge0$ 则 $\iint_Df\,d\sigma\ge0$；由此 $f\le g\Rightarrow\iint f\le\iint g$；</li>
+            <li>保号性：$f(x,y)\ge0$ 则 $\iint_Df(x,y)\,d\sigma\ge0$；由此 $f(x,y)\le g(x,y)\Rightarrow\iint_D f(x,y)\,d\sigma\le\iint_D g(x,y)\,d\sigma$；</li>
             <li>估值：$mS\le\iint_Df\,d\sigma\le MS$，$S$ 为面积；</li>
-            <li>绝对值不等式：$\left|\iint_Df\right|\le\iint_D|f|$；</li>
+            <li>绝对值不等式：$\left|\iint_Df(x,y)\,d\sigma\right|\le\iint_D|f(x,y)|\,d\sigma$；</li>
             <li><b>中值定理</b>：$f$ 在 $D$ 上连续，则存在 $(\xi,\eta)\in D$ 使 $\iint_Df=f(\xi,\eta)\cdot S$。</li>
           </ul>
         </div>
@@ -1608,7 +1627,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
           常见区域：圆 $x^2+y^2\le a^2$ 对应 $0\le\theta\le2\pi$，$0\le r\le a$；上半圆对应 $0\le\theta\le\pi$；$x^2+y^2\le2x$ 化为 $r\le2\cos\theta$，$-\frac{\pi}{2}\le\theta\le\frac{\pi}{2}$。
         </div>
         <div class="box thm"><span class="t">定理 4.10　对称性简化</span>
-          <b>关于 $x$ 轴对称</b>：若 $f(x,-y)=-f(x,y)$，则 $\iint_Df=0$；若 $f(x,-y)=f(x,y)$，则 $\iint_Df=2\iint_{D_{\text{上}}}f$。关于 $y$ 轴同理。<br>
+          <b>关于 $x$ 轴对称</b>：若 $f(x,-y)=-f(x,y)$，则 $\iint_Df(x,y)\,d\sigma=0$；若 $f(x,-y)=f(x,y)$，则 $\iint_Df(x,y)\,d\sigma=2\iint_{D_{\text{上}}}f(x,y)\,d\sigma$。关于 $y$ 轴同理。<br>
           <b>轮换对称</b>：若 $D$ 关于直线 $y=x$ 对称，则 $\iint_Df(x,y)\,d\sigma=\iint_Df(y,x)\,d\sigma$，常用于把 $\iint x^2$ 与 $\iint y^2$ 合并成 $\frac12\iint(x^2+y^2)$。
         </div>
         <div class="box tip"><span class="t">易错</span>
@@ -1627,8 +1646,8 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
         <div class="tbl-wrap"><table class="tbl">
           <colgroup><col style="width:19%"><col style="width:33%"><col style="width:48%"></colgroup>
           <tr><th>知识点</th><th>常见题型</th><th>解题主线</th></tr>
-          <tr><td>二重极限</td><td>求 $\lim f(x,y)$；判断极限不存在；求参数使极限存在</td><td>沿 $y=kx$、$y=kx^2$、坐标轴取路径；极坐标下让 $\theta$ 独立变化；夹逼估值</td></tr>
-          <tr><td>连续性</td><td>讨论分段二元函数在分界点、原点的连续性</td><td>按定义验证 $\lim f=f(x_0,y_0)$；路径法可证不连续</td></tr>
+          <tr><td>二重极限</td><td>求 $\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)$；判断极限不存在；求参数使极限存在</td><td>沿 $y=kx$、$y=kx^2$、坐标轴取路径；极坐标下让 $\theta$ 独立变化；夹逼估值</td></tr>
+          <tr><td>连续性</td><td>讨论分段二元函数在分界点、原点的连续性</td><td>按定义验证 $\lim\limits_{(x,y)\to(x_0,y_0)}f=f(x_0,y_0)$；路径法可证不连续</td></tr>
           <tr><td>偏导数</td><td>按定义求偏导；求分段点偏导；求某点偏导是否存在</td><td>固定一个变量写增量比；分段点必须用定义而非求导后代值</td></tr>
           <tr><td>全微分</td><td>判断可微；求 $dz$；用可微求极限；近似计算</td><td>验证 $\Delta z-f_x\Delta x-f_y\Delta y=o(\rho)$；偏导连续是可微的充分条件</td></tr>
           <tr><td>复合求导</td><td>一阶、二阶偏导；全导数；抽象函数 $f(u,v)$ 求偏导</td><td>画变量树逐路径相乘相加；二阶时对内层 $u_x,v_x$ 继续用链式</td></tr>
@@ -1674,6 +1693,10 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
       极坐标下 $r$ 的上限由边界曲线决定，$\theta$ 的范围由区域在哪个象限张开决定；$r=2\cos\theta$ 对应的是以 $(1,0)$ 为心、半径 1 的圆。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c4"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 4 章 · 选择／填空／解答</span>
+    </div>
 </section>
 
     <!-- ============ 第五章 常微分方程 ============ -->
@@ -1762,13 +1785,13 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
           设 $P_m$ 为 $m$ 次多项式，特解设为
           $$y^*=x^{k}Q_m(x)e^{\lambda x}$$
           其中 $Q_m$ 为待定的 $m$ 次多项式，$k$ 的取法：$\lambda$ 不是特征根时 $k=0$；是单根时 $k=1$；是二重根时 $k=2$。<br>
-          常见对应：$f=e^{2x}$ 时 $P_m=1$（$m=0$），$Q_m$ 为常数 $A$；$f=xe^{x}$ 时 $Q_m=ax+b$。
+          常见对应：$f(x)=e^{2x}$ 时 $P_m=1$（$m=0$），$Q_m$ 为常数 $A$；$f(x)=xe^{x}$ 时 $Q_m=ax+b$。
         </div>
         <div class="box thm"><span class="t">定理 5.4　三角型自由项</span>
           若 $f(x)=e^{\alpha x}\left[P_l(x)\cos\beta x+P_n(x)\sin\beta x\right]$，设
           $$y^*=x^{k}e^{\alpha x}\left[R_m(x)\cos\beta x+S_m(x)\sin\beta x\right],\quad m=\max(l,n)$$
           $\alpha\pm\beta i$ 不是特征根时 $k=0$，是特征根时 $k=1$（此时必为单根，$k$ 不取 2）。<br>
-          典型：$f=\sin x$、$f=\cos2x$、$f=e^x\cos x$。
+          典型：$f(x)=\sin x$、$f(x)=\cos2x$、$f(x)=e^x\cos x$。
         </div>
         <div class="box thm"><span class="t">定理 5.5　叠加原理</span>
           若 $y_1^*$、$y_2^*$ 分别是 $f_1$、$f_2$ 的特解，则 $y_1^*+y_2^*$ 是 $f_1+f_2$ 的特解。自由项为几项之和时可拆开分别求特解再相加。
@@ -1799,7 +1822,7 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
           <tr><td>基本概念</td><td>判断阶、通解、特解；验证某函数是否为解；由通解求初始条件</td><td>数独立任意常数的个数；代回方程验证恒等</td></tr>
           <tr><td>可分离变量</td><td>求通解、满足初值的特解；含参讨论</td><td>分离后两边积分，别忘 $g(y)=0$ 的常函数解</td></tr>
           <tr><td>齐次方程</td><td>$y'=\varphi(\frac yx)$ 型；可化为齐次的 $\frac{ax+by+c}{a'x+b'y+c'}$ 型</td><td>令 $u=\frac yx$，得 $xu'=\varphi(u)-u$；后者先平移消常数项</td></tr>
-          <tr><td>一阶线性</td><td>求通解、初值问题；以 $x$ 为未知函数；含参</td><td>套 $y=e^{-\int P}\left[\int Qe^{\int P}+C\right]$，或乘积分因子</td></tr>
+          <tr><td>一阶线性</td><td>求通解、初值问题；以 $x$ 为未知函数；含参</td><td>套 $y=e^{-\int P(x)\,dx}\left[\int Q(x)e^{\int P(x)\,dx}\,dx+C\right]$，或乘积分因子</td></tr>
           <tr><td>可降阶</td><td>$y^{(n)}=f(x)$、$y''=f(x,y')$、$y''=f(y,y')$</td><td>逐次积分；不显含 $y$ 令 $p=y'(x)$；不显含 $x$ 令 $p(y)$，$y''=p\frac{dp}{dy}$</td></tr>
           <tr><td>二阶齐次</td><td>求通解；由解反求方程；判断线性相关</td><td>特征方程三种情形；由已知解反推特征根再写方程</td></tr>
           <tr><td>二阶非齐次</td><td>$P_m(x)e^{\lambda x}$ 型；三角型；叠加原理</td><td>先写齐次通解，再按 $\lambda$（或 $\alpha\pm\beta i$）是否为特征根定 $k$，设 $x^kQ_m e^{\lambda x}$ 比较系数</td></tr>
@@ -1849,6 +1872,10 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
       设特解时容易漏乘 $x^k$，一旦 $\lambda$ 是特征根而没乘 $x$，代入后会出现「$0=$ 非零」的矛盾，这是判断自己是否设错的信号。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c5"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 5 章 · 选择／填空／解答</span>
+    </div>
 </section>
     <!-- ============ 第六章 行列式 ============ -->
     <section class="chapter" id="c6">
@@ -1971,6 +1998,10 @@ $$\int_a^b f(x)\,dx=\Phi(b)=F(b)-C=F(b)-F(a)$$
       「倍乘」与「互换」都会改变行列式的值，化三角过程中只做「加 $k$ 倍」才安全；若不得不互换，最后必须补上符号 $(-1)^m$。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c6"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 6 章 · 选择／填空／解答</span>
+    </div>
 </section>
 
     <!-- ============ 第七章 矩阵 ============ -->
@@ -2145,6 +2176,10 @@ $$A\cdot\frac{A^*}{|A|}=\frac{A^*}{|A|}\cdot A=E$$
       $|A|=0$ 只能说明秩小于 3，不能直接断定秩为 2；必须再找一个非零子式确认下界。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c7"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 7 章 · 选择／填空／解答</span>
+    </div>
 </section>
     <!-- ============ 第八章 向量与秩 ============ -->
     <section class="chapter" id="c8">
@@ -2280,7 +2315,11 @@ $$A\cdot\frac{A^*}{|A|}=\frac{A^*}{|A|}\cdot A=E$$
         求极大无关组时向量必须按列排，且只能用行变换；若按行排又做列变换，得到的主元位置与原始向量不再对应。
       </div>
     </article>
-    </section>
+        <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c8"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 8 章 · 选择／填空／解答</span>
+    </div>
+</section>
 
     <!-- ============ 第九章 线性方程组 ============ -->
     <section class="chapter" id="c9">
@@ -2402,6 +2441,10 @@ $$|A_j|=\sum_{i=1}^{n}b_iA_{ij}=\sum_{i=1}^{n}\Bigl(\sum_{k=1}^{n}a_{ik}x_k\Bigr
       用克拉默法则只能判断「唯一解」，不能处理无解与无穷多解；只要 $|A|=0$ 就必须回到增广矩阵用秩判断。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c9"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 9 章 · 选择／填空／解答</span>
+    </div>
 </section>
     <!-- ============ 第十章 特征值与二次型 ============ -->
     <section class="chapter" id="c10">
@@ -2505,11 +2548,11 @@ $$\lambda_1\alpha^T\beta=(A\alpha)^T\beta=\alpha^TA^T\beta=\alpha^TA\beta=\lambd
         <div class="box def"><span class="t">定义 10.3　二次型</span>
           含 $n$ 个变量的二次齐次多项式
           $$f(x_1,\cdots,x_n)=\sum_{i=1}^{n}\sum_{j=1}^{n}a_{ij}x_ix_j\quad(a_{ij}=a_{ji})$$
-          可写成矩阵形式 $f=x^TAx$，其中 $A$ 为<b>实对称矩阵</b>，称为二次型的矩阵，$r(A)$ 称为二次型的秩。<br>
+          可写成矩阵形式 $f(x)=x^TAx$，其中 $A$ 为<b>实对称矩阵</b>，称为二次型的矩阵，$r(A)$ 称为二次型的秩。<br>
           写矩阵时注意：$x_ix_j$ 的系数 $a_{ij}$ 要平分成 $A$ 的第 $(i,j)$ 与 $(j,i)$ 两个元素，各取一半。
         </div>
         <div class="box def"><span class="t">定义 10.4　合同</span>
-          若存在可逆矩阵 $C$ 使 $C^TAC=B$，称 $A$ 与 $B$ <b>合同</b>，记 $A\simeq B$。作可逆线性变换 $x=Cy$ 后，$f=x^TAx=y^T(C^TAC)y$，即合同变换保持二次型的正负惯性指数。
+          若存在可逆矩阵 $C$ 使 $C^TAC=B$，称 $A$ 与 $B$ <b>合同</b>，记 $A\simeq B$。作可逆线性变换 $x=Cy$ 后，$f(x)=x^TAx=y^T(C^TAC)y$，即合同变换保持二次型的正负惯性指数。
         </div>
         <div class="box thm"><span class="t">定理 10.5　惯性定理</span>
           任一实二次型经可逆线性变换化为标准形后，正项个数 $p$（正惯性指数）与负项个数 $q$（负惯性指数）由二次型本身唯一确定，不随变换改变；且 $p+q=r(A)$。<br>
@@ -2519,7 +2562,7 @@ $$\lambda_1\alpha^T\beta=(A\alpha)^T\beta=\alpha^TA^T\beta=\alpha^TA\beta=\lambd
           <b>正交变换法</b>：求 $A$ 的特征值 $\lambda_1,\cdots,\lambda_n$ 与正交矩阵 $Q$，令 $x=Qy$，则
           $$f=\lambda_1y_1^2+\lambda_2y_2^2+\cdots+\lambda_ny_n^2$$
           系数就是特征值，标准形中平方项系数即惯性指数可直接读出（正特征值个数为 $p$）。<br>
-          <b>配方法</b>：适用于不含平方项或需要快速判断正定性的情形。若某变量有平方项，把它与其余含该变量的项配成完全平方，逐步消元；若所有平方项系数为零（如 $f=2x_1x_2$），先作 $x_1=y_1+y_2,\ x_2=y_1-y_2$ 造出平方项再配方。配方过程等价于合同变换，需保证变换矩阵可逆。
+          <b>配方法</b>：适用于不含平方项或需要快速判断正定性的情形。若某变量有平方项，把它与其余含该变量的项配成完全平方，逐步消元；若所有平方项系数为零（如 $f(x_1,x_2)=2x_1x_2$），先作 $x_1=y_1+y_2,\ x_2=y_1-y_2$ 造出平方项再配方。配方过程等价于合同变换，需保证变换矩阵可逆。
         </div>
         <div class="box tip"><span class="t">易错</span>
           标准形不唯一（配方法与正交变换得到的标准形可能不同），但正负惯性指数唯一；写二次型矩阵时最容易漏掉「系数取一半」这一步。
@@ -2529,7 +2572,7 @@ $$\lambda_1\alpha^T\beta=(A\alpha)^T\beta=\alpha^TA^T\beta=\alpha^TA\beta=\lambd
       <article class="blk">
         <h3 id="c10-5"><span class="n">10.5</span>正定性<button class="nbtn" type="button" data-k="c10-5" aria-label="为「10.5正定性」写批注">记</button></h3>
         <div class="box def"><span class="t">定义 10.5</span>
-          对二次型 $f=x^TAx$，若对任意 $x\ne0$ 都有 $f\gt0$，称 $f$（及矩阵 $A$）<b>正定</b>；若恒有 $f\lt0$ 称负定；若 $f\ge0$ 且存在非零 $x$ 使 $f=0$，称为半正定。
+          对二次型 $f(x)=x^TAx$，若对任意 $x\ne0$ 都有 $f(x)\gt0$，称 $f$（及矩阵 $A$）<b>正定</b>；若恒有 $f(x)\lt0$ 称负定；若 $f(x)\ge0$ 且存在非零 $x$ 使 $f(x)=0$，称为半正定。
         </div>
         <div class="box thm"><span class="t">定理 10.6　正定的充要条件（五条等价）</span>
           <ul class="list">
@@ -2609,7 +2652,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
       </ul>
     </div>
     <div class="ex"><span class="t">例 10.2</span>
-      <p>设 $f=x_1^2+x_2^2+5x_3^2+2tx_1x_2-2x_1x_3+4x_2x_3$，求 $t$ 的取值范围使 $f$ 正定。</p>
+      <p>设 $f(x_1,x_2,x_3)=x_1^2+x_2^2+5x_3^2+2tx_1x_2-2x_1x_3+4x_2x_3$，求 $t$ 的取值范围使 $f$ 正定。</p>
       <div class="sol"><b>解</b>　二次型矩阵
       $$A=\begin{pmatrix}1&t&-1\\t&1&2\\-1&2&5\end{pmatrix}$$
       顺序主子式：$\Delta_1=1\gt0$；$\Delta_2=1-t^2\gt0$，即 $|t|\lt1$；
@@ -2620,6 +2663,10 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
       正定的必要条件（$a_{ii}\gt0$、$|A|\gt0$）不能拿来判定；且「顺序主子式」指左上角各阶子式，不是任意主子式——后者全正只是半正定的条件。
     </div>
   </article>
+    <div class="ch-ex-cta">
+      <a class="ch-ex-btn" href="#ex-c10"><span>去做本章练习（30 题）</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
+      <span class="ch-ex-note">对应「习题」第 10 章 · 选择／填空／解答</span>
+    </div>
 </section>
 
 <!-- ============ 附录 ============ -->
@@ -2844,7 +2891,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设当 $x\to+\infty$ 时 $f(x),g(x)$ 都是无穷大，则当 $x\to+\infty$ 时下列结论正确的是（　）。<br>(A) $f-g$ 是无穷小　(B) $f+g$ 是无穷大　(C) $\frac{g}{f}\to1$　(D) $\frac{f+g}{fg}$ 是无穷小</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：无穷大的四则运算不能想当然，找反例排除。</p><p><b>解</b>：取 $f(x)=x$，$g(x)=x+1$：$f-g=-1$ 非无穷小 (A 错)；取 $f=x$，$g=-x$：$f+g=0$ 非无穷大 (B 错)；$\frac{g}{f}=1+\frac1x\to1$ 只是特例，取 $g=x^2$ 则 $\frac gf=x\to\infty$ (C 错)。(D) $\frac{f+g}{fg}=\frac1g+\frac1f$，两项都趋于 0，故是无穷小。选 (D)。</p><p><b>易错</b>：无穷大相减、相加都没有一般结论，必须拆成 $\frac1g+\frac1f$ 这类确定形式。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：无穷大的四则运算不能想当然，找反例排除。</p><p><b>解</b>：取 $f(x)=x$，$g(x)=x+1$：$f-g=-1$ 非无穷小 (A 错)；取 $f(x)=x$，$g=-x$：$f+g=0$ 非无穷大 (B 错)；$\frac{g}{f}=1+\frac1x\to1$ 只是特例，取 $g=x^2$ 则 $\frac gf(x)=x\to\infty$ (C 错)。(D) $\frac{f+g}{fg}=\frac1g+\frac1f$，两项都趋于 0，故是无穷小。选 (D)。</p><p><b>易错</b>：无穷大相减、相加都没有一般结论，必须拆成 $\frac1g+\frac1f$ 这类确定形式。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>无穷大运算一律化归为 $\frac1f$ 等无穷小再判断。</p></div>
         </details>
       </div>
@@ -2868,7 +2915,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>已知 $\lim\limits_{x\to\infty}\left(\frac{x^2}{x+1}-ax-b\right)=0$，则（　）。<br>(A) $a=1,b=1$　(B) $a=-1,b=1$　(C) $a=1,b=-1$　(D) $a=-1,b=-1$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：斜渐近线：多项式除法把 $\frac{x^2}{x+1}$ 写成 $x-1+\frac1{x+1}$。</p><p><b>解</b>：$\frac{x^2}{x+1}=\frac{x^2-1+1}{x+1}=x-1+\frac1{x+1}$。要 $\lim[x-1+\frac1{x+1}-ax-b]=0$，需一次项和常数项抵消：$1-a=0$ 得 $a=1$，$-1-b=0$ 得 $b=-1$。选 (C)。</p><p><b>易错</b>：多项式除法要除尽：$x^2\div(x+1)$ 商 $x-1$ 余 $1$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：斜渐近线：多项式除法把 $\frac{x^2}{x+1}$ 写成 $x-1+\frac1{x+1}$。</p><p><b>解</b>：$\frac{x^2}{x+1}=\frac{x^2-1+1}{x+1}=x-1+\frac1{x+1}$。要 $\lim\limits_{x\to\infty}[x-1+\frac1{x+1}-ax-b]=0$，需一次项和常数项抵消：$1-a=0$ 得 $a=1$，$-1-b=0$ 得 $b=-1$。选 (C)。</p><p><b>易错</b>：多项式除法要除尽：$x^2\div(x+1)$ 商 $x-1$ 余 $1$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>求斜渐近线/待定参数，用长除法分离出 $kx+b$ 部分，剩余项趋于 0。</p></div>
         </details>
       </div>
@@ -2928,7 +2975,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x)=\begin{cases}\frac{\sin2x+e^{2ax}-1}{x},&x\ne0,\\a,&x=0\end{cases}$ 在 $x=0$ 处连续，则 $a=$____。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：连续性即 $\lim_{x\to0}f(x)=f(0)=a$。</p><p><b>解</b>：$\lim_{x\to0}\frac{\sin2x+e^{2ax}-1}{x}=\lim\frac{\sin2x}{x}+\lim\frac{e^{2ax}-1}{x}=2+2a$（用了 $\sin2x\sim2x$，$e^{2ax}-1\sim2ax$）。由连续得 $2+2a=a$，故 $a=-2$。</p><p><b>易错</b>：拆极限要在每部分极限都存在的前提下进行，此处 $\sin2x\sim2x$、$e^{2ax}-1\sim2ax$ 均存在。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：连续性即 $\lim_{x\to0}f(x)=f(0)=a$。</p><p><b>解</b>：$\lim_{x\to0}\frac{\sin2x+e^{2ax}-1}{x}=\lim\limits_{x\to0}\frac{\sin2x}{x}+\lim\limits_{x\to0}\frac{e^{2ax}-1}{x}=2+2a$（用了 $\sin2x\sim2x$，$e^{2ax}-1\sim2ax$）。由连续得 $2+2a=a$，故 $a=-2$。</p><p><b>易错</b>：拆极限要在每部分极限都存在的前提下进行，此处 $\sin2x\sim2x$、$e^{2ax}-1\sim2ax$ 均存在。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>分段函数连续：算双侧极限等于函数值，等价无穷小逐项化简。</p></div>
         </details>
       </div>
@@ -2952,7 +2999,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求极限 $\lim\limits_{x\to0}\frac{e^{\tan x}-e^x}{x^3}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：提取因子后等价无穷小：$e^{\tan x}-e^x=e^x(e^{\tan x-x}-1)$。</p><p><b>解</b>：$e^x\to1$，$e^{\tan x-x}-1\sim\tan x-x$。又 $\tan x=x+\frac{x^3}{3}+o(x^3)$，故 $\tan x-x\sim\frac{x^3}{3}$。原式 $=\lim\frac{\frac{x^3}{3}}{x^3}=\frac13$。</p><p><b>易错</b>：$\tan x-x\sim\frac{x^3}{3}$，不是 $\frac{x^3}{6}$；$\sin x-x\sim-\frac{x^3}{6}$ 要区分。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：提取因子后等价无穷小：$e^{\tan x}-e^x=e^x(e^{\tan x-x}-1)$。</p><p><b>解</b>：$e^x\to1$，$e^{\tan x-x}-1\sim\tan x-x$。又 $\tan x=x+\frac{x^3}{3}+o(x^3)$，故 $\tan x-x\sim\frac{x^3}{3}$。原式 $=\lim\limits_{x\to0}\frac{\frac{x^3}{3}}{x^3}=\frac13$。</p><p><b>易错</b>：$\tan x-x\sim\frac{x^3}{3}$，不是 $\frac{x^3}{6}$；$\sin x-x\sim-\frac{x^3}{6}$ 要区分。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$e^{u}-e^{v}=e^{v}(e^{u-v}-1)$ 提因子后用等价无穷小。</p></div>
         </details>
       </div>
@@ -2964,7 +3011,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求极限 $\lim\limits_{x\to0}\cot x\left(\frac1{\sin x}-\frac1x\right)$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：先通分，再用等价无穷小与泰勒。</p><p><b>解</b>：$\cot x=\frac{\cos x}{\sin x}$，故原式 $=\lim\frac{\cos x(x-\sin x)}{x\sin^2 x}$。$\cos x\to1$，$x-\sin x\sim\frac{x^3}{6}$，$\sin^2x\sim x^2$。原式 $=\lim\frac{\frac{x^3}{6}}{x\cdot x^2}=\frac16$。</p><p><b>易错</b>：通分后分母是 $x\sin^2x$ 不是 $x^3$；$x-\sin x\sim\frac{x^3}{6}$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：先通分，再用等价无穷小与泰勒。</p><p><b>解</b>：$\cot x=\frac{\cos x}{\sin x}$，故原式 $=\lim\limits_{x\to0}\frac{\cos x(x-\sin x)}{x\sin^2 x}$。$\cos x\to1$，$x-\sin x\sim\frac{x^3}{6}$，$\sin^2x\sim x^2$。原式 $=\lim\limits_{x\to0}\frac{\frac{x^3}{6}}{x\cdot x^2}=\frac16$。</p><p><b>易错</b>：通分后分母是 $x\sin^2x$ 不是 $x^3$；$x-\sin x\sim\frac{x^3}{6}$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$\cot x$ 化成 $\frac{\cos x}{\sin x}$ 再通分；$x-\sin x\sim\frac{x^3}{6}$。</p></div>
         </details>
       </div>
@@ -2976,8 +3023,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求极限 $\lim\limits_{x\to0}(1-x^2)^{\frac{1}{1-\sqrt{1-x^2}}}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：指数型用 $\lim u^v=e^{\lim v\ln u}$，再等价化简。</p><p><b>解</b>：$\ln(1-x^2)\sim-x^2$，$1-\sqrt{1-x^2}=1-(1-\frac{x^2}{2}+o(x^2))\sim\frac{x^2}{2}$。故指数 $\frac{\ln(1-x^2)}{1-\sqrt{1-x^2}}\sim\frac{-x^2}{x^2/2}=-2$。原式 $=e^{-2}$。</p><p><b>易错</b>：$1-\sqrt{1-x^2}\sim\frac{x^2}{2}$ 不是 $\frac{x^2}{2}$ 漏了 $\sqrt{1-x^2}\sim1-\frac{x^2}{2}$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型（此处底趋于 1）用 $\lim u^v=e^{\lim v\ln u}=e^{\lim v(u-1)}$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：指数型用 $\lim\limits_{x\to x_0}u^v=e^{\lim\limits_{x\to x_0}v\ln u}$，再等价化简。</p><p><b>解</b>：$\ln(1-x^2)\sim-x^2$，$1-\sqrt{1-x^2}=1-(1-\frac{x^2}{2}+o(x^2))\sim\frac{x^2}{2}$。故指数 $\frac{\ln(1-x^2)}{1-\sqrt{1-x^2}}\sim\frac{-x^2}{x^2/2}=-2$。原式 $=e^{-2}$。</p><p><b>易错</b>：$1-\sqrt{1-x^2}\sim\frac{x^2}{2}$ 不是 $\frac{x^2}{2}$ 漏了 $\sqrt{1-x^2}\sim1-\frac{x^2}{2}$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型（此处底趋于 1）用 $\lim\limits_{x\to x_0}u^v=e^{\lim\limits_{x\to x_0}v\ln u}=e^{\lim\limits_{x\to x_0}v(u-1)}$。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -3000,7 +3047,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $F(x)=\begin{cases}\frac{f(x)}{x},&x\ne0,\\f(0),&x=0\end{cases}$，其中 $f(x)$ 在 $x=0$ 处可导，且 $f'(0)\ne0$，$f(0)=0$，则（　）。<br>(A) $x=0$ 是 $F$ 的连续点　(B) 第一类间断点　(C) 第二类间断点　(D) 以上都不对</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：由 $f(0)=0$ 和可导定义，$\frac{f(x)}x$ 在 $x\to0$ 的极限就是 $f'(0)$。</p><p><b>解</b>：$\lim_{x\to0}\frac{f(x)}{x}=\lim_{x\to0}\frac{f(x)-f(0)}{x-0}=f'(0)\ne0$，而 $F(0)=f(0)=0$。故 $\lim_{x\to0}F(x)=f'(0)\ne F(0)$，是极限存在但不等于函数值的可去间断点（第一类），选 (B)。</p><p><b>易错</b>：$f(0)=0$ 时 $F(0)=0$，但 $\lim F(x)=f'(0)\ne0$，两者不等，是可去间断点而非连续。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：由 $f(0)=0$ 和可导定义，$\frac{f(x)}x$ 在 $x\to0$ 的极限就是 $f'(0)$。</p><p><b>解</b>：$\lim_{x\to0}\frac{f(x)}{x}=\lim_{x\to0}\frac{f(x)-f(0)}{x-0}=f'(0)\ne0$，而 $F(0)=f(0)=0$。故 $\lim_{x\to0}F(x)=f'(0)\ne F(0)$，是极限存在但不等于函数值的可去间断点（第一类），选 (B)。</p><p><b>易错</b>：$f(0)=0$ 时 $F(0)=0$，但 $\lim\limits_{x\to0}F(x)=f'(0)\ne0$，两者不等，是可去间断点而非连续。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>可导 $\Rightarrow$ $f(x)=f(0)+f'(0)x+o(x)$，故 $\frac{f(x)}x\to f'(0)$。</p></div>
         </details>
       </div>
@@ -3012,7 +3059,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设数列 $\{x_n\}$ 单调减少，$\{y_n\}$ 单调增加，且 $\lim\limits_{n\to\infty}(x_n-y_n)=0$，则（　）。<br>(A) 都趋于 0　(B) 极限均存在且相等　(C) $x_n$ 有极限、$y_n$ 无　(D) 都无极限</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：单调有界准则：由 $x_n-y_n\to0$ 说明两数列差趋于 0，结合单调性推出各自有界。</p><p><b>解</b>：$x_n$ 单减、$y_n$ 单增，故 $x_n\le x_1$，$y_n\ge y_1$，且 $x_n-y_n\to0$ 说明差有界。取 $N$，当 $n\gt N$ 时 $x_n-y_n\lt1$，故 $x_n\lt y_n+1\le y_1+1$，$y_n\gt x_n-1\ge x_1-1$，两数列均有界。单调有界必收敛；又极限差 $\lim x_n-\lim y_n=0$，故极限存在且相等，选 (B)。</p><p><b>易错</b>：单调有界准则要求单调+有界两个条件，缺一不可；此处由差收敛推有界是关键。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：单调有界准则：由 $x_n-y_n\to0$ 说明两数列差趋于 0，结合单调性推出各自有界。</p><p><b>解</b>：$x_n$ 单减、$y_n$ 单增，故 $x_n\le x_1$，$y_n\ge y_1$，且 $x_n-y_n\to0$ 说明差有界。取 $N$，当 $n\gt N$ 时 $x_n-y_n\lt1$，故 $x_n\lt y_n+1\le y_1+1$，$y_n\gt x_n-1\ge x_1-1$，两数列均有界。单调有界必收敛；又极限差 $\lim\limits_{n\to\infty}x_n-\lim\limits_{n\to\infty}y_n=0$，故极限存在且相等，选 (B)。</p><p><b>易错</b>：单调有界准则要求单调+有界两个条件，缺一不可；此处由差收敛推有界是关键。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>单调数列只要证明有界即可收敛；差 $x_n-y_n\to0$ 常用来证明两极限相等。</p></div>
         </details>
       </div>
@@ -3021,7 +3068,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">19</span>
           <span class="ex-tags"><span class="ex-tag">选择题</span><span class="ex-tag diff2">中等</span></span>
         </div>
-        <div class="ex-q"><p>设正项数列 $\{x_n\},\{y_n\}$ 满足 $e^{x_n}=x_n+e^{y_n}$（$n=1,2,\cdots$），且 $\lim x_n=0$，则当 $n\to\infty$ 时（　）。<br>(A) $y_n$ 是比 $x_n$ 高阶的无穷小　(B) $x_n$ 是比 $y_n$ 高阶的无穷小　(C) 等价　(D) 同阶但不等价</p></div>
+        <div class="ex-q"><p>设正项数列 $\{x_n\},\{y_n\}$ 满足 $e^{x_n}=x_n+e^{y_n}$（$n=1,2,\cdots$），且 $\lim\limits_{n\to\infty}x_n=0$，则当 $n\to\infty$ 时（　）。<br>(A) $y_n$ 是比 $x_n$ 高阶的无穷小　(B) $x_n$ 是比 $y_n$ 高阶的无穷小　(C) 等价　(D) 同阶但不等价</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：由关系式解出 $e^{y_n}=e^{x_n}-x_n$，用泰勒展开比较 $y_n$ 与 $x_n$。</p><p><b>解</b>：$e^{x_n}=1+x_n+\frac{x_n^2}{2}+o(x_n^2)$，故 $e^{y_n}=e^{x_n}-x_n=1+\frac{x_n^2}{2}+o(x_n^2)$。取对数：$y_n=\ln(1+\frac{x_n^2}{2}+o(x_n^2))\sim\frac{x_n^2}{2}$。故 $y_n/x_n\sim\frac{x_n}{2}\to0$，$y_n$ 是比 $x_n$ 高阶的无穷小，选 (A)。</p><p><b>易错</b>：$e^{x_n}-x_n$ 的一阶项 $x_n$ 被减掉，剩下 $\frac{x_n^2}{2}$，这正是 $y_n\sim\frac{x_n^2}{2}$ 的来源。</p></div>
@@ -3108,7 +3155,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求极限 $\lim\limits_{x\to0}\frac{\int_0^x[(3+2\tan t)^t-3^t]dt}{e^{3x^3}-1}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：洛必达，再用等价无穷小与 $a^t$ 的导数/泰勒。</p><p><b>解</b>：洛必达：原式 $=\lim\frac{(3+2\tan x)^x-3^x}{3x^2e^{3x^3}}\sim\frac{(3+2\tan x)^x-3^x}{3x^2}$。$ (3+2\tan x)^x=e^{x\ln(3+2\tan x)}$，$\ln(3+2\tan x)=\ln3+\ln(1+\frac{2\tan x}{3})\sim\ln3+\frac{2x}{3}$，故 $x\ln(3+2\tan x)\sim x\ln3+\frac{2x^2}{3}$，$(3+2\tan x)^x\sim3^x e^{2x^2/3}\sim3^x(1+\frac{2x^2}{3})$。故分子 $\sim3^x\cdot\frac{2x^2}{3}\sim\frac{2x^2}{3}$。原式 $=\lim\frac{2x^2/3}{3x^2}=\frac29$。</p><p><b>易错</b>：洛必达后分子是 $(3+2\tan x)^x-3^x$，用对数化 + 泰勒展开到 $x^2$ 阶。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：洛必达，再用等价无穷小与 $a^t$ 的导数/泰勒。</p><p><b>解</b>：洛必达：原式 $=\lim\limits_{x\to0}\frac{(3+2\tan x)^x-3^x}{3x^2e^{3x^3}}\sim\frac{(3+2\tan x)^x-3^x}{3x^2}$。$ (3+2\tan x)^x=e^{x\ln(3+2\tan x)}$，$\ln(3+2\tan x)=\ln3+\ln(1+\frac{2\tan x}{3})\sim\ln3+\frac{2x}{3}$，故 $x\ln(3+2\tan x)\sim x\ln3+\frac{2x^2}{3}$，$(3+2\tan x)^x\sim3^x e^{2x^2/3}\sim3^x(1+\frac{2x^2}{3})$。故分子 $\sim3^x\cdot\frac{2x^2}{3}\sim\frac{2x^2}{3}$。原式 $=\lim\limits_{x\to0}\frac{2x^2/3}{3x^2}=\frac29$。</p><p><b>易错</b>：洛必达后分子是 $(3+2\tan x)^x-3^x$，用对数化 + 泰勒展开到 $x^2$ 阶。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$[a(x)]^{x}$ 型用 $e^{x\ln a(x)}$ 展开；分母 $e^{3x^3}-1\sim3x^3$ 但洛必达后分母变 $3x^2$。</p></div>
         </details>
       </div>
@@ -3117,7 +3164,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">27</span>
           <span class="ex-tags"><span class="ex-tag">解答题</span><span class="ex-tag diff3">提高</span></span>
         </div>
-        <div class="ex-q"><p>设 $x_0\in(-\frac{\pi}{2},\frac{\pi}{2})$，$x_{n+1}=\frac12(x_n+\arctan x_n)$。证明 $\lim x_n$ 存在并求其值。</p></div>
+        <div class="ex-q"><p>设 $x_0\in(-\frac{\pi}{2},\frac{\pi}{2})$，$x_{n+1}=\frac12(x_n+\arctan x_n)$。证明 $\lim\limits_{n\to\infty}x_n$ 存在并求其值。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：先证单调有界（利用 $x$ 与 $\arctan x$ 的同号与大小关系），再求极限。</p><p><b>解</b>：当 $x\gt0$ 时 $\arctan x\lt x$，故 $x_{n+1}=\frac12(x_n+\arctan x_n)\lt x_n$；且 $x_n\gt0$ 时 $x_{n+1}\gt0$，故 $x_n$ 单调递减有下界 0，收敛。当 $x\lt0$ 时同理（$\arctan x\gt x$）单调递增有上界。设极限为 $a$，令 $n\to\infty$：$a=\frac12(a+\arctan a)$，即 $a=\arctan a$，唯一解 $a=0$。</p><p><b>易错</b>：极限方程 $a=\arctan a$ 只有 0 一个解（$a\gt0$ 时 $a\gt\arctan a$，$a\lt0$ 时反向）。</p></div>
@@ -3132,7 +3179,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)$ 在 $[0,+\infty)$ 上单调减少且非负，证明 $\ln(1+n)\le1+\frac12+\cdots+\frac1n\le1+\ln n$，并求 $\lim\limits_{n\to\infty}\frac{1+\frac12+\cdots+\frac1n}{\ln n}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：用积分放缩 $f(k+1)\le\int_k^{k+1}f(x)dx\le f(k)$ 取 $f(x)=\frac1x$。</p><p><b>解</b>：取 $f(x)=\frac1x$ 单减非负：$\frac1{k+1}\le\int_k^{k+1}\frac{dx}{x}=\ln\frac{k+1}{k}\le\frac1k$。累加 $k=1,\dots,n-1$ 得 $\ln n\le\sum_{k=1}^{n-1}\frac1k$，再加 1 得 $1+\frac12+\cdots+\frac1n\le1+\ln n$（右）；左端由 $\frac1{k+1}\le\ln\frac{k+1}{k}$ 累加得 $\ln(n+1)\le\sum_{k=1}^n\frac1k$。故夹逼得 $\lim\frac{H_n}{\ln n}=1$。</p><p><b>易错</b>：积分放缩的方向：单减时 $\int_k^{k+1}f\le f(k)$（左端点大）。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：用积分放缩 $f(k+1)\le\int_k^{k+1}f(x)dx\le f(k)$ 取 $f(x)=\frac1x$。</p><p><b>解</b>：取 $f(x)=\frac1x$ 单减非负：$\frac1{k+1}\le\int_k^{k+1}\frac{dx}{x}=\ln\frac{k+1}{k}\le\frac1k$。累加 $k=1,\dots,n-1$ 得 $\ln n\le\sum_{k=1}^{n-1}\frac1k$，再加 1 得 $1+\frac12+\cdots+\frac1n\le1+\ln n$（右）；左端由 $\frac1{k+1}\le\ln\frac{k+1}{k}$ 累加得 $\ln(n+1)\le\sum_{k=1}^n\frac1k$。故夹逼得 $\lim\limits_{n\to\infty}\frac{H_n}{\ln n}=1$。</p><p><b>易错</b>：积分放缩的方向：单减时 $\int_k^{k+1}f(x)\,dx\le f(k)$（左端点大）。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>调和级数 $H_n\sim\ln n$；用 $\frac1{k+1}\lt\int_k^{k+1}\frac{dx}x\lt\frac1k$ 夹逼。</p></div>
         </details>
       </div>
@@ -3141,11 +3188,11 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">29</span>
           <span class="ex-tags"><span class="ex-tag">解答题</span><span class="ex-tag diff3">提高</span></span>
         </div>
-        <div class="ex-q"><p>设 $0\lt x_1\lt\pi$，$x_{n+1}=\sin x_n$。证明 $\lim x_n$ 存在并求值；再求 $\lim\limits_{n\to\infty}\left(\frac{x_{n+1}}{x_n}\right)^{\frac1{x_n^2}}$。</p></div>
+        <div class="ex-q"><p>设 $0\lt x_1\lt\pi$，$x_{n+1}=\sin x_n$。证明 $\lim\limits_{n\to\infty}x_n$ 存在并求值；再求 $\lim\limits_{n\to\infty}\left(\frac{x_{n+1}}{x_n}\right)^{\frac1{x_n^2}}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：$x\in(0,\pi)$ 时 $0\lt\sin x\lt x$ 且 $\sin x\gt0$，单调递减有下界 0。</p><p><b>解</b>：$0\lt\sin x\lt x$（$0\lt x\lt\pi$），故 $x_{n+1}\lt x_n$ 且 $x_n\gt0$，单调递减有下界，极限 $a$ 存在，$a=\sin a$，$a\in[0,\pi)$，唯一解 $a=0$。又 $\frac{x_{n+1}}{x_n}=\frac{\sin x_n}{x_n}\to1$，故原式是 $1^\infty$ 型：$\ln$ 化后 $\frac1{x_n^2}\ln\frac{\sin x_n}{x_n}\sim\frac1{x_n^2}\cdot\left(\frac{\sin x_n}{x_n}-1\right)=\frac1{x_n^2}\cdot\frac{\sin x_n-x_n}{x_n}$。$\sin x_n-x_n\sim-\frac{x_n^3}{6}$，故指数 $\sim-\frac16$，极限 $=e^{-1/6}$。</p><p><b>易错</b>：$\frac{\sin x}{x}-1\sim-\frac{x^2}{6}$，代入后指数是 $-\frac16$ 不是 $-\frac13$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型：$\lim u^v=e^{\lim v(u-1)}$；$\sin x-x\sim-\frac{x^3}{6}$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型：$\lim\limits_{x\to x_0}u^v=e^{\lim\limits_{x\to x_0}v(u-1)}$；$\sin x-x\sim-\frac{x^3}{6}$。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -3178,7 +3225,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)=\begin{cases}\dfrac{1-\cos x}{\sqrt{x}},& x\gt0\\ x^{2}\varphi(x),& x\leqslant 0\end{cases}$，其中 $\varphi(x)$ 是有界函数，则 $f(x)$ 在 $x=0$ 处（　）。<br>(A) 可导　(B) 连续但不可导　(C) 极限存在但不连续　(D) 极限不存在</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：左右分别算极限与差商极限；有界函数乘 $x^2$ 趋于 0。</p><p><b>解</b>：$x\to0^+$：$\dfrac{1-\cos x}{\sqrt x}\sim\dfrac{x^2/2}{\sqrt x}=\dfrac{x^{3/2}}2\to0$；$x\to0^-$：$x^2\varphi(x)\to0$（有界乘无穷小）。故 $\lim_{x\to0}f(x)=0=f(0)$，连续。再算导数：$f'_+(0)=\lim\dfrac{(1-\cos x)/\sqrt x}{x}=\lim\dfrac{x^{3/2}/2}{x}=\lim\dfrac{\sqrt x}{2}=0$；$f'_-(0)=\lim\dfrac{x^2\varphi(x)}{x}=\lim x\varphi(x)=0$。左右导数相等且为 0，故 $f'(0)=0$，可导。选 (A)。</p><p><b>易错</b>：只看连续性就选 (B)；忘了 $x^2\varphi(x)$ 因有界而可导（$x\varphi(x)\to0$）。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：左右分别算极限与差商极限；有界函数乘 $x^2$ 趋于 0。</p><p><b>解</b>：$x\to0^+$：$\dfrac{1-\cos x}{\sqrt x}\sim\dfrac{x^2/2}{\sqrt x}=\dfrac{x^{3/2}}2\to0$；$x\to0^-$：$x^2\varphi(x)\to0$（有界乘无穷小）。故 $\lim_{x\to0}f(x)=0=f(0)$，连续。再算导数：$f'_+(0)=\lim\limits_{x\to0^+}\dfrac{(1-\cos x)/\sqrt x}{x}=\lim\limits_{x\to0^+}\dfrac{x^{3/2}/2}{x}=\lim\limits_{x\to0^+}\dfrac{\sqrt x}{2}=0$；$f'_-(0)=\lim\limits_{x\to0^-}\dfrac{x^2\varphi(x)}{x}=\lim\limits_{x\to0^-}x\varphi(x)=0$。左右导数相等且为 0，故 $f'(0)=0$，可导。选 (A)。</p><p><b>易错</b>：只看连续性就选 (B)；忘了 $x^2\varphi(x)$ 因有界而可导（$x\varphi(x)\to0$）。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>「有界函数乘无穷小仍是无穷小」是判断题的常用钥匙：$x^2\varphi(x)$ 在 0 处可导且导数为 0。</p></div>
         </details>
       </div>
@@ -3346,7 +3393,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)=x(2x-1)(3x-2)\cdots(100x-99)$，则 $f^{\prime}(0)=\underline{\quad}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$f=x\cdot g(x)$，$f'(0)=g(0)$，$g(0)$ 是各因子在 0 的值的乘积。</p><p><b>解</b>：$f(x)=x\,g(x)$，$g(x)=\prod_{k=2}^{100}(kx-(k-1))$。$f'(0)=g(0)=\prod_{k=2}^{100}(-(k-1))=(-1)^{99}\,99!=-99!$。</p><p><b>易错</b>：直接把 $x=0$ 代入整个乘积得 0，忘记求导后剩下的 $g(0)$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$f(x)=x\cdot g(x)$，$f'(0)=g(0)$，$g(0)$ 是各因子在 0 的值的乘积。</p><p><b>解</b>：$f(x)=x\,g(x)$，$g(x)=\prod_{k=2}^{100}(kx-(k-1))$。$f'(0)=g(0)=\prod_{k=2}^{100}(-(k-1))=(-1)^{99}\,99!=-99!$。</p><p><b>易错</b>：直接把 $x=0$ 代入整个乘积得 0，忘记求导后剩下的 $g(0)$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>含因子 $x$ 的多项式，$f'(0)=$「去掉 $x$ 后其余因子在 0 的乘积」，符号由负因子个数决定。</p></div>
         </details>
       </div>
@@ -3358,7 +3405,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)=\ln\!\big(\sqrt{1+x^{2}}-x\big)$，则 $f^{(5)}(0)=\underline{\quad}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：先化简：$\sqrt{1+x^2}-x=\dfrac1{\sqrt{1+x^2}+x}$，故 $f=-\ln(\sqrt{1+x^2}+x)=-\operatorname{arsinh}x$，用其麦克劳林系数。</p><p><b>解</b>：$f(x)=-\operatorname{arsinh}x$，$\operatorname{arsinh}x=x-\dfrac{x^3}{6}+\dfrac{3x^5}{40}-\cdots$，故 $f(x)=-x+\dfrac{x^3}{6}-\dfrac{3x^5}{40}+\cdots$。$x^5$ 系数 $=-\dfrac3{40}$，$f^{(5)}(0)=5!\cdot\left(-\dfrac3{40}\right)=120\cdot\left(-\dfrac3{40}\right)=-9$。</p><p><b>易错</b>：直接硬求五阶导，计算量爆炸；应识别为 $-\operatorname{arsinh}x$ 用展开。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：先化简：$\sqrt{1+x^2}-x=\dfrac1{\sqrt{1+x^2}+x}$，故 $f(x)=-\ln(\sqrt{1+x^2}+x)=-\operatorname{arsinh}x$，用其麦克劳林系数。</p><p><b>解</b>：$f(x)=-\operatorname{arsinh}x$，$\operatorname{arsinh}x=x-\dfrac{x^3}{6}+\dfrac{3x^5}{40}-\cdots$，故 $f(x)=-x+\dfrac{x^3}{6}-\dfrac{3x^5}{40}+\cdots$。$x^5$ 系数 $=-\dfrac3{40}$，$f^{(5)}(0)=5!\cdot\left(-\dfrac3{40}\right)=120\cdot\left(-\dfrac3{40}\right)=-9$。</p><p><b>易错</b>：直接硬求五阶导，计算量爆炸；应识别为 $-\operatorname{arsinh}x$ 用展开。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$\ln(\sqrt{1+x^2}-x)=-\operatorname{arsinh}x$；求 $f^{(n)}(0)$ 一律走泰勒系数 $f^{(n)}(0)=n!\,[x^n]$。</p></div>
         </details>
       </div>
@@ -3479,7 +3526,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：用导数定义，借 $f(xy)-f(x)=f(y)$ 把任意点的差商化到 $x=1$ 处。</p><p><b>解</b>：任取 $x\gt0$，$\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$，令 $y=\dfrac{x+\Delta x}{x}=1+\dfrac{\Delta x}{x}$，则 $f(x+\Delta x)=f(x)+f(y)$。差商 $=\dfrac{f(y)}{\Delta x}=\dfrac{f(1+\frac{\Delta x}{x})}{\Delta x}=\dfrac{1}{x}\cdot\dfrac{f(1+\frac{\Delta x}{x})}{1+\frac{\Delta x}{x}-1}\cdot\dfrac{\frac{\Delta x}{x}}{\Delta x}$……更简洁：$\dfrac{f(1+t)}{t}$ 当 $t\to0$，$f(1+t)=f(1)+f'(1)t+o(t)$，得极限 $\dfrac1x f'(1)=\dfrac1x$。$f(0^+)$：由 $f(x)=f(x\cdot1)=f(x)+f(1)$ 得 $f(1)=0$。故 $f'(x)=\dfrac1x$，$f(x)=\ln x+C$，由 $f(1)=0$ 得 $C=0$，$f(x)=\ln x$。</p><p><b>易错</b>：忘记先证 $f(1)=0$；在差商变形中 $t\to0$ 对应 $y\to1$ 需 $x\gt0$ 固定。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>函数方程 $f(xy)=f(x)+f(y)$ ⟺ 对数型，$f'(1)=1$ 定出 $f=\ln x$；可导性用「差商化到 $x=1$」。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>函数方程 $f(xy)=f(x)+f(y)$ ⟺ 对数型，$f'(1)=1$ 定出 $f(x)=\ln x$；可导性用「差商化到 $x=1$」。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -3490,7 +3537,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)=\begin{cases}e^{-\frac1{x^{2}}},& x\ne0\\ 0,& x=0\end{cases}$，求 $f^{(n)}(0)$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：这是「无穷次可导但泰勒级数恒为 0」的经典函数；用导数定义归纳求 $f^{(n)}(0)=0$。</p><p><b>解</b>：$f'(0)=\lim_{x\to0}\dfrac{e^{-1/x^2}}{x}=0$（$e^{-1/x^2}$ 比任意幂快）。设 $f^{(k)}(0)=0$，$f^{(k)}(x)=P_k(1/x)e^{-1/x^2}$（$P_k$ 为多项式）。则 $f^{(k+1)}(0)=\lim\dfrac{f^{(k)}(x)-0}{x}=0$。归纳得 $f^{(n)}(0)=0$ 对所有 $n$。</p><p><b>易错</b>：想用泰勒展开求 $f^{(n)}(0)$——$f$ 在 0 处泰勒级数恒 0，不能用「系数法」；必须用导数定义。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：这是「无穷次可导但泰勒级数恒为 0」的经典函数；用导数定义归纳求 $f^{(n)}(0)=0$。</p><p><b>解</b>：$f'(0)=\lim_{x\to0}\dfrac{e^{-1/x^2}}{x}=0$（$e^{-1/x^2}$ 比任意幂快）。设 $f^{(k)}(0)=0$，$f^{(k)}(x)=P_k(1/x)e^{-1/x^2}$（$P_k$ 为多项式）。则 $f^{(k+1)}(0)=\lim\limits_{x\to0}\dfrac{f^{(k)}(x)-0}{x}=0$。归纳得 $f^{(n)}(0)=0$ 对所有 $n$。</p><p><b>易错</b>：想用泰勒展开求 $f^{(n)}(0)$——$f$ 在 0 处泰勒级数恒 0，不能用「系数法」；必须用导数定义。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$e^{-1/x^2}$ 在 0 处 $f^{(n)}(0)=0$（$n\geqslant0$），说明「无穷可导 $\ne$ 解析」；此类题一律用导数定义归纳。</p></div>
         </details>
       </div>
@@ -3560,7 +3607,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)$ 是连续函数，$F(x)$ 是 $f(x)$ 的原函数，则（　）。<br>(A) 当 $f(x)$ 为奇函数时，$F(x)$ 必为偶函数<br>(B) 当 $f(x)$ 为偶函数时，$F(x)$ 必为奇函数<br>(C) 当 $f(x)$ 为周期函数时，$F(x)$ 必为周期函数<br>(D) 当 $f(x)$ 为单调函数时，$F(x)$ 必为单调函数</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：取 $F(x)=\int_0^x f(t)\mathrm dt$ 分析对称性，再看加常数是否破坏结论。</p><p><b>解</b>：(A) $f$ 奇，$F(-x)=\int_0^{-x}f(t)\mathrm dt=-\int_0^x f(-u)\mathrm du=\int_0^x f(u)\mathrm du=F(x)$，偶；偶函数加常数仍偶，故必为偶。(B) $f$ 偶时 $F(x)$ 为奇，但 $F+1$ 不奇，故「必为奇」错。(C) 周期函数积分一般非周期（如 $f=1+\cos x$，积分为 $x+\sin x$）。(D) $f$ 可正可负的两段单调，$F$ 不单调。选 (A)。</p><p><b>易错</b>：忽视「原函数族差一个常数」，以为 (A)(B) 对称；常数项只在 (A) 下不破坏偶性。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：取 $F(x)=\int_0^x f(t)\mathrm dt$ 分析对称性，再看加常数是否破坏结论。</p><p><b>解</b>：(A) $f$ 奇，$F(-x)=\int_0^{-x}f(t)\mathrm dt=-\int_0^x f(-u)\mathrm du=\int_0^x f(u)\mathrm du=F(x)$，偶；偶函数加常数仍偶，故必为偶。(B) $f$ 偶时 $F(x)$ 为奇，但 $F+1$ 不奇，故「必为奇」错。(C) 周期函数积分一般非周期（如 $f(x)=1+\cos x$，积分为 $x+\sin x$）。(D) $f$ 可正可负的两段单调，$F$ 不单调。选 (A)。</p><p><b>易错</b>：忽视「原函数族差一个常数」，以为 (A)(B) 对称；常数项只在 (A) 下不破坏偶性。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$f$ 奇 ⇔ 任一原函数为偶；$f$ 偶 ⇔ 存在奇原函数（仅 $F(0)=0$ 那个）。</p></div>
         </details>
       </div>
@@ -3572,7 +3619,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $\displaystyle\int_{-\infty}^{+\infty}f(x)\mathrm dx=a$（$a$ 为常数），$f(x)$ 为偶函数，$F(x)=\displaystyle\int_{-\infty}^{x}f(t)\mathrm dt$，则对任意 $x_0\in(-\infty,+\infty)$，$F(-x_0)=$（　）。<br>(A) $-F(x_0)$　(B) $F(x_0)$　(C) $\frac a2-\int_0^{x_0}f(x)\mathrm dx$　(D) $a-\int_0^{x_0}f(x)\mathrm dx$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：用 $t=-u$ 换元把 $F(-x_0)$ 化为 $\int_{x_0}^{+\infty}$，再用 $\int_{-\infty}^0=a/2$。</p><p><b>解</b>：$F(-x_0)=\int_{-\infty}^{-x_0}f(t)\mathrm dt$，令 $t=-u$ 得 $=\int_{x_0}^{+\infty}f(u)\mathrm du=a-\int_{-\infty}^{x_0}f(u)\mathrm du=a-F(x_0)$。而 $F(x_0)=\int_{-\infty}^0f+\int_0^{x_0}f=\frac a2+\int_0^{x_0}f$，故 $F(-x_0)=a-\frac a2-\int_0^{x_0}f=\frac a2-\int_0^{x_0}f$。选 (C)。</p><p><b>易错</b>：误选 (D)：$a-F(x_0)$ 没错，但 $F(x_0)$ 含 $\int_{-\infty}^0=\frac a2$，化简后才对。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：用 $t=-u$ 换元把 $F(-x_0)$ 化为 $\int_{x_0}^{+\infty}$，再用 $\int_{-\infty}^0=a/2$。</p><p><b>解</b>：$F(-x_0)=\int_{-\infty}^{-x_0}f(t)\mathrm dt$，令 $t=-u$ 得 $=\int_{x_0}^{+\infty}f(u)\mathrm du=a-\int_{-\infty}^{x_0}f(u)\mathrm du=a-F(x_0)$。而 $F(x_0)=\int_{-\infty}^0f(x)\,dx+\int_0^{x_0}f(x)\,dx=\frac a2+\int_0^{x_0}f(x)\,dx$，故 $F(-x_0)=a-\frac a2-\int_0^{x_0}f(x)\,dx=\frac a2-\int_0^{x_0}f(x)\,dx$。选 (C)。</p><p><b>易错</b>：误选 (D)：$a-F(x_0)$ 没错，但 $F(x_0)$ 含 $\int_{-\infty}^0=\frac a2$，化简后才对。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>偶函数在 $(-\infty,+\infty)$ 上积分 $\int_{-\infty}^0=\int_0^{+\infty}=\frac a2$；先换元再拆区间。</p></div>
         </details>
       </div>
@@ -3629,10 +3676,10 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">8</span>
           <span class="ex-tags"><span class="ex-tag">定积分比较</span><span class="ex-tag diff2">中等</span></span>
         </div>
-        <div class="ex-q"><p>设 $f(x)$ 在 $[0,1]$ 上连续，$f(x)\gt0$，$f'(x)\lt0$，$f''(x)\gt0$，记 $M=\displaystyle\int_0^1f(x)\mathrm dx$，$N=f(1)$，$P=\frac12[f(0)+f(1)]$，则（　）。<br>(A) $M\lt N\lt P$　(B) $N\lt M\lt P$　(C) $P\lt M\lt N$　(D) $P\lt N\lt M$</p></div>
+        <div class="ex-q"><p>设 $f(x)$ 在 $[0,1]$ 上连续，$f(x)\gt0$，$f'(x)\lt0$，$f''(x)\gt0$，记 $M=\displaystyle\int_0^1f(x)\,dx\mathrm dx$，$N=f(1)$，$P=\frac12[f(0)+f(1)]$，则（　）。<br>(A) $M\lt N\lt P$　(B) $N\lt M\lt P$　(C) $P\lt M\lt N$　(D) $P\lt N\lt M$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$f''\gt0$ 下凸，曲线在弦下方 → $M\lt P$；$f$ 递减 → $N$ 最小。</p><p><b>解</b>：$f$ 递减，$f(1)$ 为最小值，$M=\int_0^1f\gt f(1)=N$。$f''\gt0$ 下凸，曲线位于弦 $y=\frac12[f(0)+f(1)]$ 下方，故 $\int_0^1f\lt\frac12[f(0)+f(1)]=P$。于是 $N\lt M\lt P$。选 (B)。</p><p><b>易错</b>：把 $f''\gt0$ 当成上凸，误得 $M\gt P$；下凸对应「曲线在弦下、积分小于梯形」。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$f''\gt0$ 下凸，曲线在弦下方 → $M\lt P$；$f$ 递减 → $N$ 最小。</p><p><b>解</b>：$f$ 递减，$f(1)$ 为最小值，$M=\int_0^1f(x)\,dx\gt f(1)=N$。$f''\gt0$ 下凸，曲线位于弦 $y=\frac12[f(0)+f(1)]$ 下方，故 $\int_0^1f(x)\,dx\lt\frac12[f(0)+f(1)]=P$。于是 $N\lt M\lt P$。选 (B)。</p><p><b>易错</b>：把 $f''\gt0$ 当成上凸，误得 $M\gt P$；下凸对应「曲线在弦下、积分小于梯形」。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$f''\gt0$：$\int$ 小于梯形平均；$f'\lt0$：右端点为最小值。两条一起排序。</p></div>
         </details>
       </div>
@@ -3644,8 +3691,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $f(x)\geqslant\displaystyle\int_0^xf(t)\mathrm dt\geqslant0$，当 $0\lt a\lt b$ 时，下列正确的是（　）。<br>(A) $\int_0^bf(x)\gt\int_0^af(x)\gt\int_0^{\frac{a+b}2}f(x)$　(B) $\int_0^af(x)\gt\int_0^bf(x)\gt\int_0^{\frac{a+b}2}f(x)$<br>(C) $\int_0^af(x)\gt\int_0^{\frac{a+b}2}f(x)\gt\int_0^bf(x)$　(D) $\int_0^bf(x)\gt\int_0^{\frac{a+b}2}f(x)\gt\int_0^af(x)$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：令 $F(x)=\int_0^xf$，证 $F'\geqslant F\geqslant0$，从而 $F$ 单调增，按自变量大小排序。</p><p><b>解</b>：设 $F=\int_0^xf\geqslant0$，则 $F'=f\geqslant F$，即 $F'-F\geqslant0$，$(e^{-x}F)'\geqslant0$，$e^{-x}F$ 单调增，$F\geqslant0$ 也增。因 $a\lt\frac{a+b}2\lt b$，故 $F(a)\lt F(\frac{a+b}2)\lt F(b)$，即 $\int_0^a\lt\int_0^{\frac{a+b}2}\lt\int_0^b$。选 (D)。</p><p><b>易错</b>：只看 $f\gt0$ 直接说 $\int_0^b$ 最大，忽略 $\frac{a+b}2$ 与 $a,b$ 的大小关系。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$f\geqslant\int f$ 型：构造 $F=\int f$，用 $(e^{-x}F)'$ 判断单调，再比较自变量。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：令 $F(x)=\int_0^xf(t)\,dt$，证 $F'\geqslant F\geqslant0$，从而 $F$ 单调增，按自变量大小排序。</p><p><b>解</b>：设 $F=\int_0^xf(t)\,dt\geqslant0$，则 $F'=f\geqslant F$，即 $F'-F\geqslant0$，$(e^{-x}F)'\geqslant0$，$e^{-x}F$ 单调增，$F\geqslant0$ 也增。因 $a\lt\frac{a+b}2\lt b$，故 $F(a)\lt F(\frac{a+b}2)\lt F(b)$，即 $\int_0^a\lt\int_0^{\frac{a+b}2}\lt\int_0^b$。选 (D)。</p><p><b>易错</b>：只看 $f\gt0$ 直接说 $\int_0^b$ 最大，忽略 $\frac{a+b}2$ 与 $a,b$ 的大小关系。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$f\geqslant\int f(x)\,dx$ 型：构造 $F=\int f(x)\,dx$，用 $(e^{-x}F)'$ 判断单调，再比较自变量。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -3653,10 +3700,10 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">10</span>
           <span class="ex-tags"><span class="ex-tag">凹函数积分不等式</span><span class="ex-tag diff2">中等</span></span>
         </div>
-        <div class="ex-q"><p>设 $f(x)$ 在 $[0,1]$ 上是凹函数（$f''\gt0$），且非负连续，$f(0)=0$，则（　）。<br>(A) $4\int_0^{\frac12}f(x)\leqslant\int_0^1f(x)$　(B) $4\int_0^{\frac12}f(x)\geqslant\int_0^1f(x)$<br>(C) $8\int_0^{\frac12}f(x)\leqslant\int_0^1f(x)$　(D) $8\int_0^{\frac12}f(x)\geqslant\int_0^1f(x)$</p></div>
+        <div class="ex-q"><p>设 $f(x)$ 在 $[0,1]$ 上是凹函数（$f''\gt0$），且非负连续，$f(0)=0$，则（　）。<br>(A) $4\int_0^{\frac12}f(x)\leqslant\int_0^1f(x)\,dx$　(B) $4\int_0^{\frac12}f(x)\geqslant\int_0^1f(x)\,dx$<br>(C) $8\int_0^{\frac12}f(x)\leqslant\int_0^1f(x)\,dx$　(D) $8\int_0^{\frac12}f(x)\geqslant\int_0^1f(x)\,dx$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：用凸性 $f(x)\leqslant\frac{x}{1/2}f(\frac12)$ 估上半段，再用中点下界估整段。</p><p><b>解</b>：$f$ 下凸且 $f(0)=0$，对 $x\in[0,\frac12]$，$f(x)\leqslant2xf(\frac12)$（弦下界），故 $\int_0^{\frac12}f\leqslant f(\frac12)\cdot\frac14$，即 $4\int_0^{\frac12}f\leqslant f(\frac12)$。又 $\int_0^1f=\int_0^{\frac12}[f(x)+f(1-x)]\mathrm dx\geqslant\int_0^{\frac12}2f(\frac12)\mathrm dx=f(\frac12)$。故 $4\int_0^{\frac12}f(x)\leqslant\int_0^1f(x)$。选 (A)。</p><p><b>易错</b>：把下凸当上凸，得反号；用 $f(x)=x^2$ 验：$4\cdot\frac1{24}=\frac16\leqslant\frac13$，与 (A) 一致。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：用凸性 $f(x)\leqslant\frac{x}{1/2}f(\frac12)$ 估上半段，再用中点下界估整段。</p><p><b>解</b>：$f$ 下凸且 $f(0)=0$，对 $x\in[0,\frac12]$，$f(x)\leqslant2xf(\frac12)$（弦下界），故 $\int_0^{\frac12}f\leqslant f(\frac12)\cdot\frac14$，即 $4\int_0^{\frac12}f\leqslant f(\frac12)$。又 $\int_0^1f(x)\,dx=\int_0^{\frac12}[f(x)+f(1-x)]\mathrm dx\geqslant\int_0^{\frac12}2f(\frac12)\mathrm dx=f(\frac12)$。故 $4\int_0^{\frac12}f(x)\leqslant\int_0^1f(x)\,dx$。选 (A)。</p><p><b>易错</b>：把下凸当上凸，得反号；用 $f(x)=x^2$ 验：$4\cdot\frac1{24}=\frac16\leqslant\frac13$，与 (A) 一致。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>凸函数「弦在上、切线在下」：$f(x)\leqslant$ 线性插值给上界，中点值 $f(\frac12)\leqslant$ 平均给下界。</p></div>
         </details>
       </div>
@@ -3716,8 +3763,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设对任意 $x$，有 $f(x+4)=f(x)$，且 $f'(x)=1+|x|$，$x\in(-2,2]$，$f(0)=1$，则 $f(9)=$＿＿＿。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：周期 $4$ 把 $f(9)$ 搬到 $f(1)$，再用 $f(1)=f(0)+\int_0^1f'$。</p><p><b>解</b>：$f(9)=f(9-8)=f(1)$。在 $[0,1]$ 上 $|x|=x$，$f'(x)=1+x$，$f(1)=f(0)+\int_0^1(1+x)\mathrm dx=1+\big[x+\frac{x^2}2\big]_0^1=1+\frac32=\frac52$。</p><p><b>易错</b>：在 $x=0$ 处 $|x|$ 不可导就放弃；这里只需 $[0,1]$ 上的 $f'=1+x$，$f$ 在 $0$ 的可导性不影响积分。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>周期函数 $f(x)=f(x+kT)$ 先把自变量搬到已知区间，再用 $\int f'$ 累加。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：周期 $4$ 把 $f(9)$ 搬到 $f(1)$，再用 $f(1)=f(0)+\int_0^1f(x)\,dx'(x)\,dx$。</p><p><b>解</b>：$f(9)=f(9-8)=f(1)$。在 $[0,1]$ 上 $|x|=x$，$f'(x)=1+x$，$f(1)=f(0)+\int_0^1(1+x)\mathrm dx=1+\big[x+\frac{x^2}2\big]_0^1=1+\frac32=\frac52$。</p><p><b>易错</b>：在 $x=0$ 处 $|x|$ 不可导就放弃；这里只需 $[0,1]$ 上的 $f'=1+x$，$f$ 在 $0$ 的可导性不影响积分。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>周期函数 $f(x)=f(x+kT)$ 先把自变量搬到已知区间，再用 $\int f(x)\,dx'(x)\,dx$ 累加。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -3776,7 +3823,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>$\displaystyle\lim_{x\to0}\frac{\int_{\cos x}^1t\ln t\,\mathrm dt}{x^4}=$＿＿＿。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：分子分母同趋于 $0$，用洛必达；$\ln(\cos x)\sim-\frac{x^2}2$。</p><p><b>解</b>：分子导 $=-\cos x\ln(\cos x)\cdot(-\sin x)=\cos x\sin x\ln(\cos x)$，分母导 $4x^3$。原极限 $=\lim\frac{x\cdot(-\frac{x^2}2)}{4x^3}=\lim\frac{-\frac{x^3}2}{4x^3}=-\frac18$。</p><p><b>易错</b>：求导符号错：$\int_{\cos x}^1$ 求导 $=-$被积(cosx)$\cdot(\cos x)'=\cos x\sin x\ln(\cos x)$，注意下限求导带负号。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：分子分母同趋于 $0$，用洛必达；$\ln(\cos x)\sim-\frac{x^2}2$。</p><p><b>解</b>：分子导 $=-\cos x\ln(\cos x)\cdot(-\sin x)=\cos x\sin x\ln(\cos x)$，分母导 $4x^3$。原极限 $=\lim\limits_{x\to0}\frac{x\cdot(-\frac{x^2}2)}{4x^3}=\lim\limits_{x\to0}\frac{-\frac{x^3}2}{4x^3}=-\frac18$。</p><p><b>易错</b>：求导符号错：$\int_{\cos x}^1$ 求导 $=-$被积(cosx)$\cdot(\cos x)'=\cos x\sin x\ln(\cos x)$，注意下限求导带负号。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$\ln(\cos x)\sim-\frac{x^2}2$，$\sin x\sim x$；分子 $	o-x^3/2$，答案 $-1/8$。</p></div>
         </details>
       </div>
@@ -3860,8 +3907,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $n$ 为正数，$\displaystyle\lim_{x\to0}\Big(\frac{n-x}{n+x}\Big)^{\frac2x}=\int_{\frac1n}^{+\infty}xe^{-4x}\mathrm dx$，则 $n=$＿＿＿。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：左极限 $\to e^{-\frac4n}$；右积分分部积分得 $\frac1{4n}e^{-\frac4n}+$常数项。</p><p><b>解</b>：左 $=\lim(1-\frac{2x}{n+x})^{\frac2x}=e^{-\frac4n}$。右 $\int_{\frac1n}^{+\infty}xe^{-4x}\mathrm dx=\big[-(\frac x4+\frac1{16})e^{-4x}\big]_{\frac1n}^{+\infty}=(\frac1{4n}+\frac1{16})e^{-\frac4n}$。令 $e^{-\frac4n}=(\frac1{4n}+\frac1{16})e^{-\frac4n}$，$1=\frac1{4n}+\frac1{16}$，$\frac1{4n}=\frac{15}{16}$，$n=\frac4{15}$。</p><p><b>易错</b>：左极限指数算成 $-\frac{2}{n}$；$(1+u)^v$ 型要用 $uv\to-\frac{4}{n}$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$\int xe^{-4x}=\frac{1}{16}e^{-4x}(-4x-1)$；$\lim(1+\frac{-2x}{n+x})^{2/x}=e^{-4/n}$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：左极限 $\to e^{-\frac4n}$；右积分分部积分得 $\frac1{4n}e^{-\frac4n}+$常数项。</p><p><b>解</b>：左 $=\lim\limits_{x\to0}(1-\frac{2x}{n+x})^{\frac2x}=e^{-\frac4n}$。右 $\int_{\frac1n}^{+\infty}xe^{-4x}\mathrm dx=\big[-(\frac x4+\frac1{16})e^{-4x}\big]_{\frac1n}^{+\infty}=(\frac1{4n}+\frac1{16})e^{-\frac4n}$。令 $e^{-\frac4n}=(\frac1{4n}+\frac1{16})e^{-\frac4n}$，$1=\frac1{4n}+\frac1{16}$，$\frac1{4n}=\frac{15}{16}$，$n=\frac4{15}$。</p><p><b>易错</b>：左极限指数算成 $-\frac{2}{n}$；$(1+u)^v$ 型要用 $uv\to-\frac{4}{n}$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$\int xe^{-4x}=\frac{1}{16}e^{-4x}(-4x-1)$；$\lim\limits_{x\to0}(1+\frac{-2x}{n+x})^{2/x}=e^{-4/n}$。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -3930,7 +3977,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f'_x(x_0,y_0)$，$f'_y(x_0,y_0)$ 均存在，则下列选项正确的是（　）。<br>(A) $\lim_{x\to x_0,y\to y_0}f(x,y)$ 存在　(B) $f(x,y)$ 在 $(x_0,y_0)$ 连续<br>(C) $\lim_{x\to x_0}f(x,y_0)$ 存在　(D) $f(x,y)$ 在 $\overset{\circ}{U}(x_0,y_0)$ 内有定义</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$f'_x$ 存在说明一元函数 $f(x,y_0)$ 在 $x_0$ 可导，故连续。</p><p><b>解</b>：$f'_x(x_0,y_0)$ 存在即 $f(x,y_0)$ 作为 $x$ 的函数在 $x_0$ 可导，从而连续，$\lim_{x\to x_0}f(x,y_0)=f(x_0,y_0)$ 存在。二重极限、全连续都推不出（如 $f=\frac{xy}{x^2+y^2}$）。选 (C)。</p><p><b>易错</b>：把「偏导存在」误当「可微 / 连续」。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$f'_x$ 存在说明一元函数 $f(x,y_0)$ 在 $x_0$ 可导，故连续。</p><p><b>解</b>：$f'_x(x_0,y_0)$ 存在即 $f(x,y_0)$ 作为 $x$ 的函数在 $x_0$ 可导，从而连续，$\lim_{x\to x_0}f(x,y_0)=f(x_0,y_0)$ 存在。二重极限、全连续都推不出（如 $f(x,y)=\frac{xy}{x^2+y^2}$）。选 (C)。</p><p><b>易错</b>：把「偏导存在」误当「可微 / 连续」。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>偏导存在只保证沿坐标轴方向的一元连续；推不出二重极限或全连续。</p></div>
         </details>
       </div>
@@ -4075,7 +4122,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：令 $u=x^2+y^2-t^2$，先换元把 $t$ 消去，再链式。</p><p><b>解</b>：令 $u=x^2+y^2-t^2$，$\mathrm du=-2t\,\mathrm dt$，$f=\frac12\int_0^{x^2+y^2}g(u)\mathrm du$。故 $f_x=xg(x^2+y^2)$，$f_y=yg(x^2+y^2)$。在 $(1,1)$：$g(2)=1$，$f_x=f_y=1$，$\mathrm df=\mathrm dx+\mathrm dy$。</p><p><b>易错</b>：直接变上限求导漏 $g$ 内的 $t$；应先换元 $u=x^2+y^2-t^2$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>被积含 $x^2+y^2-t^2$ 时令 $u=x^2+y^2-t^2$，化为 $f=\frac12\int_0^{r^2}g$，则 $\mathrm df=g(r^2)(x\mathrm dx+y\mathrm dy)$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>被积含 $x^2+y^2-t^2$ 时令 $u=x^2+y^2-t^2$，化为 $f=\frac12\int_0^{r^2}g(t)\,dt$，则 $\mathrm df=g(r^2)(x\mathrm dx+y\mathrm dy)$。</p></div>
         </details>
       </div>
       <div class="ex-item">
@@ -4122,7 +4169,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求双曲线 $xy=4$ 与直线 $2x+y=1$ 之间的最短距离。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：点 $(x,y)$ 到直线距离 $\frac{|2x+y-1|}{\sqrt5}$，代 $y=\frac4x$ 化一元。</p><p><b>解</b>：$d^2=\frac{(2x+4/x-1)^2}5$。$f=2x+\frac4x-1$，$f'=2-\frac4{x^2}=0\Rightarrow x=\sqrt2$（$x\gt 0$）。$f(\sqrt2)=4\sqrt2-1$，$d=\frac{4\sqrt2-1}{\sqrt5}$。</p><p><b>易错</b>：忽略 $xy=4$ 要求 $x\gt 0$；$f'=0$ 的 $x=\pm\sqrt2$ 只取正。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：点 $(x,y)$ 到直线距离 $\frac{|2x+y-1|}{\sqrt5}$，代 $y=\frac4x$ 化一元。</p><p><b>解</b>：$d^2=\frac{(2x+4/x-1)^2}5$。$f(x)=2x+\frac4x-1$，$f'=2-\frac4{x^2}=0\Rightarrow x=\sqrt2$（$x\gt 0$）。$f(\sqrt2)=4\sqrt2-1$，$d=\frac{4\sqrt2-1}{\sqrt5}$。</p><p><b>易错</b>：忽略 $xy=4$ 要求 $x\gt 0$；$f'=0$ 的 $x=\pm\sqrt2$ 只取正。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>曲线到直线：点代入点到线距离公式，消成单变量求极值，注意定义域。</p></div>
         </details>
       </div>
@@ -4360,7 +4407,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)$ 在 $[0,+\infty)$ 上可导，$\lim_{x\to+\infty}f(x)=b$（$b\ne0$），$y=y(x)$ 为方程 $y'+ay=f(x)$（$a\gt 0$）的任一解，则 $y=y(x)$ 有水平渐近线（　）。<br>(A) $y=ab$　(B) $y=-ab$　(C) $y=\frac ba$　(D) $y=\frac ab$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$x\to\infty$ 时 $y'\to0$，方程退化为 $ay=f$，故 $y\to\frac{f}{a}\to\frac ba$。</p><p><b>解</b>：通解 $y=e^{-ax}\big(C+\int f e^{ax}\mathrm dx\big)$，$a\gt 0$ 时 $e^{-ax}\to0$，且 $y\to\frac{f(\infty)}a=\frac ba$。选 (C)。</p><p><b>易错</b>：把渐近线写成 $ab$ 或 $\frac ab$；稳态解满足 $ay=b$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$x\to\infty$ 时 $y'\to0$，方程退化为 $ay=f$，故 $y\to\frac{f}{a}\to\frac ba$。</p><p><b>解</b>：通解 $y=e^{-ax}\big(C+\int f(x)\,dx e^{ax}\mathrm dx\big)$，$a\gt 0$ 时 $e^{-ax}\to0$，且 $y\to\frac{f(\infty)}a=\frac ba$。选 (C)。</p><p><b>易错</b>：把渐近线写成 $ab$ 或 $\frac ab$；稳态解满足 $ay=b$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$y'+ay=f$：$x\to\infty$ 时 $y'\to0$，稳态 $y\to f/a$；水平渐近线 $y=b/a$。</p></div>
         </details>
       </div>
@@ -6267,7 +6314,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">12</span>
           <span class="ex-tags"><span class="ex-tag">求规范形</span><span class="ex-tag diff2">中等</span></span>
         </div>
-        <div class="ex-q"><p>二次型 $f=x_1^2+4x_2^2+4x_3^2-4x_1x_2+4x_1x_3-8x_2x_3$ 的规范形为（　）。<br>(A) $f=z_1^2$　(B) $f=z_1^2-z_2^2$　(C) $f=z_1^2+z_2^2+z_3^2$　(D) $f=z_1^2+z_2^2-z_3^2$</p></div>
+        <div class="ex-q"><p>二次型 $f(x)=x_1^2+4x_2^2+4x_3^2-4x_1x_2+4x_1x_3-8x_2x_3$ 的规范形为（　）。<br>(A) $f=z_1^2$　(B) $f=z_1^2-z_2^2$　(C) $f=z_1^2+z_2^2+z_3^2$　(D) $f=z_1^2+z_2^2-z_3^2$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：配方看正惯性指数与秩。</p><p><b>解</b>：$f=(x_1-2x_2+2x_3)^2$，秩 $1$、正惯性指数 $1$，规范形 $z_1^2$。选 (A)。</p><p><b>易错</b>：配完平方后其余项恰好抵消，勿漏算。</p></div>
@@ -6399,7 +6446,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">23</span>
           <span class="ex-tags"><span class="ex-tag">正定求参数范围</span><span class="ex-tag diff1">基础</span></span>
         </div>
-        <div class="ex-q"><p>已知二次型 $f=x_1^2+4x_2^2+4x_3^2+2ax_1x_2-2x_1x_3+4x_2x_3$ 正定，则 $a$ 的取值范围为＿＿＿。</p></div>
+        <div class="ex-q"><p>已知二次型 $f(x_1,x_2,x_3)=x_1^2+4x_2^2+4x_3^2+2ax_1x_2-2x_1x_3+4x_2x_3$ 正定，则 $a$ 的取值范围为＿＿＿。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：矩阵 $A$ 的顺序主子式全大于零。</p><p><b>解</b>：$A=\begin{pmatrix}1&a&-1\\a&4&2\\-1&2&4\end{pmatrix}$。$\Delta_1=1\gt 0$，$\Delta_2=4-a^2\gt 0$，$\Delta_3=-4(a+2)(a-1)\gt 0$。得 $-2\lt a\lt 1$。</p><p><b>易错</b>：$\Delta_3$ 要单独算，与 $\Delta_2$ 取交集。</p></div>
@@ -6596,7 +6643,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>关于函数 $f(x,y)=\begin{cases}xy,&xy\ne0,\\x,&y=0,\\y,&x=0,\end{cases}$ 给出如下结论：<br>① $\left.\frac{\partial f}{\partial x}\right|_{(0,0)}=1$；② $\left.\frac{\partial^2 f}{\partial x\partial y}\right|_{(0,0)}=1$；③ $\lim_{(x,y)\to(0,0)}f(x,y)=0$；④ $\lim_{y\to0}\lim_{x\to0}f(x,y)=0$。<br>其中正确的个数是（　）。<br>(A) 4　(B) 3　(C) 2　(D) 1</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：逐条验证偏导、混合偏导与重极限。</p><p><b>解</b>：① $f(x,0)=x$，故 $f_x(0,0)=1$，正确；<br>③ 当 $(x,y)\to(0,0)$ 时 $xy\to0$（且轴上值为 $x$ 或 $y$ 也 $\to0$），极限为 $0$，正确；<br>④ $\lim_{x\to0}f(x,y)=0$（$y\ne0$ 时），再 $\lim_{y\to0}0=0$，正确；<br>② $f_y(0,0)=1$，但 $f_{xy}(0,0)$ 与 $f_{yx}(0,0)$ 不相等（$f_{xy}(0,0)=\lim\frac{f_x(0,k)-f_x(0,0)}{k}$，其中 $f_x(0,y)=1$，得 $0\ne1$），故 ② 错误。<br>正确共 $3$ 个，选 (B)。</p><p><b>易错</b>：混合偏导 $f_{xy}(0,0)$ 与 $f_{yx}(0,0)$ 在原点不相等，说明“混合偏导相等”需要连续性条件，这是本题陷阱。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：逐条验证偏导、混合偏导与重极限。</p><p><b>解</b>：① $f(x,0)=x$，故 $f_x(0,0)=1$，正确；<br>③ 当 $(x,y)\to(0,0)$ 时 $xy\to0$（且轴上值为 $x$ 或 $y$ 也 $\to0$），极限为 $0$，正确；<br>④ $\lim_{x\to0}f(x,y)=0$（$y\ne0$ 时），再 $\lim_{y\to0}0=0$，正确；<br>② $f_y(0,0)=1$，但 $f_{xy}(0,0)$ 与 $f_{yx}(0,0)$ 不相等（$f_{xy}(0,0)=\lim\limits_{k\to0}\frac{f_x(0,k)-f_x(0,0)}{k}$，其中 $f_x(0,y)=1$，得 $0\ne1$），故 ② 错误。<br>正确共 $3$ 个，选 (B)。</p><p><b>易错</b>：混合偏导 $f_{xy}(0,0)$ 与 $f_{yx}(0,0)$ 在原点不相等，说明“混合偏导相等”需要连续性条件，这是本题陷阱。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>分段函数在原点按定义算偏导与混合偏导；混合偏导不等说明二阶偏导不连续。</p></div>
         </details>
       </div>
@@ -6716,7 +6763,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求曲线 $y=\dfrac{x^{1+x}}{(1+x)^x}\ (x\gt0)$ 的斜渐近线方程。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：斜渐近线 $y=kx+b$，$k=\lim\frac{y}{x}$，$b=\lim(y-kx)$。</p><p><b>解</b>：$k=\lim_{x\to+\infty}\frac{x^x}{(1+x)^x}=\lim\left(\frac{x}{1+x}\right)^x=\lim\left(1+\frac1x\right)^{-x}=e^{-1}=\frac1e$。<br>求 $b$：令 $t=\frac1x$，$\left(\frac{x}{1+x}\right)^x=\left(\frac1{1+t}\right)^{1/t}=e^{-\frac{\ln(1+t)}t}$。<br>$\ln(1+t)=t-\frac{t^2}2+o(t^2)$，故 $e^{-\frac{\ln(1+t)}t}=e^{-1+\frac t2+o(t)}=\frac1e(1+\frac t2+o(t))$。<br>$b=\lim_{t\to0^+}\frac1t\left[\frac1e(1+\frac t2)-\frac1e\right]=\frac1{2e}$。<br>渐近线 $y=\frac{x}{e}+\frac1{2e}$。</p><p><b>易错</b>：$k=\frac1e$ 而非 $e$；求 $b$ 需展开到一阶，勿漏 $\frac1{2e}$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：斜渐近线 $y=kx+b$，$k=\lim\limits_{x\to+\infty}\frac{y}{x}$，$b=\lim\limits_{x\to+\infty}(y-kx)$。</p><p><b>解</b>：$k=\lim_{x\to+\infty}\frac{x^x}{(1+x)^x}=\lim\limits_{x\to+\infty}\left(\frac{x}{1+x}\right)^x=\lim\limits_{x\to+\infty}\left(1+\frac1x\right)^{-x}=e^{-1}=\frac1e$。<br>求 $b$：令 $t=\frac1x$，$\left(\frac{x}{1+x}\right)^x=\left(\frac1{1+t}\right)^{1/t}=e^{-\frac{\ln(1+t)}t}$。<br>$\ln(1+t)=t-\frac{t^2}2+o(t^2)$，故 $e^{-\frac{\ln(1+t)}t}=e^{-1+\frac t2+o(t)}=\frac1e(1+\frac t2+o(t))$。<br>$b=\lim_{t\to0^+}\frac1t\left[\frac1e(1+\frac t2)-\frac1e\right]=\frac1{2e}$。<br>渐近线 $y=\frac{x}{e}+\frac1{2e}$。</p><p><b>易错</b>：$k=\frac1e$ 而非 $e$；求 $b$ 需展开到一阶，勿漏 $\frac1{2e}$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型极限 $k$；求 $b$ 时对 $\left(1+\frac1x\right)^x$ 作展开，$b$ 是有限值。</p></div>
         </details>
       </div>
@@ -6725,11 +6772,11 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">16</span>
           <span class="ex-tags"><span class="ex-tag">解答题</span><span class="ex-tag diff3">提高</span></span>
         </div>
-        <div class="ex-q"><p>已知函数 $f(x)$ 连续且 $\lim_{x\to0}\frac{f(x)}x=1$，$g(x)=\int_0^1f(xt)dt$，求 $g'(x)$，并证明 $g'(x)$ 在 $x=0$ 处连续。</p></div>
+        <div class="ex-q"><p>已知函数 $f(x)$ 连续且 $\lim_{x\to0}\frac{f(x)}x=1$，$g(x)=\int_0^1f(x)\,dx(xt)dt$，求 $g'(x)$，并证明 $g'(x)$ 在 $x=0$ 处连续。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：先由极限条件读出 $f(0)=0,f'(0)=1$，再算 $g$ 及其导数。</p><p><b>解</b>：由 $\lim\frac{f(x)}x=1$ 且 $f$ 连续：$f(0)=\lim f(x)=0\cdot1=0$，$f'(0)=\lim\frac{f(x)-f(0)}x=1$。<br>$x\ne0$：令 $u=xt$，$g(x)=\frac1x\int_0^x f(u)du$；$g(0)=\int_0^1f(0)dt=0$。<br>$g'(x)=\frac{xf(x)-\int_0^xf(u)du}{x^2}\ (x\ne0)$；$g'(0)=\lim\frac{g(x)-g(0)}x=\lim\frac{\int_0^xf(u)du}{x^2}\overset{\text{洛}}{=}\lim\frac{f(x)}{2x}=\frac12$。<br>再证连续：$f(u)=u+o(u)$，$\int_0^xf=f(x)\cdot x-\int_0^xf$…由 $f(u)\sim u$ 得 $\int_0^xf=\frac{x^2}2+o(x^2)$，$xf(x)=x^2+o(x^2)$，<br>故 $\lim_{x\to0}g'(x)=\lim\frac{x^2-\frac{x^2}2}{x^2}=\frac12=g'(0)$，连续。</p><p><b>易错</b>：$g(0)$ 与 $g'(0)$ 都要用定义单独求，不能直接套 $x\ne0$ 的公式。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>含变限积分的分段函数，$x=0$ 处用定义求导；证连续即证 $\lim g'(x)=g'(0)$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：先由极限条件读出 $f(0)=0,f'(0)=1$，再算 $g$ 及其导数。</p><p><b>解</b>：由 $\lim\limits_{x\to0}\frac{f(x)}x=1$ 且 $f$ 连续：$f(0)=\lim\limits_{x\to0}f(x)=0\cdot1=0$，$f'(0)=\lim\limits_{x\to0}\frac{f(x)-f(0)}x=1$。<br>$x\ne0$：令 $u=xt$，$g(x)=\frac1x\int_0^x f(u)du$；$g(0)=\int_0^1f(x)\,dx(0)dt=0$。<br>$g'(x)=\frac{xf(x)-\int_0^xf(u)du}{x^2}\ (x\ne0)$；$g'(0)=\lim\limits_{x\to0}\frac{g(x)-g(0)}x=\lim\limits_{x\to0}\frac{\int_0^xf(u)du}{x^2}\overset{\text{洛}}{=}\lim\limits_{x\to0}\frac{f(x)}{2x}=\frac12$。<br>再证连续：$f(u)=u+o(u)$，$\int_0^xf=f(x)\cdot x-\int_0^xf$…由 $f(u)\sim u$ 得 $\int_0^xf=\frac{x^2}2+o(x^2)$，$xf(x)=x^2+o(x^2)$，<br>故 $\lim\limits_{x\to0}g'(x)=\lim\limits_{x\to0}\frac{x^2-\frac{x^2}2}{x^2}=\frac12=g'(0)$，连续。</p><p><b>易错</b>：$g(0)$ 与 $g'(0)$ 都要用定义单独求，不能直接套 $x\ne0$ 的公式。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>含变限积分的分段函数，$x=0$ 处用定义求导；证连续即证 $\lim\limits_{x\to0}g'(x)=g'(0)$。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -6848,7 +6895,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设 $f(x)=\begin{cases}\dfrac{e^x-1}{x},&x\ne0,\\1,&x=0,\end{cases}$ 则 $f(x)$ 在 $x=0$ 处（　）。<br>(A) 连续且取得极大值　(B) 连续且取得极小值　(C) 可导且导数为零　(D) 可导且导数不为零</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：先判断连续，再用定义求 $f'(0)$。</p><p><b>解</b>：$\lim_{x\to0}\frac{e^x-1}{x}=1=f(0)$，连续。<br>$f'(0)=\lim_{x\to0}\frac{f(x)-f(0)}x=\lim\frac{\frac{e^x-1}{x}-1}{x}=\lim\frac{e^x-1-x}{x^2}=\frac12\ne0$。<br>故可导且导数不为零，选 (D)。<br>又 $x\gt0$ 时 $f\gt1$、$x\lt0$ 时 $f\lt1$，$x=0$ 非极值点，排除 (A)(B)。</p><p><b>易错</b>：$f(0)=1$ 是“夹在中间”的值，不是极值；导数不为零也说明非极值。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：先判断连续，再用定义求 $f'(0)$。</p><p><b>解</b>：$\lim_{x\to0}\frac{e^x-1}{x}=1=f(0)$，连续。<br>$f'(0)=\lim_{x\to0}\frac{f(x)-f(0)}x=\lim\limits_{x\to0}\frac{\frac{e^x-1}{x}-1}{x}=\lim\limits_{x\to0}\frac{e^x-1-x}{x^2}=\frac12\ne0$。<br>故可导且导数不为零，选 (D)。<br>又 $x\gt0$ 时 $f\gt1$、$x\lt0$ 时 $f\lt1$，$x=0$ 非极值点，排除 (A)(B)。</p><p><b>易错</b>：$f(0)=1$ 是“夹在中间”的值，不是极值；导数不为零也说明非极值。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>分段函数在界点用定义求导；$f'(x_0)\ne0$ 可判断非极值。</p></div>
         </details>
       </div>
@@ -6905,10 +6952,10 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
           <span class="ex-no">7</span>
           <span class="ex-tags"><span class="ex-tag">选择题</span><span class="ex-tag diff2">中等</span></span>
         </div>
-        <div class="ex-q"><p>设 $f(x)$ 在 $[0,1]$ 上连续，则 $\displaystyle\int_0^1f(x)dx=$（　）。<br>(A) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{2k-1}{2n}\right)\frac1{2n}$　(B) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{2k-1}{2n}\right)\frac1n$<br>(C) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{k}{n}\right)\frac1{2n}$　(D) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{k}{n}\right)\frac1n$</p></div>
+        <div class="ex-q"><p>设 $f(x)$ 在 $[0,1]$ 上连续，则 $\displaystyle\int_0^1f(x)\,dxdx=$（　）。<br>(A) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{2k-1}{2n}\right)\frac1{2n}$　(B) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{2k-1}{2n}\right)\frac1n$<br>(C) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{k}{n}\right)\frac1{2n}$　(D) $\lim\limits_{n\to\infty}\sum_{k=1}^{n}f\left(\frac{k}{n}\right)\frac1n$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：定积分定义 $\int_a^bf=\lim\sum f(\xi_k)\Delta x$，看 $\Delta x$ 与 $\xi_k$ 是否匹配。</p><p><b>解</b>：(B) 中 $\Delta x=\frac1n$，样本点 $\frac{2k-1}{2n}$ 是第 $k$ 个小区间中点，和为 $[0,1]$ 上中点法积分和，极限为 $\int_0^1f$，选 (B)。<br>(A) $\Delta x=\frac1{2n}$ 对应 $[0,\frac12]$；(C) 系数 $\frac1{2n}$ 与 $\frac kn$ 不匹配；(D) 是右端点法，也等于 $\int_0^1f$，但本题要求唯一且 (D) 亦是正确表达，需结合选项——标准答案为 (B)。</p><p><b>易错</b>：积分和要“小区间长 $\times$ 函数值”一一对应，$\Delta x$ 与样本点分母必须一致。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：定积分定义 $\int_a^bf(x)\,dx=\lim\limits_{\lambda\to0}\sum f(\xi_k)\Delta x$，看 $\Delta x$ 与 $\xi_k$ 是否匹配。</p><p><b>解</b>：(B) 中 $\Delta x=\frac1n$，样本点 $\frac{2k-1}{2n}$ 是第 $k$ 个小区间中点，和为 $[0,1]$ 上中点法积分和，极限为 $\int_0^1f(x)\,dx$，选 (B)。<br>(A) $\Delta x=\frac1{2n}$ 对应 $[0,\frac12]$；(C) 系数 $\frac1{2n}$ 与 $\frac kn$ 不匹配；(D) 是右端点法，也等于 $\int_0^1f(x)\,dx$，但本题要求唯一且 (D) 亦是正确表达，需结合选项——标准答案为 (B)。</p><p><b>易错</b>：积分和要“小区间长 $\times$ 函数值”一一对应，$\Delta x$ 与样本点分母必须一致。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>定积分定义三要素：分割、取点、求和；$\Delta x=\frac{b-a}{n}$ 与 $\xi_k$ 落点匹配。</p></div>
         </details>
       </div>
@@ -7028,7 +7075,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>求极限 $\displaystyle\lim_{x\to0}\left[\frac{1+\int_0^xe^{t^2}dt}{e^x-1}-\frac1{\sin x}\right]$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：通分后用泰勒展开（或多次洛必达）。</p><p><b>解</b>：$\int_0^xe^{t^2}dt=x+\frac{x^3}3+o(x^3)$，$e^x-1=x+\frac{x^2}2+\frac{x^3}6+o(x^3)$，$\sin x=x-\frac{x^3}6+o(x^3)$。<br>$\frac{1+\int}{e^x-1}=\frac{1+x+\frac{x^3}3}{x+\frac{x^2}2+\frac{x^3}6}=\frac1x\left(1+\frac x2-\frac{5x^2}{12}+o(x^2)\right)=\frac1x+\frac12-\frac{5x}{12}+o(x)$。<br>$\frac1{\sin x}=\frac1x+\frac x6+o(x)$。<br>原式 $=\lim\left(\frac12-\frac{5x}{12}-\frac x6\right)=\frac12$。</p><p><b>易错</b>：展开要一致到同阶，勿漏 $\sin x$ 的 $\frac{x^3}6$ 对应项。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：通分后用泰勒展开（或多次洛必达）。</p><p><b>解</b>：$\int_0^xe^{t^2}dt=x+\frac{x^3}3+o(x^3)$，$e^x-1=x+\frac{x^2}2+\frac{x^3}6+o(x^3)$，$\sin x=x-\frac{x^3}6+o(x^3)$。<br>$\frac{1+\int}{e^x-1}=\frac{1+x+\frac{x^3}3}{x+\frac{x^2}2+\frac{x^3}6}=\frac1x\left(1+\frac x2-\frac{5x^2}{12}+o(x^2)\right)=\frac1x+\frac12-\frac{5x}{12}+o(x)$。<br>$\frac1{\sin x}=\frac1x+\frac x6+o(x)$。<br>原式 $=\lim\limits_{x\to0}\left(\frac12-\frac{5x}{12}-\frac x6\right)=\frac12$。</p><p><b>易错</b>：展开要一致到同阶，勿漏 $\sin x$ 的 $\frac{x^3}6$ 对应项。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>“无穷减无穷”型先通分，再统一泰勒展开到同阶。</p></div>
         </details>
       </div>
@@ -7040,7 +7087,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x)=\dfrac{x|x|}{1+x}$，求曲线 $y=f(x)$ 的凹凸区间及渐近线。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：分段去掉绝对值求二阶导判凹凸；垂直与斜渐近线分别求。</p><p><b>解</b>：$x\ge0$：$f=\frac{x^2}{1+x}$，$f''=\frac2{(1+x)^3}\gt0$；$x\lt0$：$f=-\frac{x^2}{1+x}$，$f''=-\frac2{(1+x)^3}$。<br>故上凹（凹向上）区间 $(-\infty,-1)\cup(0,+\infty)$，下凹区间 $(-1,0)$。<br>垂直渐近线 $x=-1$；$x\to+\infty$：$f=x-1+\frac1{1+x}$，斜渐近线 $y=x-1$；$x\to-\infty$：$f=-x+1-\frac1{1+x}$，斜渐近线 $y=-x+1$。</p><p><b>易错</b>：$x\lt0$ 时 $f=-\frac{x^2}{1+x}$，符号影响二阶导；左右斜渐近线不同。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：分段去掉绝对值求二阶导判凹凸；垂直与斜渐近线分别求。</p><p><b>解</b>：$x\ge0$：$f(x)=\frac{x^2}{1+x}$，$f''=\frac2{(1+x)^3}\gt0$；$x\lt0$：$f(x)=-\frac{x^2}{1+x}$，$f''=-\frac2{(1+x)^3}$。<br>故上凹（凹向上）区间 $(-\infty,-1)\cup(0,+\infty)$，下凹区间 $(-1,0)$。<br>垂直渐近线 $x=-1$；$x\to+\infty$：$f(x)=x-1+\frac1{1+x}$，斜渐近线 $y=x-1$；$x\to-\infty$：$f(x)=-x+1-\frac1{1+x}$，斜渐近线 $y=-x+1$。</p><p><b>易错</b>：$x\lt0$ 时 $f(x)=-\frac{x^2}{1+x}$，符号影响二阶导；左右斜渐近线不同。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>含绝对值函数分段讨论；$f''\gt0$ 上凹、$f''\lt0$ 下凹；斜渐近线看 $y-kx$ 的极限。</p></div>
         </details>
       </div>
@@ -7052,8 +7099,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>已知 $\displaystyle\int\frac{f(x)}{\sqrt x}dx=\frac{x^2}6-x+C$，求曲线 $y=f(x)$（$4\le x\le9$）的弧长 $s$ 及该曲线绕 $x$ 轴旋转所得旋转曲面的面积 $A$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：先求 $f$ 与 $f'$，再套弧长、旋转曲面面积公式。</p><p><b>解</b>：$\frac{f(x)}{\sqrt x}=\frac x3-1$，$f(x)=\frac{x^{3/2}}3-\sqrt x$，$f'(x)=\frac{x-1}{2\sqrt x}$。<br>$\sqrt{1+f'^2}=\sqrt{1+\frac{(x-1)^2}{4x}}=\frac{x+1}{2\sqrt x}$。<br>$s=\int_4^9\frac{x+1}{2\sqrt x}dx=\left[\frac{x^{3/2}}3+\sqrt x\right]_4^9=\frac{22}3$。<br>$A=2\pi\int_4^9f(x)\sqrt{1+f'^2}dx=2\pi\int_4^9\left(\frac{x^2}6-\frac x3-\frac12\right)dx=\frac{425\pi}9$。</p><p><b>易错</b>：弧长 $s=\int\sqrt{1+f'^2}dx$；曲面面积 $A=2\pi\int f\sqrt{1+f'^2}dx$，别漏 $2\pi$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>旋转曲面面积 $A=2\pi\int_a^b f\sqrt{1+f'^2}dx$（$f\ge0$）。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：先求 $f$ 与 $f'$，再套弧长、旋转曲面面积公式。</p><p><b>解</b>：$\frac{f(x)}{\sqrt x}=\frac x3-1$，$f(x)=\frac{x^{3/2}}3-\sqrt x$，$f'(x)=\frac{x-1}{2\sqrt x}$。<br>$\sqrt{1+f'^2}=\sqrt{1+\frac{(x-1)^2}{4x}}=\frac{x+1}{2\sqrt x}$。<br>$s=\int_4^9\frac{x+1}{2\sqrt x}dx=\left[\frac{x^{3/2}}3+\sqrt x\right]_4^9=\frac{22}3$。<br>$A=2\pi\int_4^9f(x)\sqrt{1+f'^2}dx=2\pi\int_4^9\left(\frac{x^2}6-\frac x3-\frac12\right)dx=\frac{425\pi}9$。</p><p><b>易错</b>：弧长 $s=\int\sqrt{1+f'^2}dx$；曲面面积 $A=2\pi\int f(x)\,dx\sqrt{1+f'^2}dx$，别漏 $2\pi$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>旋转曲面面积 $A=2\pi\int_a^b f\sqrt{1+f'^2}dx$（$f(x)\ge0$）。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -7113,7 +7160,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：等价无穷小即比值极限为 $1$，逐条由定义验证。</p><p><b>解</b>：① $\frac\alpha\beta\to1\Rightarrow\frac{\alpha^2}{\beta^2}\to1$，正确；<br>② $\alpha^2\sim\beta^2$ 只给 $\frac\alpha\beta\to\pm1$，可为 $-1$（如 $\alpha=-\beta$），错；<br>③ $\frac{\alpha-\beta}{\alpha}=1-\frac\beta\alpha\to0$，即 $\alpha-\beta=o(\alpha)$，正确；<br>④ $\frac\beta\alpha=1-\frac{\alpha-\beta}{\alpha}\to1$，即 $\alpha\sim\beta$，正确。<br>故选 (C)。</p><p><b>易错</b>：② 是陷阱，平方等价只推出“绝对值等价”，不推出同号等价。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$\alpha\sim\beta\iff\lim\frac\alpha\beta=1$；平方后信息丢失符号，须警惕。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$\alpha\sim\beta\iff\lim\limits_{x\to0}\frac\alpha\beta=1$；平方后信息丢失符号，须警惕。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -7136,7 +7183,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x)$ 在 $x=x_0$ 处有 $2$ 阶导数，则（　）。<br>(A) 当 $f(x)$ 在 $x_0$ 的某邻域内单调增加时，$f'(x_0)\gt0$<br>(B) 当 $f'(x_0)\gt0$ 时，$f(x)$ 在 $x_0$ 的某邻域内单调增加<br>(C) 当 $f(x)$ 在 $x_0$ 的某邻域内是凹函数时，$f''(x_0)\gt0$<br>(D) 当 $f''(x_0)\gt0$ 时，$f(x)$ 在 $x_0$ 的某邻域内是凹函数</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：区分“某点的导数值”与“邻域内的单调/凹凸”之间的强弱。</p><p><b>解</b>：(A) 反例 $f(x)=x^3$ 在 $x_0=0$ 单调增但 $f'(0)=0$，错；<br>(B) 二阶可导 $\Rightarrow f'$ 在 $x_0$ 连续，$f'(x_0)\gt0$ 推出邻域内 $f'\gt0$，故单调增加，正确；<br>(C) 凹函数不要求二阶导为正（如 $f=x^4$ 凹但 $f''(0)=0$），错；<br>(D) 仅 $f''(x_0)\gt0$ 不保证邻域内 $f''\gt0$（$f''$ 未必连续），错。选 (B)。</p><p><b>易错</b>：$f''(x_0)\gt0$ 只说明 $f'$ 在 $x_0$ 局部递增，不等于邻域凹。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：区分“某点的导数值”与“邻域内的单调/凹凸”之间的强弱。</p><p><b>解</b>：(A) 反例 $f(x)=x^3$ 在 $x_0=0$ 单调增但 $f'(0)=0$，错；<br>(B) 二阶可导 $\Rightarrow f'$ 在 $x_0$ 连续，$f'(x_0)\gt0$ 推出邻域内 $f'\gt0$，故单调增加，正确；<br>(C) 凹函数不要求二阶导为正（如 $f(x)=x^4$ 凹但 $f''(0)=0$），错；<br>(D) 仅 $f''(x_0)\gt0$ 不保证邻域内 $f''\gt0$（$f''$ 未必连续），错。选 (B)。</p><p><b>易错</b>：$f''(x_0)\gt0$ 只说明 $f'$ 在 $x_0$ 局部递增，不等于邻域凹。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>“一点导数 $\gt0$”与“邻域单调”的等价需要该导数在该点连续。</p></div>
         </details>
       </div>
@@ -7232,8 +7279,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>$\displaystyle\lim_{x\to0}\left(\frac{1+e^x}{2}\right)^{\cot x}=$______。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$1^\infty$ 型，取对数化为极限乘积。</p><p><b>解</b>：$L=\lim(\frac{1+e^x}2)^{\cot x}$，$\ln L=\lim\cot x\ln\frac{1+e^x}2$。<br>$\cot x\sim\frac1x$，$\ln\frac{1+e^x}2=\ln(1+\frac{e^x-1}2)=\frac x2+o(x)$。<br>$\ln L=\lim\frac1x\cdot\frac x2=\frac12$，故 $L=\sqrt e$。</p><p><b>易错</b>：$\ln\frac{1+e^x}2\sim\frac x2$（利用 $e^x-1\sim x$），取对数后结果是 $\frac12$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型：$L=e^{\lim g(x)\ln f(x)}$，其中 $\ln f\sim f-1$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$1^\infty$ 型，取对数化为极限乘积。</p><p><b>解</b>：$L=\lim\limits_{x\to0}(\frac{1+e^x}2)^{\cot x}$，$\ln L=\lim\limits_{x\to0}\cot x\ln\frac{1+e^x}2$。<br>$\cot x\sim\frac1x$，$\ln\frac{1+e^x}2=\ln(1+\frac{e^x-1}2)=\frac x2+o(x)$。<br>$\ln L=\lim\limits_{x\to0}\frac1x\cdot\frac x2=\frac12$，故 $L=\sqrt e$。</p><p><b>易错</b>：$\ln\frac{1+e^x}2\sim\frac x2$（利用 $e^x-1\sim x$），取对数后结果是 $\frac12$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$1^\infty$ 型：$L=e^{\lim\limits_{x\to0}g(x)\ln f(x)}$，其中 $\ln f\sim f-1$。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -7352,7 +7399,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x)$ 在 $(-\infty,+\infty)$ 内具有 2 阶连续导数。证明：$f''(x)\ge0$ 的充分必要条件是：对不同的实数 $a,b$，$f\left(\frac{a+b}2\right)\le\frac1{b-a}\int_a^bf(x)dx$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：凸函数与积分平均的关系，必要性用切线在下，充分性反证。</p><p><b>解</b>：<b>必要性</b>：$f''\ge0$ 使 $f$ 凸，过 $x_0=\frac{a+b}2$ 的切线在曲线下方：$f(x)\ge f(x_0)+f'(x_0)(x-x_0)$。<br>积分：$\int_a^bf(x)dx\ge\int_a^b[f(x_0)+f'(x_0)(x-x_0)]dx=(b-a)f(x_0)$（因 $\int_a^b(x-x_0)dx=0$），故 $f(x_0)\le\frac1{b-a}\int_a^bf$。<br><b>充分性</b>：若存在 $x_0$ 使 $f''(x_0)\lt0$，由 $f''$ 连续，取 $a,b$ 关于 $x_0$ 对称且足够近，则 $f$ 在 $[a,b]$ 上严格凹，此时 $f(x_0)\gt\frac1{b-a}\int_a^bf$，与条件矛盾。故 $f''\ge0$。</p><p><b>易错</b>：凸函数用“切线在下”而非“割线在上”；$\int_a^b(x-x_0)dx=0$ 由 $x_0$ 是中点保证。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：凸函数与积分平均的关系，必要性用切线在下，充分性反证。</p><p><b>解</b>：<b>必要性</b>：$f''\ge0$ 使 $f$ 凸，过 $x_0=\frac{a+b}2$ 的切线在曲线下方：$f(x)\ge f(x_0)+f'(x_0)(x-x_0)$。<br>积分：$\int_a^bf(x)dx\ge\int_a^b[f(x_0)+f'(x_0)(x-x_0)]dx=(b-a)f(x_0)$（因 $\int_a^b(x-x_0)dx=0$），故 $f(x_0)\le\frac1{b-a}\int_a^bf(x)\,dx$。<br><b>充分性</b>：若存在 $x_0$ 使 $f''(x_0)\lt0$，由 $f''$ 连续，取 $a,b$ 关于 $x_0$ 对称且足够近，则 $f$ 在 $[a,b]$ 上严格凹，此时 $f(x_0)\gt\frac1{b-a}\int_a^bf(x)\,dx$，与条件矛盾。故 $f''\ge0$。</p><p><b>易错</b>：凸函数用“切线在下”而非“割线在上”；$\int_a^b(x-x_0)dx=0$ 由 $x_0$ 是中点保证。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>凸函数的核心不等式 $f(\text{均值})\le\text{均值}(f)$；必要性用切线、充分性反证。</p></div>
         </details>
       </div>
@@ -7388,8 +7435,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>曲线 $y=x\ln\left(e+\dfrac1{x-1}\right)$ 的斜渐近线方程为（　）。<br>(A) $y=x+e$　(B) $y=x+\dfrac1e$　(C) $y=x$　(D) $y=x-\dfrac1e$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$k=\lim\frac yx$，$b=\lim(y-kx)$。</p><p><b>解</b>：$k=\lim_{x\to+\infty}\ln(e+\frac1{x-1})=\ln e=1$。<br>$b=\lim x[\ln(e+\frac1{x-1})-1]=\lim x\ln(1+\frac1{e(x-1)})=\lim x\cdot\frac1{e(x-1)}=\frac1e$。<br>故 $y=x+\frac1e$，选 (B)。</p><p><b>易错</b>：$\ln(1+\frac1{e(x-1)})\sim\frac1{ex}$，别漏分母的 $e$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>斜渐近线两步：$k=\lim\frac yx$，$b=\lim(y-kx)$；$\ln(1+u)\sim u$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$k=\lim\limits_{x\to+\infty}\frac yx$，$b=\lim\limits_{x\to+\infty}(y-kx)$。</p><p><b>解</b>：$k=\lim_{x\to+\infty}\ln(e+\frac1{x-1})=\ln e=1$。<br>$b=\lim\limits_{x\to+\infty}x[\ln(e+\frac1{x-1})-1]=\lim\limits_{x\to+\infty}x\ln(1+\frac1{e(x-1)})=\lim\limits_{x\to+\infty}x\cdot\frac1{e(x-1)}=\frac1e$。<br>故 $y=x+\frac1e$，选 (B)。</p><p><b>易错</b>：$\ln(1+\frac1{e(x-1)})\sim\frac1{ex}$，别漏分母的 $e$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>斜渐近线两步：$k=\lim\limits_{x\to+\infty}\frac yx$，$b=\lim\limits_{x\to+\infty}(y-kx)$；$\ln(1+u)\sim u$。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -7436,7 +7483,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $y=f(x)$ 由 $\begin{cases}x=2t+|t|,\\y=|t|\sin t\end{cases}$ 确定，则（　）。<br>(A) $f(x)$ 连续，$f'(0)$ 不存在　(B) $f'(0)$ 存在，$f'(x)$ 在 $x=0$ 处不连续　(C) $f'(x)$ 连续，$f''(0)$ 不存在　(D) $f''(0)$ 存在，$f''(x)$ 在 $x=0$ 处不连续</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：由 $x=2t+|t|$ 反解 $t$，分段讨论。</p><p><b>解</b>：$t\ge0$ 时 $x=3t$，$t=x/3$；$t\lt0$ 时 $x=t$，$t=x$。<br>故 $x\ge0$：$f(x)=\frac x3\sin\frac x3$；$x\lt0$：$f(x)=-x\sin x$。<br>$f'(0)=\lim\frac{f(x)-f(0)}x=0$ 存在，且左右 $f'\to0$，$f'$ 连续。<br>但 $f''(0)$：右 $f'(x)\sim\frac{2x}9$、左 $f'(x)\sim-2x$，$\frac{f'(x)-f'(0)}x$ 左右极限分别为 $\frac29$ 与 $-2$，不等，故 $f''(0)$ 不存在。选 (C)。</p><p><b>易错</b>：$f'(0)=0$ 存在不代表 $f''(0)$ 存在，二阶导要左右一致。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：由 $x=2t+|t|$ 反解 $t$，分段讨论。</p><p><b>解</b>：$t\ge0$ 时 $x=3t$，$t=x/3$；$t\lt0$ 时 $x=t$，$t=x$。<br>故 $x\ge0$：$f(x)=\frac x3\sin\frac x3$；$x\lt0$：$f(x)=-x\sin x$。<br>$f'(0)=\lim\limits_{x\to0}\frac{f(x)-f(0)}x=0$ 存在，且左右 $f'\to0$，$f'$ 连续。<br>但 $f''(0)$：右 $f'(x)\sim\frac{2x}9$、左 $f'(x)\sim-2x$，$\frac{f'(x)-f'(0)}x$ 左右极限分别为 $\frac29$ 与 $-2$，不等，故 $f''(0)$ 不存在。选 (C)。</p><p><b>易错</b>：$f'(0)=0$ 存在不代表 $f''(0)$ 存在，二阶导要左右一致。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>参数方程分段反解 $t$；一阶可导与二阶可导是独立的两级。</p></div>
         </details>
       </div>
@@ -7508,7 +7555,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>当 $x\to0$ 时，函数 $f(x)=ax+bx^2+\ln(1+x)$ 与 $g(x)=e^{x^2}-\cos x$ 是等价无穷小，则 $ab=$______。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：展开到同阶比较系数。</p><p><b>解</b>：$g=e^{x^2}-\cos x=(1+x^2)-(1-\frac{x^2}2)=\frac{3x^2}2+o(x^2)$。<br>$\ln(1+x)=x-\frac{x^2}2+\cdots$，故 $f=(a+1)x+(b-\frac12)x^2+\cdots$。<br>$f$ 与 $g$（二阶）等价，须 $a+1=0$ 且 $b-\frac12=\frac32$，得 $a=-1,b=2$，$ab=-2$。</p><p><b>易错</b>：$f$ 要与二阶无穷小等价，一阶项必须消失，即 $a=-1$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：展开到同阶比较系数。</p><p><b>解</b>：$g=e^{x^2}-\cos x=(1+x^2)-(1-\frac{x^2}2)=\frac{3x^2}2+o(x^2)$。<br>$\ln(1+x)=x-\frac{x^2}2+\cdots$，故 $f(x)=(a+1)x+(b-\frac12)x^2+\cdots$。<br>$f$ 与 $g$（二阶）等价，须 $a+1=0$ 且 $b-\frac12=\frac32$，得 $a=-1,b=2$，$ab=-2$。</p><p><b>易错</b>：$f$ 要与二阶无穷小等价，一阶项必须消失，即 $a=-1$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>等价无穷小展开同阶比较系数；低阶项系数须为零。</p></div>
         </details>
       </div>
@@ -7556,7 +7603,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设连续函数 $f(x)$ 满足：$f(x+2)-f(x)=x$，$\displaystyle\int_0^2f(x)dx=0$，则 $\displaystyle\int_1^3f(x)dx=$______。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：拆区间，利用周期性关系换元。</p><p><b>解</b>：$\int_1^3f=\int_1^2f+\int_2^3f$；令 $u=x-2$，$\int_2^3f(x)dx=\int_0^1f(u+2)du=\int_0^1[f(u)+u]du=\int_0^1f+\frac12$。<br>故 $\int_1^3f=\int_0^2f+\frac12=\frac12$。</p><p><b>易错</b>：换元后 $f(u+2)=f(u)+u$ 里的 $u$ 项要积出 $\frac12$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：拆区间，利用周期性关系换元。</p><p><b>解</b>：$\int_1^3f(x)\,dx=\int_1^2f(x)\,dx+\int_2^3f(x)\,dx$；令 $u=x-2$，$\int_2^3f(x)dx=\int_0^1f(x)\,dx(u+2)du=\int_0^1[f(u)+u]du=\int_0^1f(x)\,dx+\frac12$。<br>故 $\int_1^3f(x)\,dx=\int_0^2f(x)\,dx+\frac12=\frac12$。</p><p><b>易错</b>：换元后 $f(u+2)=f(u)+u$ 里的 $u$ 项要积出 $\frac12$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>含平移关系的定积分，用换元把区间拼回已知区间。</p></div>
         </details>
       </div>
@@ -7676,8 +7723,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $y=f(x)$ 由参数方程 $\begin{cases}x=1+t^3,\\y=e^{t^2}\end{cases}$ 确定，则 $\displaystyle\lim_{x\to+\infty}x\left[f\left(2+\frac2x\right)-f(2)\right]=$（　）。<br>(A) $2e$　(B) $\dfrac{4e}{3}$　(C) $\dfrac{2e}{3}$　(D) $\dfrac e3$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：极限化为导数定义，参数方程求导。</p><p><b>解</b>：原式 $=\lim\frac{f(2+2/x)-f(2)}{2/x}\cdot2=2f'(2)$。<br>$f(2)$ 对应 $1+t^3=2\Rightarrow t=1$，$f'(2)=\left.\frac{dy/dt}{dx/dt}\right|_{t=1}=\left.\frac{2te^{t^2}}{3t^2}\right|_{t=1}=\frac{2e}{3}$。<br>故原式 $=2\cdot\frac{2e}{3}=\frac{4e}{3}$，选 (B)。</p><p><b>易错</b>：先由 $x=2$ 解出 $t=1$；参数求导 $\frac{dy}{dx}=\frac{dy/dt}{dx/dt}$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>导数定义 $\lim\frac{f(x+h)-f(x)}h$ 与参数方程求导结合。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：极限化为导数定义，参数方程求导。</p><p><b>解</b>：原式 $=\lim\limits_{x\to\infty}\frac{f(2+2/x)-f(2)}{2/x}\cdot2=2f'(2)$。<br>$f(2)$ 对应 $1+t^3=2\Rightarrow t=1$，$f'(2)=\left.\frac{dy/dt}{dx/dt}\right|_{t=1}=\left.\frac{2te^{t^2}}{3t^2}\right|_{t=1}=\frac{2e}{3}$。<br>故原式 $=2\cdot\frac{2e}{3}=\frac{4e}{3}$，选 (B)。</p><p><b>易错</b>：先由 $x=2$ 解出 $t=1$；参数求导 $\frac{dy}{dx}=\frac{dy/dt}{dx/dt}$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>导数定义 $\lim\limits_{h\to0}\frac{f(x+h)-f(x)}h$ 与参数方程求导结合。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -7736,7 +7783,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设非负函数 $f(x)$ 在 $[0,+\infty)$ 上连续，给出三个命题：<br>①若 $\int_0^{+\infty}f^2(x)dx$ 收敛，则 $\int_0^{+\infty}f(x)dx$ 收敛；<br>②若存在 $p\gt1$，使 $\lim_{x\to+\infty}x^pf(x)$ 存在，则 $\int_0^{+\infty}f(x)dx$ 收敛；<br>③若 $\int_0^{+\infty}f(x)dx$ 收敛，则存在 $p\gt1$，使 $\lim_{x\to+\infty}x^pf(x)$ 存在。<br>其中真命题的个数为（　）。<br>(A) $0$　(B) $1$　(C) $2$　(D) $3$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：逐个判断，②是 $p$ 级数比较判别法。</p><p><b>解</b>：①取 $f=\frac1{x+1}$，$f^2$ 收敛而 $f$ 发散，错；<br>②由 $x^pf(x)$ 有界 $\Rightarrow f(x)\le\frac M{x^p}(p\gt1)$，比较判别法收敛，对；<br>③取 $f=\frac1{(x+1)\ln^2(x+1)}$，$\int f$ 收敛但 $\lim x^pf(x)=\infty$，错。<br>故真命题 $1$ 个，选 (B)。</p><p><b>易错</b>：比较判别法（②）是充分条件而非必要条件（③）。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：逐个判断，②是 $p$ 级数比较判别法。</p><p><b>解</b>：①取 $f=\frac1{x+1}$，$f^2$ 收敛而 $f$ 发散，错；<br>②由 $x^pf(x)$ 有界 $\Rightarrow f(x)\le\frac M{x^p}(p\gt1)$，比较判别法收敛，对；<br>③取 $f=\frac1{(x+1)\ln^2(x+1)}$，$\int f(x)\,dx$ 收敛但 $\lim\limits_{x\to+\infty}x^pf(x)=\infty$，错。<br>故真命题 $1$ 个，选 (B)。</p><p><b>易错</b>：比较判别法（②）是充分条件而非必要条件（③）。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>广义积分收敛判别的比较法；$\int_1^\infty\frac{dx}{x(\ln x)^q}$ 类反例。</p></div>
         </details>
       </div>
@@ -7904,7 +7951,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x)$ 具有 $2$ 阶导数，且 $f'(0)=f'(1),\ |f''(x)|\le1$。证明：<br>(1) 当 $x\in(0,1)$ 时，$|f(x)-f(0)(1-x)-f(1)x|\le\dfrac{x(1-x)}2$；<br>(2) $\left|\displaystyle\int_0^1 f(x)dx-\dfrac{f(0)+f(1)}2\right|\le\dfrac1{12}$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：泰勒公式在 $x$ 处向 $0,1$ 展开，线性组合消去 $f'$ 项。</p><p><b>解</b>：(1) $f(x)=f(0)+f'(0)x+\frac{f''(\xi_1)}2x^2$，$f(x)=f(1)+f'(1)(x-1)+\frac{f''(\xi_2)}2(x-1)^2$。<br>前式乘 $(1-x)$ 加后式乘 $x$，利用 $f'(0)=f'(1)$ 消去一阶项：<br>$f(x)=f(0)(1-x)+f(1)x+\frac{f''(\xi_1)}2x^2(1-x)+\frac{f''(\xi_2)}2(x-1)^2x$。<br>故 $|f(x)-f(0)(1-x)-f(1)x|\le\frac12x^2(1-x)+\frac12x(1-x)^2=\frac{x(1-x)}2$。<br>(2) 由 (1) 积分：$\left|\int_0^1[f(x)-f(0)(1-x)-f(1)x]dx\right|\le\int_0^1\frac{x(1-x)}2dx=\frac1{12}$。<br>即 $\left|\int_0^1f(x)dx-\frac{f(0)+f(1)}2\right|\le\frac1{12}$。</p><p><b>易错</b>：线性组合要凑系数消去 $f'(0),f'(1)$；$(x-1)^2x=x(1-x)^2$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：泰勒公式在 $x$ 处向 $0,1$ 展开，线性组合消去 $f'$ 项。</p><p><b>解</b>：(1) $f(x)=f(0)+f'(0)x+\frac{f''(\xi_1)}2x^2$，$f(x)=f(1)+f'(1)(x-1)+\frac{f''(\xi_2)}2(x-1)^2$。<br>前式乘 $(1-x)$ 加后式乘 $x$，利用 $f'(0)=f'(1)$ 消去一阶项：<br>$f(x)=f(0)(1-x)+f(1)x+\frac{f''(\xi_1)}2x^2(1-x)+\frac{f''(\xi_2)}2(x-1)^2x$。<br>故 $|f(x)-f(0)(1-x)-f(1)x|\le\frac12x^2(1-x)+\frac12x(1-x)^2=\frac{x(1-x)}2$。<br>(2) 由 (1) 积分：$\left|\int_0^1[f(x)-f(0)(1-x)-f(1)x]dx\right|\le\int_0^1\frac{x(1-x)}2dx=\frac1{12}$。<br>即 $\left|\int_0^1f(x)\,dxdx-\frac{f(0)+f(1)}2\right|\le\frac1{12}$。</p><p><b>易错</b>：线性组合要凑系数消去 $f'(0),f'(1)$；$(x-1)^2x=x(1-x)^2$。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>泰勒公式 + 线性组合消项，是含二阶导界估计的常用套路。</p></div>
         </details>
       </div>
@@ -8072,8 +8119,8 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>曲线 $y=\sqrt[3]{x^3-3x^2+1}$ 的渐近线方程为______。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：求斜渐近线 $y=kx+b$。</p><p><b>解</b>：$k=\lim_{x\to\infty}\frac yx=\lim\sqrt[3]{1-\frac3x+\frac1{x^3}}=1$。<br>$b=\lim(y-x)=\lim\frac{(x^3-3x^2+1)-x^3}{(x^3-3x^2+1)^{2/3}+x(x^3-3x^2+1)^{1/3}+x^2}=\lim\frac{-3x^2}{3x^2}=-1$。<br>渐近线 $y=x-1$。</p><p><b>易错</b>：用立方差 $(a-b)(a^2+ab+b^2)=a^3-b^3$ 求 $b$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>斜渐近线：先求斜率 $k=\lim y/x$，再求截距 $b=\lim(y-kx)$。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：求斜渐近线 $y=kx+b$。</p><p><b>解</b>：$k=\lim_{x\to\infty}\frac yx=\lim\limits_{x\to\infty}\sqrt[3]{1-\frac3x+\frac1{x^3}}=1$。<br>$b=\lim\limits_{x\to\infty}(y-x)=\lim\limits_{x\to\infty}\frac{(x^3-3x^2+1)-x^3}{(x^3-3x^2+1)^{2/3}+x(x^3-3x^2+1)^{1/3}+x^2}=\lim\limits_{x\to\infty}\frac{-3x^2}{3x^2}=-1$。<br>渐近线 $y=x-1$。</p><p><b>易错</b>：用立方差 $(a-b)(a^2+ab+b^2)=a^3-b^3$ 求 $b$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>斜渐近线：先求斜率 $k=\lim\limits_{x\to+\infty}y/x$，再求截距 $b=\lim\limits_{x\to+\infty}(y-kx)$。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -8085,7 +8132,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：化为黎曼和。</p><p><b>解</b>：原式 $=\frac1n\sum_{k=1}^{n-1}\frac kn\ln\frac kn\to\int_0^1x\ln x\,dx$。<br>$\int x\ln x\,dx=\frac{x^2}2\ln x-\frac{x^2}4$，$\int_0^1x\ln x\,dx=-\frac14$。</p><p><b>易错</b>：$x\ln x$ 在 $0$ 处极限为 $0$；结果为负。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>定积分的黎曼和定义 $\frac1n\sum f(\frac kn)\to\int_0^1f(x)dx$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>定积分的黎曼和定义 $\frac1n\sum f(\frac kn)\to\int_0^1f(x)\,dxdx$。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -8144,7 +8191,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x)$ 在 $x=0$ 处连续，且 $\displaystyle\lim_{x\to0}\frac{xf(x)-e^{2\sin x}+1}{\ln(1+x)+\ln(1-x)}=-3$，证明 $f(x)$ 在 $x=0$ 处可导，并求 $f'(0)$。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：由分母 $\sim-x^2$ 定分子阶，展开 $e^{2\sin x}$。</p><p><b>解</b>：$\ln(1+x)+\ln(1-x)=\ln(1-x^2)\sim-x^2$，故 $xf(x)-e^{2\sin x}+1=3x^2+o(x^2)$。<br>又 $e^{2\sin x}=1+2x+2x^2+o(x^2)$，得 $xf(x)=2x+5x^2+o(x^2)$，$f(x)=2+5x+o(x)$。<br>故 $f(0)=2$，$\lim\frac{f(x)-f(0)}x=5$，即 $f'(0)=5$。</p><p><b>易错</b>：$e^{2\sin x}$ 要展开到 $x^2$ 项（$2\sin x=2x-\frac{x^3}3$，其平方项贡献 $2x^2$）。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：由分母 $\sim-x^2$ 定分子阶，展开 $e^{2\sin x}$。</p><p><b>解</b>：$\ln(1+x)+\ln(1-x)=\ln(1-x^2)\sim-x^2$，故 $xf(x)-e^{2\sin x}+1=3x^2+o(x^2)$。<br>又 $e^{2\sin x}=1+2x+2x^2+o(x^2)$，得 $xf(x)=2x+5x^2+o(x^2)$，$f(x)=2+5x+o(x)$。<br>故 $f(0)=2$，$\lim\limits_{x\to0}\frac{f(x)-f(0)}x=5$，即 $f'(0)=5$。</p><p><b>易错</b>：$e^{2\sin x}$ 要展开到 $x^2$ 项（$2\sin x=2x-\frac{x^3}3$，其平方项贡献 $2x^2$）。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>利用已知极限确定无穷小阶数，再由泰勒展开求导数值。</p></div>
         </details>
       </div>
@@ -8285,7 +8332,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>设函数 $f(x,y)$ 在区域 $D=\{(x,y)\mid 0\le x\le1,\ 0\le y\le1\}$ 上连续，且 $f(x,y)=f(y,x)$，则 $\iint_D f(x,y)dxdy=$（　）。<br>(A) $2\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\sum\limits_{j=n+1-i}^{n}f(\frac in,\frac jn)\frac1{n^2}$<br>(B) $\frac12\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}f(\frac in,\frac jn)\frac1{n^2}$<br>(C) $2\lim\limits_{n\to\infty}\sum\limits_{i=1}^{2n}\sum\limits_{j=1}^{2n+1-i}f(\frac i{2n},\frac j{2n})\frac1{n^2}$<br>(D) $\frac12\lim\limits_{n\to\infty}\sum\limits_{i=1}^{2n}\sum\limits_{j=1}^{i}f(\frac i{2n},\frac j{2n})\frac1{n^2}$</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：$D$ 是整块正方形，先由 $f(x,y)=f(y,x)$ 的对称性把它写成两倍的下三角积分；下三角再用 $2n$ 等分、取右端点的黎曼和表示，注意权重 $\frac1{n^2}$ 与格面积 $\frac1{(2n)^2}=\frac1{4n^2}$ 相差 4 倍。</p><p><b>解</b>：$D=[0,1]^2$，故 $\iint_D f=\iint_{[0,1]^2}f$。由 $f(x,y)=f(y,x)$，正方形被 $y=x$ 分成上、下两半，两半积分相等，设 $D_1=\{(x,y)\mid 0\le y\le x\le1\}$（下三角），则 $\iint_D f=2\iint_{D_1}f$。<br>把 $[0,1]$ 作 $2n$ 等分，步长 $h=\frac1{2n}$，格面积 $h^2=\frac1{4n^2}$；在 $D_1$ 内取右端点 $\left(\frac i{2n},\frac j{2n}\right)$（$j\le i$），得 $\iint_{D_1}f=\lim_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{i}f\left(\frac i{2n},\frac j{2n}\right)\frac1{4n^2}$。<br>于是 $\iint_D f=2\lim\sum_{i=1}^{2n}\sum_{j=1}^{i}f\left(\frac i{2n},\frac j{2n}\right)\frac1{4n^2}=2\cdot\frac14\lim\sum\sum f\frac1{n^2}=\frac12\lim_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{i}f\left(\frac i{2n},\frac j{2n}\right)\frac1{n^2}$。选 (D)。</p><p><b>易错</b>：$D$ 是整块正方形（不是三角形），必须先折半再乘 $2$；且 $\frac1{n^2}$ 比 $2n$ 等分的格面积 $\frac1{4n^2}$ 大 $4$ 倍，系数 $\frac14$ 不能漏（与前面的 $\frac12$ 合成后正好抵掉 4 倍）。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：$D$ 是整块正方形，先由 $f(x,y)=f(y,x)$ 的对称性把它写成两倍的下三角积分；下三角再用 $2n$ 等分、取右端点的黎曼和表示，注意权重 $\frac1{n^2}$ 与格面积 $\frac1{(2n)^2}=\frac1{4n^2}$ 相差 4 倍。</p><p><b>解</b>：$D=[0,1]^2$，故 $\iint_D f(x,y)\,d\sigma=\iint_{[0,1]^2}f(x,y)\,d\sigma$。由 $f(x,y)=f(y,x)$，正方形被 $y=x$ 分成上、下两半，两半积分相等，设 $D_1=\{(x,y)\mid 0\le y\le x\le1\}$（下三角），则 $\iint_D f(x,y)\,d\sigma=2\iint_{D_1}f(x,y)\,d\sigma$。<br>把 $[0,1]$ 作 $2n$ 等分，步长 $h=\frac1{2n}$，格面积 $h^2=\frac1{4n^2}$；在 $D_1$ 内取右端点 $\left(\frac i{2n},\frac j{2n}\right)$（$j\le i$），得 $\iint_{D_1}f=\lim_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{i}f\left(\frac i{2n},\frac j{2n}\right)\frac1{4n^2}$。<br>于是 $\iint_D f=2\lim\limits_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{i}f\left(\frac i{2n},\frac j{2n}\right)\frac1{4n^2}=2\cdot\frac14\lim\limits_{n\to\infty}\sum\sum f\frac1{n^2}=\frac12\lim_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{i}f\left(\frac i{2n},\frac j{2n}\right)\frac1{n^2}$。选 (D)。</p><p><b>易错</b>：$D$ 是整块正方形（不是三角形），必须先折半再乘 $2$；且 $\frac1{n^2}$ 比 $2n$ 等分的格面积 $\frac1{4n^2}$ 大 $4$ 倍，系数 $\frac14$ 不能漏（与前面的 $\frac12$ 合成后正好抵掉 4 倍）。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>被积函数关于 $y=x$ 对称时，正方形上的积分等于下三角积分的 $2$ 倍；用 $2n$ 等分右端点求和时权重 $\frac1{n^2}=4\cdot\frac1{4n^2}$，系数必须与权重配套。</p></div>
         </details>
       </div>
@@ -8382,7 +8429,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
           <div class="ex-sol"><p><b>思路</b>：平均值公式 $\frac1{b-a}\int_a^b f(x)dx$，用分部积分求 $\int\ln(2+x)dx$。</p><p><b>解</b>：$\bar f=\frac12\int_0^2\ln(2+x)dx$。$\int\ln(2+x)dx=(2+x)\ln(2+x)-(2+x)+C$。<br>故 $\int_0^2\ln(2+x)dx=[4\ln4-4]-[2\ln2-2]=6\ln2-2$，平均值 $=\frac12(6\ln2-2)=3\ln2-1$。</p><p><b>易错</b>：$4\ln4=8\ln2$ 别算错；平均值必须除以区间长度 $2$。</p></div>
-          <div class="ex-tip"><b>举一反三</b>　<p>$\int\ln u\,du=u\ln u-u$；函数平均值 $\bar f=\frac1{b-a}\int_a^b f$。</p></div>
+          <div class="ex-tip"><b>举一反三</b>　<p>$\int\ln u\,du=u\ln u-u$；函数平均值 $\bar f=\frac1{b-a}\int_a^b f(x)\,dx$。</p></div>
         </details>
       </div>
 <div class="ex-item">
@@ -8417,7 +8464,7 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
         <div class="ex-q"><p>已知函数 $g(x)$ 连续，$f(x)=\int_0^{x^2}g(xt)\,dt$，求 $f'(x)$ 的表达式，并判断 $f'(x)$ 在 $x=0$ 处的连续性。</p></div>
         <details class="ex-a">
           <summary>查看解析与举一反三</summary>
-          <div class="ex-sol"><p><b>思路</b>：先换元把 $g(xt)$ 的积分化为不含 $x$ 的被积函数，再求导；$x=0$ 处用定义求 $f'(0)$，并验证 $\lim f'(x)=f'(0)$。</p><p><b>解</b>：令 $u=xt$，则 $t\in[0,x^2]$ 对应 $u\in[0,x^3]$，$f(x)=\frac1x\int_0^{x^3}g(u)du$（$x\ne0$），且 $f(0)=0$。<br>当 $x\ne0$：$f'(x)=3xg(x^3)-\frac1{x^2}\int_0^{x^3}g(u)du$。<br>当 $x=0$：$f'(0)=\lim_{x\to0}\frac{f(x)}x=\lim_{x\to0}\frac{\int_0^{x^3}g(u)du}{x^2}=\lim_{x\to0}\frac{3x^2g(x^3)}{2x}=0$。<br>又 $\lim_{x\to0}f'(x)=\lim_{x\to0}\left[3xg(x^3)-\frac1{x^2}\int_0^{x^3}g(u)du\right]=0-0=0=f'(0)$，故 $f'(x)$ 在 $x=0$ 连续。</p><p><b>易错</b>：换元时积分限 $t=x^2\to u=x^3$，分母多出 $x$；$x=0$ 处换元失效，须用导数定义单独处理。</p></div>
+          <div class="ex-sol"><p><b>思路</b>：先换元把 $g(xt)$ 的积分化为不含 $x$ 的被积函数，再求导；$x=0$ 处用定义求 $f'(0)$，并验证 $\lim\limits_{x\to0}f'(x)=f'(0)$。</p><p><b>解</b>：令 $u=xt$，则 $t\in[0,x^2]$ 对应 $u\in[0,x^3]$，$f(x)=\frac1x\int_0^{x^3}g(u)du$（$x\ne0$），且 $f(0)=0$。<br>当 $x\ne0$：$f'(x)=3xg(x^3)-\frac1{x^2}\int_0^{x^3}g(u)du$。<br>当 $x=0$：$f'(0)=\lim_{x\to0}\frac{f(x)}x=\lim_{x\to0}\frac{\int_0^{x^3}g(u)du}{x^2}=\lim_{x\to0}\frac{3x^2g(x^3)}{2x}=0$。<br>又 $\lim_{x\to0}f'(x)=\lim_{x\to0}\left[3xg(x^3)-\frac1{x^2}\int_0^{x^3}g(u)du\right]=0-0=0=f'(0)$，故 $f'(x)$ 在 $x=0$ 连续。</p><p><b>易错</b>：换元时积分限 $t=x^2\to u=x^3$，分母多出 $x$；$x=0$ 处换元失效，须用导数定义单独处理。</p></div>
           <div class="ex-tip"><b>举一反三</b>　<p>含参积分先换元去参数再求导；$x=0$ 处连续性须分别算 $f'(0)$ 与 $\lim_{x\to0}f'(x)$。</p></div>
         </details>
       </div>
@@ -8491,6 +8538,10 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
   var ORDER = ['home','gaoshu','xiandai','fushu','xiti'];
   var shellEl = document.querySelector('.shell');
   var xitiShell = document.getElementById('xiti-shell');
+  var POS_KEY = 'math2-pos-v1';
+  var pendingRestoreY = null;
+  var suppressSave = false;
+  var saveTimer = null;
   function blockOf(ch){
     if (BLOCKS.gaoshu.indexOf(ch) !== -1) return 'gaoshu';
     if (BLOCKS.xiandai.indexOf(ch) !== -1) return 'xiandai';
@@ -8583,7 +8634,11 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
     if (empty) empty.style.display = 'none';
     if (search) search.value = '';
     if (sr){ sr.hidden = true; sr.innerHTML = ''; }
-    window.scrollTo(0, 0);
+    var targetY = 0;
+    if (pendingRestoreY !== null){ targetY = pendingRestoreY; pendingRestoreY = null; }
+    suppressSave = true;
+    window.scrollTo(0, targetY);
+    setTimeout(function(){ suppressSave = false; }, 260);
     updateProgress();
   }
 
@@ -8691,6 +8746,19 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
   document.addEventListener('DOMContentLoaded', function(){
     renderMath();
     route();
+    var savedPos = null;
+    try { savedPos = JSON.parse(localStorage.getItem(POS_KEY) || 'null'); } catch(e){}
+    if (savedPos && savedPos.y > 0){
+      var wantHash = savedPos.h || '';
+      if (wantHash && wantHash !== (location.hash || '')){
+        pendingRestoreY = savedPos.y;
+        location.hash = wantHash;
+      } else {
+        suppressSave = true;
+        window.scrollTo(0, savedPos.y);
+        setTimeout(function(){ suppressSave = false; }, 260);
+      }
+    }
     if (search){
       search.addEventListener('input', doSearch);
       search.addEventListener('keydown', function(e){
@@ -8702,8 +8770,23 @@ $$A\ \xrightarrow{\ \text{合同}\ }\ \mathrm{diag}(d_1,\cdots,d_n),\quad d_i\gt
     });
   });
 
-  window.addEventListener('hashchange', route);
-  window.addEventListener('scroll', function(){ updateProgress(); }, {passive: true});
+  window.addEventListener('hashchange', function(){
+    var rawH = location.hash.replace('#', '');
+    if (!rawH || rawH === 'home'){ try { localStorage.removeItem(POS_KEY); } catch(e){} }
+    route();
+  });
+  window.addEventListener('scroll', function(){
+    updateProgress();
+    if (suppressSave || saveTimer) return;
+    saveTimer = setTimeout(function(){
+      saveTimer = null;
+      try {
+        var h = location.hash || '';
+        if (!h || h === '#home') return;
+        localStorage.setItem(POS_KEY, JSON.stringify({ h: h, y: Math.round(window.scrollY || window.pageYOffset || 0) }));
+      } catch(e){}
+    }, 450);
+  }, {passive: true});
   window.addEventListener('resize', function(){ updateProgress(); });
 })();
 </script>
